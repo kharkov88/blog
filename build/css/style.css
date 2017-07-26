@@ -23,10 +23,10 @@
     color: black;
     text-transform: uppercase;
 }
-.topMenu>li>a{
+.topMenu>li{
     color: lightslategrey;
 }
-.topMenu>li>a:hover{
+.topMenu>li:hover{
     cursor: pointer;
     text-decoration: none;
     color:#01aef3;
@@ -34,6 +34,37 @@
 }
 .content{
     height: 300px;
+}.mainText{
+    height: 1200px;
+    text-align: justify;
+    font-size: 16px;
+    font-weight: 500;
+}
+.mainText>span{
+    margin-left: 25px; 
+}.afterComentText{
+    text-align: justify;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.commentDiv{
+    background-color: pink;
+    border:1px solid pink;
+    border-radius:4px;
+    padding: 10px 15px;
+    margin-bottom: 1px; 
+    display: flex;
+    justify-content: space-between;
+}
+.btn-delete{
+    float: right;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
 }html,body{
     margin: 0;
     padding: 0;

@@ -1,0 +1,24 @@
+.afterComentText{
+    text-align: justify;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.commentDiv{
+    background-color: pink;
+    border:1px solid pink;
+    border-radius:4px;
+    padding: 10px 15px;
+    margin-bottom: 1px; 
+    display: flex;
+    justify-content: space-between;
+}
+.btn-delete{
+    float: right;
+}
+.footer{
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,14 +1,15 @@
 import * as React from'react'
 
-import {Header,Content,Main}from'./components'
+import {Header,Content,Main,AppComment}from'./components'
 import './app.css'
 
-const componentsOfMenu=[Main,()=>{},()=>{}]
+console.log("AppComent:",AppComment)
+const componentsOfMenu=[Main,()=>'gallery in process....',()=>'contact too...',AppComment]
 export class  App extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            content:()=>{}
+            content:componentsOfMenu[0]
         }
         this.changeContent=this.changeContent.bind(this);
     }

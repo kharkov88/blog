@@ -23,10 +23,10 @@
     color: black;
     text-transform: uppercase;
 }
-.topMenu>li>a{
+.topMenu>li{
     color: lightslategrey;
 }
-.topMenu>li>a:hover{
+.topMenu>li:hover{
     cursor: pointer;
     text-decoration: none;
     color:#01aef3;
