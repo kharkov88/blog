@@ -4,9 +4,11 @@
 
 }
 .foto{
-    width: 150px;
+    width: 195px;
     height: 150px;
-    margin: 0 0 0 20px;
+}
+.foto>img{
+    margin: 0 10px;
 }
 .menu{
     width: 100%;
@@ -18,6 +20,7 @@
     width: 70%;
     margin: 0 auto;
     line-height: 150px;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 26px;
     font-weight: bold;
     color: black;
@@ -26,19 +29,30 @@
 .topMenu>li{
     color: lightslategrey;
 }
-.topMenu>li:hover{
+.topMenu>li>span:hover{
     cursor: pointer;
     text-decoration: none;
     color:#01aef3;
     transition: ease .3s
 }
-.content{
+
+.infa{
+    display:flex;
+    justify-content: center;
+}
+.stack{
+    margin-bottom: 20px;
+}
+.stack>div{
+    display: flex;
+    justify-content: center;
+}.content{
     height: 300px;
 }.mainText{
     height: 1200px;
     text-align: justify;
-    font-size: 16px;
-    font-weight: 500;
+
+
 }
 .mainText>span{
     margin-left: 25px; 
@@ -65,7 +79,17 @@ ul{
 .footer{
     display: flex;
     justify-content: space-around;
-}html,body{
+}
+#usr{
+    width:30%;
+}
+*{
+    transition: ease .5s;
+    
+}
+html,body{
+    font-family: 'Noto Sans', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }

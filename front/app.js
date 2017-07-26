@@ -3,8 +3,7 @@ import * as React from'react'
 import {Header,Content,Main,AppComment}from'./components'
 import './app.css'
 
-console.log("AppComent:",AppComment)
-const componentsOfMenu=[Main,()=>'gallery in process....',()=>'contact too...',AppComment]
+const componentsOfMenu=[Main,AppComment,()=>'contact too...',AppComment]
 export class  App extends React.Component{
     constructor(props){
         super(props);
@@ -19,7 +18,6 @@ export class  App extends React.Component{
         })
     }
     render(){
-        console.log("Main:",this.state.content)
         return(
             <div>
                 <Header changeContent={this.changeContent}/>

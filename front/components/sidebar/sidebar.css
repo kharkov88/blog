@@ -1,0 +1,12 @@
+
+.infa{
+    display:flex;
+    justify-content: center;
+}
+.stack{
+    margin-bottom: 20px;
+}
+.stack>div{
+    display: flex;
+    justify-content: center;
+}

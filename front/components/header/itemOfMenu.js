@@ -4,10 +4,9 @@ export class Li extends React.Component{
     render(){
         let{changeContent,index}=this.props
         return(
-            <li onClick={()=>{
-            changeContent(index)
-            }}>
-            {this.props.item}</li>
+            <li>
+            <span onClick={()=>changeContent(index)}>{this.props.item}</span> 
+            </li>
         )
     }
 }

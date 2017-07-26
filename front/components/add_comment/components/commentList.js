@@ -2,24 +2,13 @@ import React from 'react'
 import Comment from './comment'
 import {connect} from'react-redux'
 import {deleteComment,filterName,filtering}from'../actions'
+import {Footer}from'./footer'
 
 const CommnetList= ({dispatch,comment})=>{
     //console.log("props commnent:",comment)
     let text,button,filter;
-    if(comment.length==0){
-        text=''; button=''
-    }else{
-        text='comments:'
-        button=<div className="footer"><input ref={input=>filter=input}type="text" 
-        placeholder="filter of name" className="form-control input-sm" 
-        onChange={()=>{
-            //dispatch(filterName(filter.value))
-            dispatch(filtering(filter.value))
-            }}/>
-        <button onClick={()=>dispatch(deleteComment())}
-         className="btn-delete btn btn-warning btn-xs">delete</button></div>
-    }
     return(
+        <div>
         <ul>
             <span><b>{text}</b></span>
             {   
@@ -28,8 +17,9 @@ const CommnetList= ({dispatch,comment})=>{
                     return <Comment key={index} {...item}/>
                 })
             }
-            {button}
         </ul>
+        {comment.length!=0&&comment!=undefined?<Footer/>:null}
+        </div>
     )
 }
 export default CommnetList
