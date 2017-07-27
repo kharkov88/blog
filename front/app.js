@@ -1,9 +1,14 @@
 import * as React from'react'
-
+import {BrowserRouter,Route,Link}from'react-router-dom'
+import createBrowserHistory from"history/createBrowserHistory"
 import {Header,Content,Main,AppComment}from'./components'
 import './app.css'
 
+const history=createBrowserHistory();
+
 const componentsOfMenu=[Main,AppComment,()=>'contact too...',AppComment]
+console.log('arrayCom:',componentsOfMenu)
+
 export class  App extends React.Component{
     constructor(props){
         super(props);
@@ -19,9 +24,11 @@ export class  App extends React.Component{
     }
     render(){
         return(
-            <div>
-                <Header changeContent={this.changeContent}/>
-                <Content content={this.state.content}/>
-            </div>
+            <BrowserRouter history={history}>
+                <div>
+                     <Header changeContent={this.changeContent}/> 
+                     <Content content={this.state.content}/> 
+                </div>          
+            </BrowserRouter>
     )}
 }

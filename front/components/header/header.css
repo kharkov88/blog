@@ -1,3 +1,4 @@
+
 .header{
     display: flex;
     padding: 20px 0 0 0 ;
@@ -26,12 +27,14 @@
     color: black;
     text-transform: uppercase;
 }
-.topMenu>li{
+.topMenu>li>a:hover,.topMenu>li>a:active{
+    text-decoration: none;
+}
+.topMenu>li>a{
     color: lightslategrey;
 }
-.topMenu>li>span:hover{
+.topMenu>li>a:hover{
     cursor: pointer;
-    text-decoration: none;
     color:#01aef3;
     transition: ease .3s
 }

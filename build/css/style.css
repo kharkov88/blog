@@ -1,3 +1,4 @@
+
 .header{
     display: flex;
     padding: 20px 0 0 0 ;
@@ -26,12 +27,14 @@
     color: black;
     text-transform: uppercase;
 }
-.topMenu>li{
+.topMenu>li>a:hover,.topMenu>li>a:active{
+    text-decoration: none;
+}
+.topMenu>li>a{
     color: lightslategrey;
 }
-.topMenu>li>span:hover{
+.topMenu>li>a:hover{
     cursor: pointer;
-    text-decoration: none;
     color:#01aef3;
     transition: ease .3s
 }
@@ -46,16 +49,6 @@
 .stack>div{
     display: flex;
     justify-content: center;
-}.content{
-    height: 300px;
-}.mainText{
-    height: 1200px;
-    text-align: justify;
-
-
-}
-.mainText>span{
-    margin-left: 25px; 
 }.afterComentText{
     text-align: justify;
 }
@@ -82,6 +75,16 @@ ul{
 }
 #usr{
     width:30%;
+}.content{
+    height: 300px;
+}.mainText{
+    height: 1200px;
+    text-align: justify;
+
+
+}
+.mainText>span{
+    margin-left: 25px; 
 }
 *{
     transition: ease .5s;

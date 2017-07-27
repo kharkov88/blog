@@ -1,6 +1,6 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 var static = require('node-static');
-var file = new static.Server();
+
 
 module.exports={
     entry:'./front/index.js',
@@ -36,6 +36,7 @@ module: {
   ]
 };
 
+var file = new static.Server('./build');
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {
         
