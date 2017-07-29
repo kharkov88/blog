@@ -13374,7 +13374,7 @@ class Li extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
                 __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
-                { to: "/" + this.props.item },
+                { to: "/" + this.props.item, onClick: () => $('.menu').toggleClass('open') },
                 this.props.item
             )
         );
