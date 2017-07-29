@@ -1,0 +1,13 @@
+.chat{
+    width: 300px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background-color: red;
+    color:#fff;
+    border-radius: 0 0 0 5px;
+    transition: none;
+    
+}

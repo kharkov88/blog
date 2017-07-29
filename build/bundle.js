@@ -12774,11 +12774,18 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__(131);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__app_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_chat_shell_chat__ = __webpack_require__(303);
 
 
 
 
 
+
+$(document).ready(() => {
+    let div = $('.chat');
+    console.log('hi', div);
+    __WEBPACK_IMPORTED_MODULE_5__components_chat_shell_chat__["a" /* default */].initModule(div);
+});
 
 const history = __WEBPACK_IMPORTED_MODULE_2_history_createBrowserHistory___default()();
 
@@ -12804,9 +12811,10 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             { history: history },
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
                 'div',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* Header */], { changeContent: this.changeContent }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["d" /* Content */], { content: this.state.content })
+                { className: 'App' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* Header */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["d" /* Content */], null),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["e" /* Chat */], null)
             )
         );
     }
@@ -13131,9 +13139,10 @@ function filterName(state = 'value', action) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(61);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_comment__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__content_css__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__content_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__content_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_comment__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__content_css__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__content_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__content_css__);
 
 
 
@@ -13142,13 +13151,13 @@ function filterName(state = 'value', action) {
 
 
 
-const componentsOfMenu = [__WEBPACK_IMPORTED_MODULE_3__add_comment__["a" /* AppComment */], () => {
+const componentsOfMenu = [__WEBPACK_IMPORTED_MODULE_4__add_comment__["a" /* AppComment */], () => {
     return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
         'div',
         null,
         'contact too...'
     );
-}, __WEBPACK_IMPORTED_MODULE_3__add_comment__["a" /* AppComment */]];
+}, __WEBPACK_IMPORTED_MODULE_4__add_comment__["a" /* AppComment */]];
 
 let Content = ({ content = () => {} }) => {
     return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
@@ -13165,11 +13174,11 @@ let Content = ({ content = () => {} }) => {
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
                 'div',
                 { className: 'col-md-10 col-sm-12 col-sx-12' },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/', component: componentsOfMenu[0] }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/main', component: componentsOfMenu[0] }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/gallery', component: componentsOfMenu[1] }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/contact', component: componentsOfMenu[2] }),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/coments', component: componentsOfMenu[3] })
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/', component: () => __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('p', null) }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/main', component: __WEBPACK_IMPORTED_MODULE_3__main__["a" /* Main */] }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/gallery', component: () => __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('p', null) }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/contact', component: () => __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('p', null) }),
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/coments', component: __WEBPACK_IMPORTED_MODULE_4__add_comment__["a" /* AppComment */] })
             )
         )
     );
@@ -13275,6 +13284,9 @@ class Li extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__add_comment__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar__ = __webpack_require__(68);
 /* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chat__ = __webpack_require__(298);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__chat__["a"]; });
+
 
 
 
@@ -28648,6 +28660,88 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chat__ = __webpack_require__(299);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__chat__["a"]; });
+
+
+/***/ }),
+/* 299 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chat_css__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chat_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__chat_css__);
+
+
+
+const Chat = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    { className: 'chat' },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'p',
+        null,
+        'chat'
+    )
+);
+/* harmony export (immutable) */ __webpack_exports__["a"] = Chat;
+
+
+/***/ }),
+/* 300 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 301 */,
+/* 302 */,
+/* 303 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+let shell_chat = function () {
+    let configMap = {
+        stateChat: false,
+        extendHeight: 415,
+        retractHeight: 15
+    },
+        toggleChat,
+        initModule,
+        $chat = $('.chat');
+
+    toggleChat = function () {
+        let $height = configMap.stateChat ? configMap.retractHeight : configMap.extendHeight;
+        $chat.animate({ height: $height }, 1000);
+        console.log('click');
+        configMap.stateChat = !configMap.stateChat;
+    };
+    initModule = function ($container) {
+        $chat = $container;
+        $chat.click(toggleChat);
+    };
+    return {
+        initModule: initModule
+    };
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (shell_chat);
 
 /***/ })
 /******/ ]);

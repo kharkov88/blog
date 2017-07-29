@@ -2,7 +2,6 @@ import * as React from'react'
 import  {Li} from'./itemOfMenu'
 import './header.css'
 
-
 let menu=['main','gallery','contact','coments']
 export let Header = ({changeContent})=>{
     return(
@@ -19,6 +18,7 @@ export let Header = ({changeContent})=>{
                 }
             </ul>
         </div>
+        
     </header>
     ) 
 }

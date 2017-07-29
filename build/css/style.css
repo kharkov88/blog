@@ -49,6 +49,14 @@
 .stack>div{
     display: flex;
     justify-content: center;
+}.mainText{
+    height: 1200px;
+    text-align: justify;
+
+
+}
+.mainText>span{
+    margin-left: 25px; 
 }.afterComentText{
     text-align: justify;
 }
@@ -76,15 +84,19 @@ ul{
 #usr{
     width:30%;
 }.content{
-    height: 300px;
-}.mainText{
-    height: 1200px;
-    text-align: justify;
-
-
-}
-.mainText>span{
-    margin-left: 25px; 
+    
+}.chat{
+    width: 300px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background-color: red;
+    color:#fff;
+    border-radius: 0 0 0 5px;
+    transition: none;
+    
 }
 *{
     transition: ease .5s;
@@ -95,4 +107,7 @@ html,body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+}
+.App{
+    
 }

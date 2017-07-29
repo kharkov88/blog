@@ -1,7 +1,7 @@
 import * as React from'react'
 import {Sidebar} from'../sidebar'
 import {Route}from'react-router-dom'
-
+import {Main}from'../main'
 import {AppComment}from'../add_comment'
 
 import './content.css'
@@ -16,11 +16,11 @@ export let Content = ({content=()=>{}})=>{
                     </div>
                     <div className="col-md-10 col-sm-12 col-sx-12">
                         {/* {content()}  */}
-                        <Route exact path="/" component={componentsOfMenu[0]}/>
-                       <Route exact path="/main" component={componentsOfMenu[0]}/>
-                       <Route exact path="/gallery" component={componentsOfMenu[1]}/>
-                       <Route exact path="/contact" component={componentsOfMenu[2]}/>
-                       <Route exact path="/coments" component={componentsOfMenu[3]}/> 
+                        <Route exact path="/" component={()=><p/>}/>
+                       <Route exact path="/main" component={Main}/>
+                       <Route exact path="/gallery" component={()=><p/>}/>
+                       <Route exact path="/contact" component={()=><p/>}/>
+                       <Route exact path="/coments" component={AppComment}/> 
                     </div>
                 </div>
             </div>

@@ -1,9 +1,15 @@
 import * as React from'react'
 import {BrowserRouter,Route,Link}from'react-router-dom'
 import createBrowserHistory from"history/createBrowserHistory"
-import {Header,Content,Main,AppComment}from'./components'
+import {Header,Content,Main,AppComment,Chat}from'./components'
 import './app.css'
-
+import shell_chat from'./components/chat/shell_chat'
+$(document).ready(()=>{
+    let div=$('.chat')
+    console.log('hi',div)
+    shell_chat.initModule(div);
+})
+    
 const history=createBrowserHistory();
 
 const componentsOfMenu=[Main,AppComment,()=>'contact too...',AppComment]
@@ -25,9 +31,11 @@ export class  App extends React.Component{
     render(){
         return(
             <BrowserRouter history={history}>
-                <div>
-                     <Header changeContent={this.changeContent}/> 
-                     <Content content={this.state.content}/> 
+                <div className="App">
+                     <Header/> 
+                     <Content /> 
+                     {/* <Footer/> */}
+                     <Chat/>
                 </div>          
             </BrowserRouter>
     )}

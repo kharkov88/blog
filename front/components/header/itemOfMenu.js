@@ -7,7 +7,6 @@ export class Li extends React.Component{
         return(
             <li>
                 <Link to={"/"+this.props.item}>
-                {/* <span onClick={()=>changeContent(index)}>{this.props.item}</span> */}
                 {this.props.item}
                 </Link> 
             </li>
