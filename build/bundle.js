@@ -12823,10 +12823,11 @@ $(document).ready(() => {
     let div = $('.chat');
     console.log('hi', div);
     __WEBPACK_IMPORTED_MODULE_6__components_chat_shell_chat__["a" /* default */].initModule(div);
-    __WEBPACK_IMPORTED_MODULE_4__components_header_module__["a" /* default */].initModule();
+
     let ww = window.innerWidth;
     if (ww < 1200) {
         $('.menu').addClass('tablet-mobile');
+        __WEBPACK_IMPORTED_MODULE_4__components_header_module__["a" /* default */].initModule();
     }
 });
 
@@ -13374,7 +13375,7 @@ class Li extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
             null,
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
                 __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Link */],
-                { to: "/" + this.props.item, onClick: () => $('.menu').toggleClass('open') },
+                { to: "/" + this.props.item },
                 this.props.item
             )
         );
@@ -28807,7 +28808,9 @@ let headerModule = function () {
     };
     initModule = function () {
         $('.burger').click(toggleBurger);
+        $('.topMenu li a').click(toggleBurger);
     };
+
     return {
         initModule: initModule
     };

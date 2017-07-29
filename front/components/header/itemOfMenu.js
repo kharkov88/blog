@@ -6,7 +6,7 @@ export class Li extends React.Component{
         let{changeContent,index}=this.props
         return(
             <li>
-                <Link to={"/"+this.props.item} onClick={()=>$('.menu').toggleClass('open')}>
+                <Link to={"/"+this.props.item} >
                 {this.props.item}
                 </Link> 
             </li>

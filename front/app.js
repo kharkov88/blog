@@ -42,9 +42,10 @@ $(document).ready(()=>{
     let div=$('.chat')
     console.log('hi',div)
     shell_chat.initModule(div);
-    headerModule.initModule();
+   
     let ww=window.innerWidth;
     if(ww<1200){
         $('.menu').addClass('tablet-mobile');
+        headerModule.initModule();
     }
 })

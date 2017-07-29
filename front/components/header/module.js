@@ -9,8 +9,10 @@ let headerModule = (function(){
         return false;
     }
     initModule = function(){
-        $('.burger').click(toggleBurger)
-    }
+            $('.burger').click(toggleBurger);
+            $('.topMenu li a').click(toggleBurger)
+        }
+
     return{
         initModule:initModule
     }
