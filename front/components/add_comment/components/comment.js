@@ -9,7 +9,7 @@ let Comment= ({check,id,dispatch,author,comment,date})=>{
         <div >
         <li className="commentDiv">
             <div style={{color:"green",width:"100px"}}><b>{author}:</b></div>
-            <div style={{color:"red",marginRight:"10px",textAlign:"left"}}>{comment}</div>
+            <div style={{color:"#7749bd",marginRight:"10px",textAlign:"left"}}>{comment}</div>
             <div>
             <span style={{marginRight:"15px"}}>{date}</span>
             <input ref={input=>check=input} type="checkbox" checked={check} onChange={()=>{

@@ -5,9 +5,20 @@
     top: 0;
     right: 0;
     cursor: pointer;
-    background-color: red;
+    background-color: #00adf2;
     color:#fff;
     border-radius: 0 0 0 5px;
     transition: none;
-    
+    overflow: hidden;
+    opacity: 1;   
+}
+
+.output{
+    width: 290px;
+    height: 300px;
+    background-color: #fff;
+}
+.chat .form-group{
+    width: 290px;
+    margin: 0 auto;
 }

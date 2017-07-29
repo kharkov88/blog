@@ -5,7 +5,7 @@ let shell_chat = (function(){
         extendHeight:415,
         retractHeight:15
     },
-    toggleChat,initModule,$chat=$('.chat');
+    toggleChat,versionToggle,initModule,$chat=$('.chat');
 
     toggleChat = function (){
         let $height = configMap.stateChat?configMap.retractHeight:configMap.extendHeight;
@@ -13,9 +13,15 @@ let shell_chat = (function(){
         console.log('click')
         configMap.stateChat=!configMap.stateChat;
     };
+    versionToggle = function(){
+        if(window.innerWidth<1200){
+            $($chat).remove()
+        }
+    }
     initModule = function ($container){
         $chat=$container;
         $chat.click(toggleChat);
+        versionToggle();
     }
     return {
          initModule:initModule
