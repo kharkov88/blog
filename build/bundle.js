@@ -7468,6 +7468,50 @@ module.exports = lowPriorityWarning;
 
 /***/ }),
 /* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+let shell_header = function () {
+    let stateToggle = true,
+        toggleBurger,
+        burgerClick,
+        initModule;
+
+    toggleBurger = function (e) {
+        //alert('click',e.currentTarget.id)
+        stateToggle ? $('.menu').addClass('open') : $('.menu').removeClass('open');
+        stateToggle = !stateToggle;
+        //return false;
+    };
+    burgerClick = function () {
+        toggleBurger();
+        return false;
+    };
+    initModule = function () {
+        let ww = window.innerWidth;
+        if (ww < 1200) {
+            $('.burger').unbind('click', toggleBurger);
+            $('.burger').click(toggleBurger);
+            $('.topMenu li').unbind('click', toggleBurger);
+            $('.topMenu li').click(toggleBurger);
+            $('.menu').addClass('tablet-mobile');
+            $('.chat').hide();
+        } else {
+            $('.menu').removeClass('tablet-mobile');
+            $('.chat').show();
+            $('.topMenu li').unbind('click', toggleBurger);
+        }
+    };
+
+    return {
+        initModule: initModule
+    };
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (shell_header);
+
+/***/ }),
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7477,20 +7521,20 @@ module.exports = __webpack_require__(188);
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComment; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_redux__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reduser__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_app__ = __webpack_require__(118);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__reduser__ = __webpack_require__(125);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_app__ = __webpack_require__(119);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_css__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__app_css__);
 
@@ -7568,7 +7612,6 @@ setTimeout(() => {
 }, 3000);
 
 /***/ }),
-/* 67 */,
 /* 68 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -12822,10 +12865,49 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+let shell_chat = function () {
+    let configMap = {
+        stateChat: false,
+        extendHeight: 415,
+        retractHeight: 15
+    },
+        toggleChat,
+        versionToggle,
+        initModule,
+        $chat = $('.chat');
+
+    toggleChat = function () {
+        let $height = configMap.stateChat ? configMap.retractHeight : configMap.extendHeight;
+        $chat.animate({ height: $height }, 1000);
+        console.log('click');
+        configMap.stateChat = !configMap.stateChat;
+    };
+    versionToggle = function () {
+        if (window.innerWidth < 1200) {
+            // $($chat).hide()
+        }
+    };
+    initModule = function ($container) {
+        $chat = $container;
+        $chat.click(toggleChat);
+        versionToggle();
+    };
+    return {
+        initModule: initModule
+    };
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (shell_chat);
+
+/***/ }),
+/* 119 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_showComments__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_inputForm__ = __webpack_require__(122);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_showComments__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_inputForm__ = __webpack_require__(123);
 
 
 
@@ -12841,7 +12923,7 @@ const App = () => {
 /* harmony default export */ __webpack_exports__["a"] = (App);
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12897,16 +12979,16 @@ Comment = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /*
 /* harmony default export */ __webpack_exports__["a"] = (Comment);
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__comment__ = __webpack_require__(119);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__comment__ = __webpack_require__(120);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer__ = __webpack_require__(122);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -12943,7 +13025,7 @@ const CommnetList = ({ dispatch, comment }) => {
 /* harmony default export */ __webpack_exports__["a"] = (CommnetList);
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -12979,7 +13061,7 @@ let Footer = ({ dispatch }) => {
 Footer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])()(Footer);
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13027,12 +13109,12 @@ InputForm = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" 
 /* harmony default export */ __webpack_exports__["a"] = (InputForm);
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react_redux__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_commentList__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_commentList__ = __webpack_require__(121);
 
 
 
@@ -13047,13 +13129,13 @@ const ShowComments = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_react_red
 /* harmony default export */ __webpack_exports__["a"] = (ShowComments);
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = reduser;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__subredusers_change_comments__ = __webpack_require__(125);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__subredusers_filter_name__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__subredusers_change_comments__ = __webpack_require__(126);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__subredusers_filter_name__ = __webpack_require__(127);
 
 
 
@@ -13066,7 +13148,7 @@ function reduser(state = {}, action) {
 }
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13109,7 +13191,7 @@ function changeComments(state = [], action) {
 }
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13125,7 +13207,7 @@ function filterName(state = 'value', action) {
 }
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13168,52 +13250,13 @@ const Chat = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 
 
 /***/ }),
-/* 128 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chat__ = __webpack_require__(127);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__chat__["a"]; });
-
-
-/***/ }),
 /* 129 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-let shell_chat = function () {
-    let configMap = {
-        stateChat: false,
-        extendHeight: 415,
-        retractHeight: 15
-    },
-        toggleChat,
-        versionToggle,
-        initModule,
-        $chat = $('.chat');
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chat__ = __webpack_require__(128);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__chat__["a"]; });
 
-    toggleChat = function () {
-        let $height = configMap.stateChat ? configMap.retractHeight : configMap.extendHeight;
-        $chat.animate({ height: $height }, 1000);
-        console.log('click');
-        configMap.stateChat = !configMap.stateChat;
-    };
-    versionToggle = function () {
-        if (window.innerWidth < 1200) {
-            // $($chat).hide()
-        }
-    };
-    initModule = function ($container) {
-        $chat = $container;
-        $chat.click(toggleChat);
-        versionToggle();
-    };
-    return {
-        initModule: initModule
-    };
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (shell_chat);
 
 /***/ }),
 /* 130 */
@@ -13226,7 +13269,7 @@ let shell_chat = function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sidebar__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__main__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_comment__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_comment__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__content_css__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__content_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__content_css__);
 
@@ -13259,7 +13302,7 @@ let Content = ({ content = () => {} }) => {
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
                 'div',
-                { className: 'col-md-10 col-sm-12 col-sx-12' },
+                { className: 'col-md-10 col-sm-12 col-sx-12 main-content' },
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/', component: () => __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('p', null) }),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/main', component: __WEBPACK_IMPORTED_MODULE_3__main__["a" /* Main */] }),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Route */], { exact: true, path: '/gallery', component: () => __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('p', null) }),
@@ -13338,7 +13381,7 @@ let Header = ({ changeContent }) => {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header__ = __webpack_require__(132);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__header__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shell_header__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shell_header__ = __webpack_require__(65);
 /* unused harmony namespace reexport */
 
 
@@ -13382,11 +13425,11 @@ class Li extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__content__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__main__ = __webpack_require__(68);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_2__main__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_comment__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_comment__ = __webpack_require__(67);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_3__add_comment__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar__ = __webpack_require__(69);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chat__ = __webpack_require__(128);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chat__ = __webpack_require__(129);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__chat__["a"]; });
 
 
@@ -13456,49 +13499,58 @@ JavaScript сам по себе довольно компактный, но оч
 
 const Sidebar = () => {
     return __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-        "div",
+        'div',
         null,
         __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-            "div",
-            { className: "row stack" },
+            'div',
+            { style: { margin: '0 auto', textAlign: 'center' } },
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
+                'a',
+                { href: 'https://github.com/kharkov88/other', target: '_blank' },
+                'github'
+            )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+            'div',
+            { className: 'row stack' },
+            __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
+                'div',
                 null,
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                    "h3",
+                    'h3',
                     null,
-                    "\u041C\u043E\u0439 \u0441\u0442\u0435\u043A:"
+                    '\u041C\u043E\u0439 \u0441\u0442\u0435\u043A:'
                 )
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
-                { className: "col-md-12 col-sm-2 col-xs-6" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: "contents/html.png", className: "img-rounded", alt: "Cinque Terre", width: "80", height: "80" })
+                'div',
+                { className: 'col-md-12 col-sm-2 col-xs-6' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('img', { src: 'contents/html.png', className: 'img-rounded', alt: 'Cinque Terre', width: '80', height: '80' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
-                { className: "col-md-12 col-sm-2 col-xs-6" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: "contents/css.png", className: "img-rounded", alt: "Cinque Terre", width: "80", height: "80" })
+                'div',
+                { className: 'col-md-12 col-sm-2 col-xs-6' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('img', { src: 'contents/css.png', className: 'img-rounded', alt: 'Cinque Terre', width: '80', height: '80' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
-                { className: "col-md-12 col-sm-2 col-xs-6" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: "contents/js.png", className: "img-rounded", alt: "Cinque Terre", width: "80", height: "80" })
+                'div',
+                { className: 'col-md-12 col-sm-2 col-xs-6' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('img', { src: 'contents/js.png', className: 'img-rounded', alt: 'Cinque Terre', width: '80', height: '80' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
-                { className: "col-md-12 col-sm-2 col-xs-6" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: "contents/react-js.ico", className: "img-rounded", alt: "Cinque Terre", width: "80", height: "80" })
+                'div',
+                { className: 'col-md-12 col-sm-2 col-xs-6' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('img', { src: 'contents/react-js.ico', className: 'img-rounded', alt: 'Cinque Terre', width: '80', height: '80' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
-                { className: "col-md-12 col-sm-2 col-xs-6" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: "contents/redux.png", className: "img-rounded", alt: "Cinque Terre", width: "80", height: "80" })
+                'div',
+                { className: 'col-md-12 col-sm-2 col-xs-6' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('img', { src: 'contents/redux.png', className: 'img-rounded', alt: 'Cinque Terre', width: '80', height: '80' })
             ),
             __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](
-                "div",
-                { className: "col-md-12 col-sm-2 col-xs-6" },
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]("img", { src: "contents/git.png", className: "img-rounded", alt: "Cinque Terre", width: "80", height: "80" })
+                'div',
+                { className: 'col-md-12 col-sm-2 col-xs-6' },
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"]('img', { src: 'contents/git.png', className: 'img-rounded', alt: 'Cinque Terre', width: '80', height: '80' })
             )
         )
     );
@@ -13514,11 +13566,11 @@ const Sidebar = () => {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_shell_header__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_chat_shell_chat__ = __webpack_require__(129);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_shell_header__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_chat_shell_chat__ = __webpack_require__(118);
 
 
 
@@ -28780,60 +28832,6 @@ module.exports = function(module) {
 	return module;
 };
 
-
-/***/ }),
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-let shell_header = function () {
-    let stateToggle = true,
-        toggleBurger,
-        burgerClick,
-        initModule;
-
-    toggleBurger = function (e) {
-        //alert('click',e.currentTarget.id)
-        stateToggle ? $('.menu').addClass('open') : $('.menu').removeClass('open');
-        stateToggle = !stateToggle;
-        //return false;
-    };
-    burgerClick = function () {
-        toggleBurger();
-        return false;
-    };
-    initModule = function () {
-        let ww = window.innerWidth;
-        if (ww < 1200) {
-            $('.burger').unbind('click', toggleBurger);
-            $('.burger').click(toggleBurger);
-            $('.topMenu li a').unbind('click', toggleBurger);
-            $('.topMenu li a').click(toggleBurger);
-            $('.menu').addClass('tablet-mobile');
-            $('.chat').hide();
-        } else {
-            $('.menu').removeClass('tablet-mobile');
-            $('.chat').show();
-            $('.topMenu li a').unbind('click', toggleBurger);
-        }
-    };
-
-    return {
-        initModule: initModule
-    };
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (shell_header);
 
 /***/ })
 /******/ ]);
