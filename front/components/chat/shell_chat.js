@@ -15,7 +15,7 @@ let shell_chat = (function(){
     };
     versionToggle = function(){
         if(window.innerWidth<1200){
-            $($chat).remove()
+           // $($chat).hide()
         }
     }
     initModule = function ($container){

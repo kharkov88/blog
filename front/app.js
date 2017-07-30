@@ -2,9 +2,9 @@ import * as React from'react'
 import {BrowserRouter,Route,Link}from'react-router-dom'
 import createBrowserHistory from"history/createBrowserHistory"
 import {Header,Content,Main,AppComment,Chat}from'./components'
-import headerModule from './components/header/module'
+
 import './app.css'
-import shell_chat from'./components/chat/shell_chat'
+
  
 
 const history=createBrowserHistory();
@@ -38,14 +38,3 @@ export class  App extends React.Component{
     )}
 }
 
-$(document).ready(()=>{
-    let div=$('.chat')
-    console.log('hi',div)
-    shell_chat.initModule(div);
-   
-    let ww=window.innerWidth;
-    if(ww<1200){
-        $('.menu').addClass('tablet-mobile');
-        headerModule.initModule();
-    }
-})
