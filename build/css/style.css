@@ -143,8 +143,8 @@ ul{
     display: flex;
     justify-content: space-around;
 }
-.content{
-    
+.main-content{
+    padding-top: 20px;  
 }.chat{
     width: 300px;
     height: 15px;

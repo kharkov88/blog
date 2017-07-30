@@ -20,15 +20,15 @@ let shell_header = (function(){
         if(ww<1200){
             $('.burger').unbind('click',toggleBurger);
             $('.burger').click(toggleBurger);
-            $('.topMenu li a').unbind('click',toggleBurger)
-            $('.topMenu li a').click(toggleBurger)
+            $('.topMenu li').unbind('click',toggleBurger)
+            $('.topMenu li').click(toggleBurger)
             $('.menu').addClass('tablet-mobile');
             $('.chat').hide();
         }
         else {
             $('.menu').removeClass('tablet-mobile')
             $('.chat').show();
-            $('.topMenu li a').unbind('click',toggleBurger)
+            $('.topMenu li').unbind('click',toggleBurger)
         }
     }
 
