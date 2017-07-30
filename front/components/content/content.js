@@ -14,7 +14,7 @@ export let Content = ({content=()=>{}})=>{
                     <div className="col-md-2 col-sm-12 col-xs-12">
                         <Sidebar/>
                     </div>
-                    <div className="col-md-10 col-sm-12 col-sx-12">
+                    <div className="col-md-10 col-sm-12 col-sx-12 main-content">
                         {/* {content()}  */}
                         <Route exact path="/" component={()=><p/>}/>
                        <Route exact path="/main" component={Main}/>
