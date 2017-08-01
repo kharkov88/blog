@@ -7467,50 +7467,7 @@ module.exports = lowPriorityWarning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 65 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-let shell_header = function () {
-    let stateToggle = true,
-        toggleBurger,
-        burgerClick,
-        initModule;
-
-    toggleBurger = function (e) {
-        //alert('click',e.currentTarget.id)
-        stateToggle ? $('.menu').addClass('open') : $('.menu').removeClass('open');
-        stateToggle = !stateToggle;
-        //return false;
-    };
-    burgerClick = function () {
-        toggleBurger();
-        return false;
-    };
-    initModule = function () {
-        let ww = window.innerWidth;
-        if (ww < 1200) {
-            $('.burger').unbind('click', toggleBurger);
-            $('.burger').click(toggleBurger);
-            $('.topMenu li').unbind('click', toggleBurger);
-            $('.topMenu li').click(toggleBurger);
-            $('.menu').addClass('tablet-mobile');
-            $('.chat').hide();
-        } else {
-            $('.menu').removeClass('tablet-mobile');
-            $('.chat').show();
-            $('.topMenu li').unbind('click', toggleBurger);
-        }
-    };
-
-    return {
-        initModule: initModule
-    };
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (shell_header);
-
-/***/ }),
+/* 65 */,
 /* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12816,8 +12773,9 @@ module.exports = g;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_createBrowserHistory__ = __webpack_require__(74);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_history_createBrowserHistory___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_history_createBrowserHistory__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__app_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_shell__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__app_css__);
 
 
 
@@ -12852,7 +12810,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
                 { className: 'App' },
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["c" /* Header */], null),
                 __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["d" /* Content */], null),
-                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["e" /* Chat */], null)
+                __WEBPACK_IMPORTED_MODULE_0_react__["createElement"](__WEBPACK_IMPORTED_MODULE_3__components__["e" /* AppChat */], null)
             )
         );
     }
@@ -12860,46 +12818,13 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 /* harmony export (immutable) */ __webpack_exports__["a"] = App;
 
 
-/***/ }),
-/* 118 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-let shell_chat = function () {
-    let configMap = {
-        stateChat: false,
-        extendHeight: 415,
-        retractHeight: 15
-    },
-        toggleChat,
-        versionToggle,
-        initModule,
-        $chat = $('.chat');
-
-    toggleChat = function () {
-        let $height = configMap.stateChat ? configMap.retractHeight : configMap.extendHeight;
-        $chat.animate({ height: $height }, 1000);
-        console.log('click');
-        configMap.stateChat = !configMap.stateChat;
-    };
-    versionToggle = function () {
-        if (window.innerWidth < 1200) {
-            // $($chat).hide()
-        }
-    };
-    initModule = function ($container) {
-        $chat = $container;
-        $chat.click(toggleChat);
-        versionToggle();
-    };
-    return {
-        initModule: initModule
-    };
-}();
-
-/* harmony default export */ __webpack_exports__["a"] = (shell_chat);
+$(document).ready(() => {
+    console.log($('.app-chat'));
+    __WEBPACK_IMPORTED_MODULE_4__app_shell__["a" /* default */].initModule($('.app-chat'));
+});
 
 /***/ }),
+/* 118 */,
 /* 119 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13213,18 +13138,22 @@ function filterName(state = 'value', action) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chat_css__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chat_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__chat_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_chat_css__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_chat_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__app_chat_css__);
 
 
 
 const Chat = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'div',
-    { className: 'chat' },
+    { className: 'app-chat' },
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'p',
-        null,
-        'chat'
+        'div',
+        { className: 'app-chat-header' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            null,
+            'chat'
+        )
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'form',
@@ -13232,21 +13161,26 @@ const Chat = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'form-group' },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'p',
-                null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('iframe', { className: 'output', name: 'output' })
-            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'app-chat-msgs' }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'label',
                 { htmlFor: 'inputsm' },
                 'Message:'
             ),
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'form-control input-sm', id: 'inputsm', type: 'text' })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                { className: 'app-chat-box' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { className: 'app-chat-input form-control', id: 'inputsm', type: 'text' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'button',
+                    { className: 'btn btn-primary' },
+                    'send'
+                )
+            )
         )
     )
 );
-/* harmony export (immutable) */ __webpack_exports__["a"] = Chat;
+/* unused harmony export Chat */
 
 
 /***/ }),
@@ -13255,7 +13189,7 @@ const Chat = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chat__ = __webpack_require__(128);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__chat__["a"]; });
+/* unused harmony namespace reexport */
 
 
 /***/ }),
@@ -13381,9 +13315,6 @@ let Header = ({ changeContent }) => {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__header__ = __webpack_require__(132);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__header__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shell_header__ = __webpack_require__(65);
-/* unused harmony namespace reexport */
-
 
 
 /***/ }),
@@ -13430,7 +13361,10 @@ class Li extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__sidebar__ = __webpack_require__(69);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__chat__ = __webpack_require__(129);
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__chat__["a"]; });
+/* unused harmony namespace reexport */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__chat_redux__ = __webpack_require__(313);
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_6__chat_redux__["a"]; });
+
 
 
 
@@ -13569,23 +13503,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app__ = __webpack_require__(117);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_header_shell_header__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_chat_shell_chat__ = __webpack_require__(118);
-
-
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__app__["a" /* App */], null), document.getElementById("root"));
-
-$(document).ready(() => {
-    __WEBPACK_IMPORTED_MODULE_4__components_chat_shell_chat__["a" /* default */].initModule($('.chat'));
-    __WEBPACK_IMPORTED_MODULE_3__components_header_shell_header__["a" /* default */].initModule();
-    window.onresize = () => {
-        __WEBPACK_IMPORTED_MODULE_3__components_header_shell_header__["a" /* default */].initModule();
-    };
-});
 
 /***/ }),
 /* 139 */
@@ -14480,12 +14402,7 @@ module.exports = factory;
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 142 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 142 */,
 /* 143 */
 /***/ (function(module, exports) {
 
@@ -28832,6 +28749,384 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_header_app_header__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_chat_app_chat__ = __webpack_require__(305);
+
+
+
+let app_shell = function () {
+    let initModule,
+        domElements = {
+        $chat: $('.app-chat')
+    };
+
+    initModule = function ($container) {
+        domElements.$chat = $container;
+        __WEBPACK_IMPORTED_MODULE_0__components_header_app_header__["a" /* default */].initModule();
+        __WEBPACK_IMPORTED_MODULE_1__components_chat_app_chat__["a" /* default */].initModule($container);
+        window.onresize = () => __WEBPACK_IMPORTED_MODULE_0__components_header_app_header__["a" /* default */].initModule();
+    };
+    return {
+        initModule
+    };
+}();
+/* harmony default export */ __webpack_exports__["a"] = (app_shell);
+
+/***/ }),
+/* 305 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+let app_chat = function () {
+    let configMap = {
+        stateChat: false,
+        extendHeight: 415,
+        retractHeight: 15
+    },
+        toggleChat,
+        versionToggle,
+        initModule,
+        $chat;
+
+    toggleChat = function (e) {
+        let $height = configMap.stateChat ? configMap.retractHeight : configMap.extendHeight;
+        $chat.animate({ height: $height }, 1000);
+        console.log('click', e.target);
+        configMap.stateChat = !configMap.stateChat;
+    };
+
+    initModule = function ($container) {
+        $chat = $container;
+        $('.app-chat-header').click(toggleChat);
+        $('#inputsm').click(e => false);
+    };
+    return {
+        initModule: initModule
+    };
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (app_chat);
+
+/***/ }),
+/* 306 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+let app_header = function () {
+    let stateToggle = true,
+        toggleBurger,
+        burgerClick,
+        initModule;
+
+    toggleBurger = function (e) {
+        //alert('click',e.currentTarget.id)
+        stateToggle ? $('.menu').addClass('open') : $('.menu').removeClass('open');
+        stateToggle = !stateToggle;
+        //return false;
+    };
+    burgerClick = function () {
+        toggleBurger();
+        return false;
+    };
+    initModule = function () {
+        let ww = window.innerWidth;
+        if (ww < 1200) {
+            $('.burger').unbind('click', toggleBurger);
+            $('.burger').click(toggleBurger);
+            $('.topMenu li').unbind('click', toggleBurger);
+            $('.topMenu li').click(toggleBurger);
+            $('.menu').addClass('tablet-mobile');
+            $('.chat').hide();
+        } else {
+            $('.menu').removeClass('tablet-mobile');
+            $('.chat').show();
+            $('.topMenu li').unbind('click', toggleBurger);
+        }
+    };
+
+    return {
+        initModule: initModule
+    };
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (app_header);
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 308 */,
+/* 309 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = sendMsg;
+const SEND_MSG = "SEND_MSG";
+/* unused harmony export SEND_MSG */
+
+
+function sendMsg(author, msg) {
+    return {
+        type: "SEND_MSG",
+        author,
+        msg,
+        date: new Date().toTimeString().substring(0, 8)
+    };
+}
+
+/***/ }),
+/* 310 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chat_msgs__ = __webpack_require__(311);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__footer__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_chat_css__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_chat_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__app_chat_css__);
+
+
+
+
+
+const App = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    { className: 'app-chat' },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'app-chat-header' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'p',
+            null,
+            'chat'
+        )
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'form-group' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__chat_msgs__["a" /* Book */], null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__footer__["a" /* Footer */], null)
+    )
+);
+/* harmony export (immutable) */ __webpack_exports__["a"] = App;
+
+
+/***/ }),
+/* 311 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__message__ = __webpack_require__(312);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+
+
+
+
+class Messages extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    render() {
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'app-chat-msgs' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'ul',
+                null,
+                this.props.message.map((item, index) => {
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__message__["a" /* Message */], _extends({ key: index }, item));
+                }),
+                '}'
+            )
+        );
+    }
+}
+const convertStateToProps = function (state) {
+    return {
+        message: state.message
+    };
+};
+const Book = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])(convertStateToProps)(Messages);
+/* harmony export (immutable) */ __webpack_exports__["a"] = Book;
+
+
+/***/ }),
+/* 312 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Message; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+let Message = ({ author, msg, date }) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'div',
+    null,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'li',
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            author
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            msg
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            null,
+            date
+        )
+    )
+);
+
+/***/ }),
+/* 313 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppChat; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_redux__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__subredusers_reduser__ = __webpack_require__(314);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_app_chat__ = __webpack_require__(310);
+
+
+
+
+
+
+
+
+let store = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4_redux__["a" /* createStore */])(__WEBPACK_IMPORTED_MODULE_5__subredusers_reduser__["a" /* reduser */]);
+let listen = store.subscribe(() => {
+    console.log("redux chat:", store.getState());
+});
+
+store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["a" /* sendMsg */])('Kein', 'Hi'));
+store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["a" /* sendMsg */])('Angi', ':)'));
+store.dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["a" /* sendMsg */])('Harry', '(---)'));
+
+let AppChat = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    __WEBPACK_IMPORTED_MODULE_3_react_redux__["a" /* Provider */],
+    { store: store },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__components_app_chat__["a" /* App */], null)
+);
+
+/***/ }),
+/* 314 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = reduser;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__send__ = __webpack_require__(315);
+
+
+function reduser(state = {}, action) {
+    return {
+        message: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__send__["a" /* default */])(state.message, action)
+    };
+}
+
+/***/ }),
+/* 315 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = sendMsg;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions__ = __webpack_require__(309);
+
+
+function sendMsg(state = [], action) {
+    if (action.type == 'SEND_MSG') {
+        return [...state, {
+            author: action.author,
+            msg: action.msg,
+            date: action.date
+        }];
+    }
+    return state;
+}
+
+/***/ }),
+/* 316 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 317 */,
+/* 318 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Footer; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions__ = __webpack_require__(309);
+
+
+
+
+let Footer = ({ dispatch }) => {
+    let inputValue = '';
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        null,
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'label',
+            { htmlFor: 'inputsm' },
+            'Message:'
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'app-chat-box' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { ref: input => inputValue = input, className: 'app-chat-input form-control', id: 'inputsm', type: 'text' }),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'button',
+                { className: 'btn btn-primary',
+                    onClick: e => {
+                        dispatch(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__actions__["a" /* sendMsg */])('Anonim', inputValue.value));
+                        inputValue.value = '';
+                        e.stopPropagation();
+                    } },
+                ' send'
+            )
+        )
+    );
+};
+Footer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_react_redux__["b" /* connect */])()(Footer);
 
 /***/ })
 /******/ ]);

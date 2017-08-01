@@ -1,4 +1,4 @@
-let shell_header = (function(){
+let app_header = (function(){
     let
         stateToggle=true,
         toggleBurger,
@@ -37,4 +37,4 @@ let shell_header = (function(){
     }
 }())
 
-export default shell_header;
+export default app_header;

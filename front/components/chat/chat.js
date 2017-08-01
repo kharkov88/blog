@@ -1,15 +1,19 @@
 import React from'react'
-import './chat.css'
+import './app.chat.css'
 
 export const Chat = ()=>
-    <div className="chat" >
-        <p>chat</p>
+    <div className="app-chat" >
+        <div className="app-chat-header">
+            <p>chat</p>
+        </div>
         <form>
-        <div className="form-group">
-            
-            <p><iframe className="output" name="output" ></iframe></p>
+        <div className="form-group">      
+            <div className="app-chat-msgs"></div>
             <label htmlFor="inputsm">Message:</label>
-            <input className="form-control input-sm" id="inputsm" type="text"/>
+            <div className="app-chat-box">
+                <input className="app-chat-input form-control" id="inputsm" type="text"/>
+                <button className="btn btn-primary">send</button>
+            </div>
         </div>
         </form>  
     </div>

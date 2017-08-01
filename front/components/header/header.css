@@ -93,8 +93,9 @@
 }
 .open .topMenu{
     position: absolute;
+    width: 33%;
     top: 20%;
-    left: 40%;
+    left: 33%;
     display: block;
     z-index: 2000;
     line-height: 50px;

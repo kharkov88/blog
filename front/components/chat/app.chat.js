@@ -1,31 +1,28 @@
-let shell_chat = (function(){
+let app_chat = (function(){
     let
      configMap={
         stateChat:false,
         extendHeight:415,
         retractHeight:15
     },
-    toggleChat,versionToggle,initModule,$chat=$('.chat');
+    toggleChat,versionToggle,initModule,$chat;
 
-    toggleChat = function (){
+    toggleChat = function (e){
         let $height = configMap.stateChat?configMap.retractHeight:configMap.extendHeight;
         $chat.animate({height:$height},1000)
-        console.log('click')
+        console.log('click',e.target)
         configMap.stateChat=!configMap.stateChat;
     };
-    versionToggle = function(){
-        if(window.innerWidth<1200){
-           // $($chat).hide()
-        }
-    }
+
     initModule = function ($container){
         $chat=$container;
-        $chat.click(toggleChat);
-        versionToggle();
+        $('.app-chat-header').click(toggleChat);
+        $('#inputsm').click((e)=>false)
+
     }
     return {
          initModule:initModule
          }   
 }())
 
-export default shell_chat;
+export default app_chat;

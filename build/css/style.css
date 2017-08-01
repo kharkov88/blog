@@ -93,8 +93,9 @@
 }
 .open .topMenu{
     position: absolute;
+    width: 33%;
     top: 20%;
-    left: 40%;
+    left: 33%;
     display: block;
     z-index: 2000;
     line-height: 50px;
@@ -149,7 +150,7 @@ ul{
 }
 .main-content{
     padding-top: 20px;  
-}.chat{
+}.app-chat{
     width: 300px;
     height: 15px;
     position: absolute;
@@ -163,15 +164,57 @@ ul{
     overflow: hidden;
     opacity: 1;   
 }
-
-.output{
+.app-chat .form-group{
     width: 290px;
-    height: 300px;
-    background-color: #fff;
+    margin: 0 5px;
 }
-.chat .form-group{
+.app-chat-msgs{
     width: 290px;
+    height: 310px;
     margin: 0 auto;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+.app-chat-box{
+    display: flex;
+    justify-content: space-around;
+}.app-chat{
+    width: 300px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    background-color: #00adf2;
+    color:#fff;
+    border-radius: 0 0 0 5px;
+    transition: none;
+    overflow: hidden;
+    opacity: 1;   
+}
+.app-chat .form-group{
+    width: 290px;
+    margin: 0 5px;
+}
+.app-chat-msgs{
+    width: 290px;
+    height: 310px;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+.app-chat-msgs li{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+.app-chat-box{
+    display: flex;
+    justify-content: space-around;
 }
 *{
     transition: ease .5s;

@@ -1,8 +1,8 @@
 import * as React from'react'
 import {BrowserRouter,Route,Link}from'react-router-dom'
 import createBrowserHistory from"history/createBrowserHistory"
-import {Header,Content,Main,AppComment,Chat}from'./components'
-
+import {Header,Content,Main,AppComment,Chat,AppChat}from'./components'
+import  app_shell from'./app.shell'
 import './app.css'
 
  
@@ -32,9 +32,13 @@ export class  App extends React.Component{
                      <Header/> 
                      <Content /> 
                      {/* <Footer/> */}
-                     <Chat/>
+                     <AppChat/>
                 </div>          
             </BrowserRouter>
     )}
 }
 
+$(document).ready(()=>{
+    console.log($('.app-chat'))
+    app_shell.initModule($('.app-chat'));  
+})
