@@ -36,15 +36,15 @@ module: {
   ]
 };
 
-// var file = new static.Server('./build');
-// require('http').createServer(function (request, response) {
-//     request.addListener('end', function () {
+var file = new static.Server('./build');
+require('http').createServer(function (request, response) {
+    request.addListener('end', function () {
         
-//         //Serve files! 
+        //Serve files! 
         
-//         file.serve(request, response);
-//     }).resume();
-// }).listen(5000);
+        file.serve(request, response);
+    }).resume();
+}).listen(5000);
 
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -55,23 +55,21 @@ var app = express();
 var jsonParse = bodyParser.json();
 var filePath = 'build/contents/history.json'
 
-app.use(express.static(__dirname + "/build"));
- 
-app.post("/register", jsonParse, function (request, response) {
-    if(!request.body) return response.sendStatus(400);
-    console.log(request.body.userName)
-    let jsonF=[{},{}]
-    fs.readFile(filePath,'utf-8',(error,data)=>{
-        if(error)console.log('error:',error)
-        else if(request.body.userMsg!=''){
-            jsonF=JSON.parse(data)
-            jsonF.push({author:request.body.userName,msg:request.body.userMsg,date:new Date().toTimeString().substr(0,8)})
-            fs.writeFile(filePath,JSON.stringify(jsonF))
-            console.log(jsonF)
-            response.json(JSON.stringify(jsonF));
-        }
-     })
+// app.use(express.static(__dirname + "/build"));
+// app.post("/register", jsonParse, function (request, response) {
+//     if(!request.body) return response.sendStatus(400);
+//     console.log(request.body.userName)
+//     let jsonF=[{},{}]
+//     fs.readFile(filePath,'utf-8',(error,data)=>{
+//         if(error)console.log('error:',error)
+//         else if(request.body.userMsg!=''){
+//             jsonF=JSON.parse(data)
+//             jsonF.push({author:request.body.userName,msg:request.body.userMsg,date:new Date().toTimeString().substr(0,8)})
+//             fs.writeFile(filePath,JSON.stringify(jsonF))
+//             console.log(jsonF)
+//             response.json(JSON.stringify(jsonF));
+//         }
+//      })
     
-});
-
-app.listen(3060);
+// });
+// app.listen(3060);
