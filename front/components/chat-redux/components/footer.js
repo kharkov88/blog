@@ -10,10 +10,9 @@ return(
         <div className="app-chat-box">
             <input ref={input=>messageValue=input} className="app-chat-input form-control" id="inputsm" type="text"/>
             <button className="btn btn-primary" 
-
             onClick={e=>{
-                sendRequest('/register',messageValue.value).then(result=>
-                    dispatch(updateHistory(JSON.parse(result)))                  
+                sendRequest('contents/history.json',messageValue.value).then(result=>
+                    dispatch(updateHistory(result))                  
                 )}}> send
             </button>
         </div>
