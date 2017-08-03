@@ -11,9 +11,9 @@ let listen = store.subscribe(()=>{
     console.log("redux chat:",store.getState())
 })
 
-store.dispatch(sendMsg('Kein','Hi'))
-store.dispatch(sendMsg('Angi',':)'))
-store.dispatch(sendMsg('Harry','(---)'))
+// store.dispatch(sendMsg('Kein','Hi'))
+// store.dispatch(sendMsg('Angi',':)'))
+// store.dispatch(sendMsg('Harry','(---)'))
 
 export let AppChat = ()=>
     <Provider store={store}>

@@ -23,11 +23,11 @@ let app_header = (function(){
             $('.topMenu li').unbind('click',toggleBurger)
             $('.topMenu li').click(toggleBurger)
             $('.menu').addClass('tablet-mobile');
-            $('.chat').hide();
+            $('.app-chat').hide();
         }
         else {
             $('.menu').removeClass('tablet-mobile')
-            $('.chat').show();
+            $('.app-chat').show();
             $('.topMenu li').unbind('click',toggleBurger)
         }
     }
