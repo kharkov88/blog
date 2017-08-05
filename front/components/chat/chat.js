@@ -1,10 +1,13 @@
 import React from'react'
 import './app.chat.css'
 
-export const Chat = ()=>
-    <div className="app-chat" >
+export const Chat = ({state_user,user})=>{
+    console.log(state_user)
+    let visible = state_user?'block':'none'
+    return(
+    <div className="app-chat" style={{display:visible}}>
         <div className="app-chat-header">
-            <p>chat</p>
+            <p>Hi {user}!</p>
         </div>
         <form>
         <div className="form-group">      
@@ -16,4 +19,5 @@ export const Chat = ()=>
             </div>
         </div>
         </form>  
-    </div>
+    </div>)
+}

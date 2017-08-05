@@ -3,8 +3,8 @@ import * as React from'react'
 import {Router,Route,Link}from'react-router'
 import createBrowserHistory from"history/createBrowserHistory"
 //import ours components
-import {Header,Content,Main,AppComment,Chat,AppChat}from'./components'
-import {HeaderMenu} from'./redux_container'
+import {Header,Content,Main,AppComment,Chat,AppChat,Login}from'./components'
+import {HeaderMenu,ConnectChat} from'./redux_container'
 //import the initialization module app.shell
 
 import './app.css'
@@ -19,7 +19,9 @@ export class  App extends React.Component{
                      <HeaderMenu/> 
                      <Content /> 
                      {/* <Footer/> */}
-                     <AppChat/>
+                     {/* <Chat/> */}
+                     <ConnectChat/>
+                     <Route exact path="/login" component={Login}/>
                 </div>          
             </Router>
     )}

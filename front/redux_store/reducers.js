@@ -1,6 +1,6 @@
-import {LOGIN,AUTO_ZATION} from'./actions'
+import {LOGIN,AUTO_ZATION,GET_PPL} from'./actions'
 
-export function reducer(state={user:{},state_user:false},action){
+export function reducer(state={user:{},state_user:false,peopls:[]},action){
     switch(action.type){
         case LOGIN:
             return Object.assign({},state,{
@@ -13,6 +13,10 @@ export function reducer(state={user:{},state_user:false},action){
         case AUTO_ZATION:
             return Object.assign({},state,{
                 state_user:!state.state_user
+            })
+        case GET_PPL:
+            return Object.assign({},state,{
+                peopls:action.data
             })
         default:return state
     }

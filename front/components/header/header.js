@@ -28,7 +28,7 @@ export let Header = ({state_user,dispatch})=>{
                     })
                 }
             <li >
-                <Link to={"/"+state_person} className={state_person} 
+                <Link to={state_user?'/':'/login'} className={state_person} 
                 onClick={()=>{
                     if(state_user){
                         app_model.people.logout()

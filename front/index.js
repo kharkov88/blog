@@ -1,20 +1,21 @@
 import React from'react'
 import ReactDOM from 'react-dom'
 import  {App} from './app'
-import {createStore}from'redux'
+import {createStore,applyMiddleware}from'redux'
 import { Provider } from 'react-redux'
+import {createLogger} from 'redux-logger'
 import {reducer} from'./redux_store/reducers'
 import {tryLogin}from'./redux_store/actions'
 import  app_shell from'./controller/app.shell'
 //import app.model ours logic
 import app_model from'./model/app.model'
 //import styles 
-
-const store = createStore(reducer);
-console.log("State of store:",store.getState())
-let listen=store.subscribe(()=>{
-   console.log("State of store:",store.getState())
-})
+const logger = createLogger()
+const store = createStore(reducer,applyMiddleware(logger));
+// console.log("State of store:",store.getState())
+// let listen=store.subscribe(()=>{
+//    console.log("State of store:",store.getState())
+// })
 
 ReactDOM.render(
     <Provider store={store}>
@@ -27,8 +28,8 @@ $(document).ready(()=>{
     app_model.initModule();
     app_shell.initModule();  
 
-    // let currentUser = app_model.people.get_user();
-    // store.dispatch(tryLogin(currentUser))
+    let currentUser = app_model.people.get_user();
+    store.dispatch(tryLogin(currentUser))
     // app_model.people.login('Jerry')
     // currentUser = app_model.people.get_user();
     // store.dispatch(tryLogin(currentUser))

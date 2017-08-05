@@ -13,5 +13,11 @@ export function autorization(){
     return{
         type:AUTO_ZATION
     }
-
+}
+export const GET_PPL = "GET_PPL"
+export function getListPpl(data){
+    return{
+        type:GET_PPL,
+        data
+    }
 }

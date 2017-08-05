@@ -134,10 +134,10 @@
 }
 .mainText>span{
     margin-left: 25px; 
-}.autif{
+}.autifss{
     overflow: hidden    
 }
-.autif::before{
+.autifss::before{
     position: absolute;
     top: 0;
     left: 0;
@@ -149,17 +149,22 @@
     z-index: 1100;
     overflow: hidden;
 }
-.main-content .content-login{
-    position: inherit;
+.content-login{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 1200;
-    width: 300px;
-    height: 200px;
-    margin: 0 auto;
+    background-color:cornsilk;  
 }
 .content-login-box{
+    position: relative;
+    left:50%;
+    top:50%;
+    margin:-50px 0 0 -100px;
     display: flex;
     width: 210px;
-    margin: 25% auto;
 }.afterComentText{
     text-align: justify;
 }
@@ -188,7 +193,7 @@ ul{
     padding-top: 20px;  
 }.app-chat{
     width: 300px;
-    height: 15px;
+    height: 23px;
     position: absolute;
     top: 0;
     right: 0;
@@ -199,6 +204,11 @@ ul{
     transition: none;
     overflow: hidden;
     opacity: 1;   
+}
+.app-chat-header>p{
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
 }
 .app-chat .form-group{
     width: 290px;
@@ -216,42 +226,8 @@ ul{
 .app-chat-box{
     display: flex;
     justify-content: space-around;
-}.app-chat{
-    width: 300px;
-    height: 15px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    background-color: #00adf2;
-    color:#fff;
-    border-radius: 0 0 0 5px;
-    transition: none;
-    overflow: hidden;
-    opacity: 1;   
 }
-.app-chat .form-group{
-    width: 290px;
-    margin: 0 5px;
-}
-.app-chat-msgs{
-    width: 290px;
-    height: 310px;
-    margin: 0 auto;
-    background-color: #fff;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    margin-bottom: 10px;
-}
-.app-chat-msgs li{
-    display: flex;
-    justify-content: space-between;
-    color: black;
-}
-.app-chat-box{
-    display: flex;
-    justify-content: space-around;
-}
+
 *{
     transition: ease .5s;
     

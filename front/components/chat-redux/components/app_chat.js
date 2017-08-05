@@ -1,7 +1,7 @@
 import React from 'react'
 import {Book} from './chat_msgs'
 import {Footer} from './footer'
-import './app_chat.css'
+//import './app_chat.css'
 
 export const App = ()=>
      <div className="app-chat" >

@@ -1,7 +1,7 @@
 import * as React from'react'
 import {Link}from'react-router-dom'
 import {connect} from'react-redux'
-import {tryLogin,autorization} from'../../redux_store/actions'
+import {tryLogin,autorization,getListPpl} from'../../redux_store/actions'
 import app_model from'../../model/app.model'
 import app_autorization from'../../controller/app.autorz'
 
@@ -15,12 +15,15 @@ export let Login = ({dispatch})=>
                 ()=>{
                     if(name.value.length>3){
                         app_model.people.login(name.value)
-                        app_autorization.setState()
                         let user = app_model.people.get_user()
+                        let ppls = app_model.people.get_db()  
+                        let array=[]                   
                         dispatch(tryLogin(user))
                         dispatch(autorization())
-                        $('body').removeClass('autif')               
-                        $('.content-login').hide(100)         
+                        ppls().each(person=>array.push(person))
+                        dispatch(getListPpl(array))
+                        app_autorization.setState()  
+                        $('.content-login').hide()       
                     }
                 }
             }>login</button>
