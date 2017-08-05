@@ -56,6 +56,9 @@ var jsonParse = bodyParser.json();
 var filePath = 'build/contents/history.json'
 
 // app.use(express.static(__dirname + "/build"));
+// app.get('*',(req,res)=>{
+//   res.render("index")
+// })
 // app.post("/register", jsonParse, function (request, response) {
 //     if(!request.body) return response.sendStatus(400);
 //     console.log(request.body.userName)
@@ -72,4 +75,4 @@ var filePath = 'build/contents/history.json'
 //      })
     
 // });
-// app.listen(3060);
+// app.listen(5000,()=>console.log('listen port 5000...'));

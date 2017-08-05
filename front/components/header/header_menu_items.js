@@ -3,10 +3,10 @@ import {Link}from'react-router-dom'
 
 export class Li extends React.Component{
     render(){
-        let{changeContent,index}=this.props
+        let{index}=this.props
         return(
             <li>
-                <Link to={"/"+this.props.item} >
+                <Link to={"/"+this.props.item} className={this.props.item}>
                 {this.props.item}
                 </Link> 
             </li>

@@ -1,4 +1,5 @@
-let app_chat = (function(){
+var app_chat = (function(){
+    'use strict'
     let
      configMap={
         stateChat:false,
@@ -10,7 +11,6 @@ let app_chat = (function(){
     toggleChat = function (e){
         let $height = configMap.stateChat?configMap.retractHeight:configMap.extendHeight;
         $chat.animate({height:$height},1000)
-        console.log('click',e.target)
         configMap.stateChat=!configMap.stateChat;
     };
 

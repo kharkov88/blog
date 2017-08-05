@@ -2,17 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {addComment,deleteComment,filterName}from'./actions'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import {createLogger}from'redux-logger'
+import { createStore,applyMiddleware } from 'redux'
 import {reduser} from'./reduser'
 import App from './components/app'
 import "./app.css"
 
-let store=createStore(reduser)
-console.log("State of store:",store.getState())
+const loggerMiddleware = createLogger()
+const store=createStore(reduser)//, applyMiddleware(loggerMiddleware))
 
-let listen=store.subscribe(()=>{
-   console.log("State of store:",store.getState())
-})
+
+// let listen=store.subscribe(()=>{
+//    console.log("State of store:",store.getState())
+// })
 store.dispatch(addComment("Jon",`JavaScript ("JS" для краткости) — это полноценный динамический язык программирования, который применяется к HTML документу,
                              и может обеспечить динамическую интерактивность на веб-сайтах.`))
 setTimeout(()=>{
@@ -51,7 +53,3 @@ export let AppComment = ()=>{
         </Provider>
     </div>
 )}
-
-setTimeout(()=>{
-   //store.dispatch(filterName('qwertyn'))
-},3000)

@@ -10,3 +10,12 @@
     display: flex;
     justify-content: center;
 }
+/* .expirs:hover::before{
+    position: absolute;
+    content: '';
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-color: #f0c92f;
+
+} */

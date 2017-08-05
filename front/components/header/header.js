@@ -1,10 +1,14 @@
 import * as React from'react'
-import  {Li} from'./itemOfMenu'
+import  {Li} from'./header_menu_items'
+import {Link}from'react-router-dom'
 import './header.css'
+import {autorization} from'../../redux_store/actions'
+import app_model from'../../model/app.model'
 
+let menu=['main','about','contact','comment']
+export let Header = ({state_user,dispatch})=>{
 
-let menu=['main','about','gallery','contact','coments']
-export let Header = ({changeContent})=>{
+    let state_person = state_user?'logout':'login'
     return(
     <header className="header container">
         <div className="foto">
@@ -20,13 +24,23 @@ export let Header = ({changeContent})=>{
             <ul className='topMenu'>
                 {
                     menu.map((item,index)=>{
-                        return <Li key={index} index={index} item={item} changeContent={changeContent}/>
+                        return <Li key={index} index={index} item={item}/>
                     })
                 }
+            <li >
+                <Link to={"/"+state_person} className={state_person} 
+                onClick={()=>{
+                    if(state_user){
+                        app_model.people.logout()
+                        dispatch(autorization())}}}> {state_person}
+                </Link>
+            </li>
             <li className="chat-mobile-button"><img src="contents/chat.png"/></li>
+
             </ul>
 
         </div>  
+
     </header>
     ) 
 }

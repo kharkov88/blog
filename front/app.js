@@ -1,44 +1,27 @@
+//import react components
 import * as React from'react'
-import {BrowserRouter,Route,Link}from'react-router-dom'
+import {Router,Route,Link}from'react-router'
 import createBrowserHistory from"history/createBrowserHistory"
+//import ours components
 import {Header,Content,Main,AppComment,Chat,AppChat}from'./components'
-import  app_shell from'./app.shell'
+import {HeaderMenu} from'./redux_container'
+//import the initialization module app.shell
+
 import './app.css'
 
- 
-
 const history=createBrowserHistory();
-
-const componentsOfMenu=[Main,AppComment,()=>'contact too...',AppComment]
-console.log('arrayCom:',componentsOfMenu)
-
 export class  App extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            content:componentsOfMenu[0]
-        }
-        this.changeContent=this.changeContent.bind(this);
-    }
-    changeContent(index){
-        this.setState({
-            content:componentsOfMenu[index]
-        })
-    }
+
     render(){
         return(
-            <BrowserRouter history={history}>
+            <Router history={history}>
                 <div className="App">
-                     <Header/> 
+                     <HeaderMenu/> 
                      <Content /> 
                      {/* <Footer/> */}
                      <AppChat/>
                 </div>          
-            </BrowserRouter>
+            </Router>
     )}
 }
 
-$(document).ready(()=>{
-    console.log($('.app-chat'))
-    app_shell.initModule($('.app-chat'));  
-})

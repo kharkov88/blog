@@ -1,10 +1,10 @@
-import app_header from './components/header/app.header'
-import app_chat from'./components/chat/app.chat'
+import app_header from './app.header'
+import app_chat from'./app.chat'
 
-let app_shell = (function(){
+var app_shell = (function(){
     let initModule,
         domElements={
-            $chat:$('.app-chat')
+            $chat:''
         }
     
     initModule = function($container){

@@ -12,7 +12,7 @@
     margin: 0 10px;
 }
 .menu{
-    width: 100%;
+    width: 80%;
 }
 .menu .chat-mobile-button{
     display: none;
@@ -29,7 +29,7 @@
     color: black;
     text-transform: uppercase;
 }
-.topMenu >li{
+.topMenu >li,.login{
     text-align: center;
 }
 .topMenu>li>a:hover,.topMenu>li>a:active{
@@ -41,8 +41,9 @@
 .topMenu>li>a:hover{
     cursor: pointer;
     color:#01aef3;
-    transition: ease .3s
+    transition: ease 0s
 }
+
 .menu .burger{
     display: none;
     height: 40px;
