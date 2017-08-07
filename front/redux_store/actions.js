@@ -1,7 +1,7 @@
-export const LOGIN = 'LOGIN'
-export function tryLogin(obj){
+export const LOG_IN_OUT = 'LOGIN_IN_OUT'
+export function changeLogin(obj){
     return{
-        type:LOGIN,
+        type:LOG_IN_OUT,
         name:obj.name,
         css_map:obj.css_map,
         id:obj.id
@@ -9,9 +9,10 @@ export function tryLogin(obj){
 }
 
 export const AUTO_ZATION = "AUTO_ZATION"
-export function autorization(){
+export function autorization(status){
     return{
-        type:AUTO_ZATION
+        type:AUTO_ZATION,
+        status
     }
 }
 export const GET_PPL = "GET_PPL"
@@ -19,5 +20,13 @@ export function getListPpl(data){
     return{
         type:GET_PPL,
         data
+    }
+}
+
+export const SELECT_PERSON = 'SELECT_PERSON'
+export function selectPerson(id){
+    return{
+        type:SELECT_PERSON,
+        id
     }
 }

@@ -2,8 +2,9 @@ import * as React from'react'
 import  {Li} from'./header_menu_items'
 import {Link}from'react-router-dom'
 import './header.css'
-import {autorization} from'../../redux_store/actions'
+import {autorization,changeLogin,getListPpl} from'../../redux_store/actions'
 import app_model from'../../model/app.model'
+import app_util from'../../controller/app.util'
 
 let menu=['main','about','contact','comment']
 export let Header = ({state_user,dispatch})=>{
@@ -32,7 +33,13 @@ export let Header = ({state_user,dispatch})=>{
                 onClick={()=>{
                     if(state_user){
                         app_model.people.logout()
-                        dispatch(autorization())}}}> {state_person}
+                    let user = app_model.people.get_user(),
+                        ppls = app_model.people.get_db(),  
+                        array=[];  
+                        dispatch(changeLogin(user))
+                        ppls().each(person=>array.push(person))
+                        dispatch(getListPpl(array))
+                        dispatch(autorization(!user.get_is_anonim()))}}}> {state_person}
                 </Link>
             </li>
             <li className="chat-mobile-button"><img src="contents/chat.png"/></li>

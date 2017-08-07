@@ -20,6 +20,7 @@ let app_autorization = (function(){
         }
     }
     initModule = ()=>{
+        
         $('.login').click(handleClick)
     }
     return {

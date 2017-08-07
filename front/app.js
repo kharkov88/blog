@@ -4,7 +4,7 @@ import {Router,Route,Link}from'react-router'
 import createBrowserHistory from"history/createBrowserHistory"
 //import ours components
 import {Header,Content,Main,AppComment,Chat,AppChat,Login}from'./components'
-import {HeaderMenu,ConnectChat} from'./redux_container'
+import {HeaderMenu,ConnectChat,ConnectLogin} from'./redux_container'
 //import the initialization module app.shell
 
 import './app.css'
@@ -21,7 +21,7 @@ export class  App extends React.Component{
                      {/* <Footer/> */}
                      {/* <Chat/> */}
                      <ConnectChat/>
-                     <Route exact path="/login" component={Login}/>
+                     <Route exact path="/login" component={ConnectLogin}/>
                 </div>          
             </Router>
     )}

@@ -35,6 +35,7 @@ let app_model = (function(){
             this.cid     = person_map.cid,
             this.css_map = person_map.css_map,
             this.id      = person_map.id,
+            this.selected= false,
             this.name    = person_map.name;
         }
         get_is_user(){
@@ -68,6 +69,7 @@ let app_model = (function(){
                 css_map :{top : 25, left : 25, 'background-color':'#8f8'},
                 name:name
             });
+            console.log("state_user:",stateMap.user)
             sio.on( 'userupdate', completeLogin );
             sio.emit( 'adduser', { 
                 cid     : stateMap.user.cid,
