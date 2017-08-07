@@ -12,13 +12,18 @@
     overflow: hidden;
     opacity: 1;   
 }
+.app-mobile .app-chat{
+    width: 100%;
+    
+}
 .app-chat-header>p{
     font-size: 16px;
     font-weight: 700;
     text-align: center;
 }
 .app-chat-people ul{
-    width: 35%;
+    text-align: center;
+    width: 95%;
     margin: 0 auto;
 }
 .app-chat-people ul .app-chat-person-select  {
@@ -27,23 +32,29 @@
     color: #00adf2;
 }
 .app-chat-people ul li{
+    margin: 0 auto;
+    width:40%; 
+    line-height: 50px;
     font-weight: 700;
-    margin-bottom: 5px;
-    border: 3px solid whitesmoke;
-    border-radius: 5px;
-    text-align: center
+    display: flex;  
+    text-align: center;
 }
-.app-chat-people ul li:hover{
+.app-chat-avatar{
+
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    border: 3px solid whitesmoke;
 
 }
 
 .app-chat-window{
     display: none;
-    width: 290px;
-    margin: 0 5px;
+    width: 98%;
+    margin: 0 auto;
 }
 .app-chat-window-msgs{
-    width: 290px;
+    
     height: 170px;
     margin: 0 auto;
     background-color: #fff;

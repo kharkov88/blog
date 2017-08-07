@@ -3,7 +3,7 @@ var app_chat = (function(){
     let
      configMap={
         stateChat:false,
-        extendHeight:415,
+        extendHeight:'100%',
         retractHeight:23
     },
     toggleChat,versionToggle,initModule,$chat;

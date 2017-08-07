@@ -25,7 +25,7 @@ let app_header = (function(){
             $('.topMenu li').unbind('click',toggleBurger)
             $('.topMenu li').click(toggleBurger)
             $('.menu').addClass('tablet-mobile');
-            $('.app-chat').hide();
+            $('.App').addClass('app-mobile');
         }
         else {
             $('.menu').removeClass('tablet-mobile')

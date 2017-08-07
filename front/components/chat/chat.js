@@ -27,8 +27,8 @@ export class Chat extends React.Component {
             <ul>
                 {
                     peopls.map((item,index,ppl)=>{              
-                        if(index==0||index==5)return
-                        return <Li  dispatch={dispatch} selected={item.selected}person={item} key={index} id={item.id} />
+                        if(index==0||index==ppl.length-1)return
+                        return <Li  dispatch={dispatch} person={item} key={index} id={item.id} />
                     })
                 }
             </ul>
@@ -40,7 +40,7 @@ export class Chat extends React.Component {
                  <label htmlFor="inputsm">Message for {frend[0]&&frend[0].name}:</label> 
                 <div className="app-chat-window-box">
                     <input className="app-chat-input form-control" id="inputsm" type="text"/>
-                    <button className="btn btn-primary">send</button>
+                    <button className="btn btn-primary" onClick={e=>e.preventDefault()}>send</button>
                 </div>
              </div>
         </form>  

@@ -13,10 +13,11 @@ export class Login extends React.Component{
         this.handleClick = this.handleClick.bind(this)
     }
     handleClick(){
+        
         let{dispatch}=this.props
         if(name.value.length>3){
             app_model.people.login(name.value)
-         
+            $('body').addClass('waiting')
             setTimeout(()=>{
             let user = app_model.people.get_user(),
                 ppls = app_model.people.get_db(),  
@@ -25,6 +26,7 @@ export class Login extends React.Component{
                 dispatch(autorization(user.get_is_user()))
                 ppls().each(person=>array.push(person))
                 dispatch(getListPpl(array))
+                $('body').removeClass('waiting')
             },4000)
  
             $('.content-login').hide()       
