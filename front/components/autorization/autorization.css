@@ -1,6 +1,4 @@
-.autifss{
-    overflow: hidden    
-}
+
 .waiting::before{
     position: fixed;
     top: 0;
@@ -14,6 +12,7 @@
     overflow: hidden;
 }
 .content-login{
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,6 +20,9 @@
     bottom: 0;
     z-index: 1200;
     background-color:cornsilk;  
+}
+.login-visible{
+    display: block;
 }
 .content-login-box{
     position: relative;

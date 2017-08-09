@@ -1,5 +1,5 @@
 let app_autorization = (function(){
-    let stateMap,setState,handleClick,initModule;
+    let watitingLogin,visibleLogin,stateMap,setState,handleClick,initModule;
 
     stateMap={
         state_user:false
@@ -7,26 +7,26 @@ let app_autorization = (function(){
     setState = ()=>{
         stateMap.state_user=!stateMap.state_user
     }
+    watitingLogin = ()=>{
+        $('body').toggleClass('waiting')
+    }
+    visibleLogin = ()=>{
+        $('.content-login').toggleClass('login-visible')
+    }
     handleClick = ()=>{
         if(stateMap.state_user){
             setState()
-            $('.logout').addClass('login').removeClass('logout')
-        }
-        else{
-            console.log(stateMap.state_user)       
-                $('body').addClass('autif')
-                $('.login').addClass('logout') 
-                $('.content-login').show()
         }
     }
-    initModule = ()=>{
-        
-        $('.login').click(handleClick)
+    
+    initModule = ()=>{    
     }
     return {
         initModule,
         handleClick,
-        setState
+        setState,
+        watitingLogin,
+        visibleLogin
     }
 }())
 

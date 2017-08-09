@@ -30,3 +30,11 @@ export function selectPerson(id){
         id
     }
 }
+
+export const UPDATE_CHAT = 'UPDATE_CHAT'
+export function updateChat(history){
+    return {
+        type:UPDATE_CHAT,
+        history
+    }
+}

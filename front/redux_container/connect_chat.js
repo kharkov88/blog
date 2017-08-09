@@ -4,9 +4,10 @@ const convertStateToProps = function (state){
 //return simple object    
     return {
         state_user:state.state_user,
-        user:state.user.name,
+        user:state.user,
         peopls:state.peopls,
-        friend:state.friend_for_chatting,
+        frend:state.frend_for_chatting,
+        history:state.history,
         dispatch:state.dispatch
     }
 }

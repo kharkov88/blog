@@ -10,7 +10,7 @@ let app_model = (function(){
             people_db:TAFFY(),
             user:null
         },
-        people,makePerson,makeCid, clearPeopleDb, completeLogin,removePerson,initModule;
+        people,chat,get_pplList,makePerson,makeCid, clearPeopleDb, completeLogin,removePerson,initModule;
 
     makeCid = ()=>'c'+String(stateMap.cid_serial++)
     clearPeopleDb = ()=>{
@@ -21,6 +21,18 @@ let app_model = (function(){
             stateMap.people_db.insert(user)
             stateMap.people_cid_map[user.cid]=user
         }
+    }
+    get_pplList = ()=>{
+        let peopleList
+        peopleList = app_fake.getPeopleList()
+        peopleList.map(item=>
+            makePerson({
+                cid     : item._id,
+                css_map : item.css_map,
+                id      : item._id,
+                name    : item.name
+            })            
+        )
     }
     completeLogin = (user_list)=>{
         let user_map = user_list[0];
@@ -62,6 +74,7 @@ let app_model = (function(){
         get_by_cid = cid => stateMap.people_cid_map[cid];
         get_db = ()=> stateMap.people_db;
         get_user = ()=> stateMap.user;
+
         login = name => {
             let sio = app_fake.mockSio;
             stateMap.user = makePerson({
@@ -69,7 +82,6 @@ let app_model = (function(){
                 css_map :{top : 25, left : 25, 'background-color':'#8f8'},
                 name:name
             });
-            console.log("state_user:",stateMap.user)
             sio.on( 'userupdate', completeLogin );
             sio.emit( 'adduser', { 
                 cid     : stateMap.user.cid,
@@ -78,9 +90,11 @@ let app_model = (function(){
             })
          }
         logout = ()=>{
+            clearPeopleDb()
             let is_removed,user = stateMap.user;
             is_removed = removePerson(user);
             stateMap.user = stateMap.anon_user;
+            makePerson(stateMap.user)
             return is_removed;
         }
         return{
@@ -93,6 +107,58 @@ let app_model = (function(){
 
     }())
 
+    chat = (function(){
+        let _update_list,_leave_chat,_join_chat,send_msg,frend_for_chatee;
+        frend_for_chatee = {
+            id :'',
+            name:''
+        }
+        //update UI chat list of ppl
+        _update_list = (arg_list)=>{
+            let i,person_map,make_person_map,people_list=arg_list[0]
+            clearPeopleDb()
+            PERSON:
+                for(i=0;i<people_list.length;i++){
+                    person_map = people_list[i];
+                    if(!person_map.name){continue PERSON;}
+                    if ( stateMap.user && stateMap.user.id === person_map._id ) {
+                        stateMap.user.css_map = person_map.css_map
+                        continue PERSON;
+                        }
+                    make_person_map = { 
+                        cid     : person_map._id,
+                        css_map : person_map.css_map,
+                        id      : person_map._id,
+                        name    : person_map.name
+                }
+                makePerson( make_person_map )
+                stateMap.people_db.sort('name')
+                }
+
+        }
+        _leave_chat = ()=>{
+            let sio = app_fake.mockSio;
+            stateMap.is_connected = false;
+            sio.emit('leavechat')
+        }
+        send_msg = (data)=>{
+            let msg_map;
+            msg_map = {
+                dest_id : data.frend.id,
+                dest_name :data.frend.name,
+                sender_id :data.user.id,
+                message : data.message
+            }
+            return app_fake.mockSio.updateChat(msg_map)
+             app_fake.fake_store
+        }
+        return {
+            _leave:_leave_chat,
+            join:_join_chat,
+            send_msg
+        }
+    }())
+
     initModule = ()=>{
         let peopleList,personMap;
         stateMap.anon_user = makePerson({
@@ -101,18 +167,12 @@ let app_model = (function(){
             name : 'anonymous'           
         })
         stateMap.user = stateMap.anon_user;
-        peopleList = app_fake.getPeopleList()
-        peopleList.map(item=>
-            makePerson({
-                cid     : item._id,
-                css_map : item.css_map,
-                id      : item._id,
-                name    : item.name
-            })            
-        )
+
     }
     return {
         initModule,
+        get_pplList,
+        chat,
         people
     }
 }())

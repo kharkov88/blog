@@ -12,10 +12,7 @@ import app_model from'./model/app.model'
 //import styles 
 const logger = createLogger()
 const store = createStore(reducer,applyMiddleware(logger));
-// console.log("State of store:",store.getState())
-// let listen=store.subscribe(()=>{
-//    console.log("State of store:",store.getState())
-// })
+
 
 ReactDOM.render(
     <Provider store={store}>
@@ -27,12 +24,11 @@ ReactDOM.render(
 $(document).ready(()=>{
     app_model.initModule();
     app_shell.initModule();  
-    app_model.people.login('Alfred')
     let user = app_model.people.get_user(),
         ppls = app_model.people.get_db(),  
         array=[];  
         store.dispatch(changeLogin(user))
-        store.dispatch(autorization(user.get_is_user()))
+        store.dispatch(autorization(!user.get_is_anonim()))
         ppls().each(person=>array.push(person))
         store.dispatch(getListPpl(array))
 })

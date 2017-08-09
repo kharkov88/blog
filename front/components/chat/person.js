@@ -1,8 +1,8 @@
 import React from'react'
 import {selectPerson}from'../../redux_store/actions'
+import app_chat from'../../controller/app.chat'
 
 export let Li = ({person,id,dispatch})=>{
-    console.log("per_sel",person.selected)
     let color = person.selected?'app-chat-person-select':''
     return <div>
     
@@ -14,6 +14,6 @@ export let Li = ({person,id,dispatch})=>{
 }
 
 function handleClicking(id,dispatch) {
-    $('.app-chat-window').show(200);
+    //$('.app-chat-window').show(500);
     dispatch(selectPerson(id))
 }

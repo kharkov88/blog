@@ -49,12 +49,16 @@
 }
 
 .app-chat-window{
-    display: none;
+
     width: 98%;
     margin: 0 auto;
+    background-color: #00adf2;
+}
+.app-chat-window-header{
+    height: 25px;
+    background-color: darkgrey;
 }
 .app-chat-window-msgs{
-    
     height: 170px;
     margin: 0 auto;
     background-color: #fff;

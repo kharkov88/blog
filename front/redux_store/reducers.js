@@ -1,9 +1,10 @@
-import {LOG_IN_OUT,AUTO_ZATION,GET_PPL,SELECT_PERSON} from'./actions'
+import {LOG_IN_OUT,AUTO_ZATION,GET_PPL,SELECT_PERSON,UPDATE_CHAT} from'./actions'
 let init = {
         user:{},
         state_user:false,
         peopls:[],
-        friend_for_chatting:{name:''}
+        frend_for_chatting:{name:'',id:''},
+        history:[]
     }
 export function reducer(state=init,action){
 
@@ -12,7 +13,6 @@ export function reducer(state=init,action){
             return Object.assign({},state,{
                 user:{
                 name:action.name,
-                css_map:action.css_map,
                 id:action.id
                 }
             })
@@ -36,7 +36,9 @@ export function reducer(state=init,action){
             // console.log('arr:',arr_ppl)
             //  console.log('stete_ppl:',state.peopls)
              //return state
+     
             return Object.assign({},state,{
+                
                 peopls:state.peopls.map(item=>{
                     if(item.id===action.id){
                         for(let key in item){
@@ -51,8 +53,15 @@ export function reducer(state=init,action){
                         return item
                     }
                     
-                })
+                }),
+                frend_for_chatting : {
+                    id:state.peopls.filter(item=>item.selected==true)[0].id,
+                    name:state.peopls.filter(item=>item.selected==true)[0].name
+                }
             })
+            case UPDATE_CHAT:
+                console.log("store:",state)
+                return Object.assign({},state,{history:action.history})
         default:return state
     }
 }

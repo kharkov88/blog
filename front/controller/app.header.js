@@ -16,8 +16,6 @@ let app_header = (function(){
         return false;
     }
     initModule = function(){
-        //$('.login').click(()=>$('body').addClass('autif'))
-        $('.logout').click(()=>$('.logout').addClass('login').removeClass('logout'))
         let ww=window.innerWidth;
         if(ww<1200){
             $('.burger').unbind('click',toggleBurger);
@@ -29,7 +27,6 @@ let app_header = (function(){
         }
         else {
             $('.menu').removeClass('tablet-mobile')
-            $('.app-chat').show();
             $('.topMenu li').unbind('click',toggleBurger)
         }
     }

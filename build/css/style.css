@@ -132,37 +132,6 @@
 }
 .mainText>span{
     margin-left: 25px; 
-}.autifss{
-    overflow: hidden    
-}
-.waiting::before{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    background: lightblue;
-    opacity: .9;
-    z-index: 1100;
-    overflow: hidden;
-}
-.content-login{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1200;
-    background-color:cornsilk;  
-}
-.content-login-box{
-    position: relative;
-    left:50%;
-    top:50%;
-    margin:-50px 0 0 -100px;
-    display: flex;
-    width: 210px;
 }.afterComentText{
     text-align: justify;
 }
@@ -189,6 +158,39 @@ ul{
 }
 .main-content{
     padding-top: 20px;  
+}
+.waiting::before{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background: lightblue;
+    opacity: .9;
+    z-index: 1100;
+    overflow: hidden;
+}
+.content-login{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1200;
+    background-color:cornsilk;  
+}
+.login-visible{
+    display: block;
+}
+.content-login-box{
+    position: relative;
+    left:50%;
+    top:50%;
+    margin:-50px 0 0 -100px;
+    display: flex;
+    width: 210px;
 }.app-chat{
     width: 300px;
     height: 23px;
@@ -240,12 +242,16 @@ ul{
 }
 
 .app-chat-window{
-    display: none;
+
     width: 98%;
     margin: 0 auto;
+    background-color: #00adf2;
+}
+.app-chat-window-header{
+    height: 25px;
+    background-color: darkgrey;
 }
 .app-chat-window-msgs{
-    
     height: 170px;
     margin: 0 auto;
     background-color: #fff;

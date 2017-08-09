@@ -2,7 +2,6 @@ import * as React from'react'
 import {Sidebar} from'../sidebar'
 import {Route}from'react-router-dom'
 import {Main}from'../main'
-import {Login}from'../login'
 import {AppComment}from'../add_comment'
 
 import './content.css'
