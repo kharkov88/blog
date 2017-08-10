@@ -1,10 +1,12 @@
-import {LOG_IN_OUT,AUTO_ZATION,GET_PPL,SELECT_PERSON,UPDATE_CHAT} from'./actions'
+import {LOG_IN_OUT,AUTO_ZATION,GET_PPL,
+        NEW_MASSAGE,SELECT_PERSON,UPDATE_CHAT} from'./actions'
 let init = {
         user:{},
         state_user:false,
         peopls:[],
         frend_for_chatting:{name:'',id:''},
-        history:[]
+        history:[],
+        chat:[]
     }
 export function reducer(state=init,action){
 
@@ -62,6 +64,15 @@ export function reducer(state=init,action){
             case UPDATE_CHAT:
                 console.log("store:",state)
                 return Object.assign({},state,{history:action.history})
+            case NEW_MASSAGE:
+                return Object.assign({},state,{
+                    chat:[...state.chat,
+                        {
+                        author:action.obj.author,
+                        msg:action.obj.msg,
+                        date:action.obj.date
+                        }
+                    ]})
         default:return state
     }
 }

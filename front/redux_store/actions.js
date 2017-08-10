@@ -38,3 +38,10 @@ export function updateChat(history){
         history
     }
 }
+export const NEW_MASSAGE = 'NEW_MASSAGE'
+export function addMessage(obj){
+    return {
+        type:NEW_MASSAGE,
+        obj
+    }
+}

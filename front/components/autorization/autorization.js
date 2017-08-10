@@ -36,7 +36,7 @@ export class Login extends React.Component{
     render(){
     return<div className="content-login login-visible">
             <div className="content-login-box">
-                <input value='Gregory' ref={input=>name=input} type="text" className="node"  placeholder="Your name:"/>
+                <input  ref={input=>name=input} type="text" className="node"  placeholder="Your name:"/>
                 <button className="btn btn-info btn-sm" onClick={this.handleClick}>login</button>
             </div>
         </div>

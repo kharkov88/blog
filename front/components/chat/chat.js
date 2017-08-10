@@ -2,7 +2,7 @@ import React from'react'
 import './app.chat.css'
 import {Li} from'./person'
 import {WindowChat}from'./chat.history'
-import {selectPerson,updateChat}from'../../redux_store/actions'
+import {selectPerson,updateChat,addMessage}from'../../redux_store/actions'
 import app_model from '../../model/app.model'
 export class Chat extends React.Component {
     constructor(props){
@@ -18,7 +18,7 @@ export class Chat extends React.Component {
         return app_model.chat.send_msg(data_for_send)  
     }
     render(){
-    let {dispatch,state_user,user,peopls,frend,history} = this.props;
+    let {dispatch,state_user,user,peopls,frend,history,chat} = this.props;
     let visible = ''//state_user?'block':'none'
     let frend_name =[{name:''}]
     let data_for_send = Object.create(null);
@@ -47,12 +47,19 @@ export class Chat extends React.Component {
                 {/* history of chat  */}
                 <div className="app-chat-window-header" onClick={()=>$('.app-chat-window34').hide()}></div>
                   <div className="app-chat-window-msgs">
-                     {
+                    {
+                        chat.map((item,index)=>{
+                          return <div style={{color:'grey'}}key={index}>
+                                    {`From: ${item.author}: ${item.msg}   ${item.date}`}
+                                </div>})
+                        })
+                    }
+                     {/* {
                          chat_history.map((item,index)=>{
                             return <div style={{color:'grey'}}key={index}>
                                         {`From: ${item.from}: ${item.message}   ${item.data}`}
                                     </div>})
-                        }
+                        } */}
                     {/* <WindowChat chat_history={chat_history}/>  */}
                 </div>   
                  
@@ -66,9 +73,16 @@ export class Chat extends React.Component {
                             user:Object.assign({},user),
                             frend:Object.assign({},frend)
                             }
-                        let arrayHistory=this.sendMsg(data_for_send)
-                        
-                        dispatch(updateChat(JSON.parse(arrayHistory)))
+                        {/* let arrayHistory=this.sendMsg(data_for_send)  
+                        dispatch(updateChat(JSON.parse(arrayHistory))) */}
+                        if(message.value.length>0)
+                        sendRequest('newchat',user,message)
+                            .then(rezult=>{
+                                console.log('response:',rezult)
+                            },
+                                error=>{
+                                    console.log('bad ',error)
+                                })
                         message.value='';
                         }}>send</button>
                 </div>
@@ -77,3 +91,21 @@ export class Chat extends React.Component {
     </div>)
     }
 }
+
+function sendRequest(url,user,message){
+        return new Promise((resolve,reject)=>{
+            let xhr=new XMLHttpRequest();
+            xhr.open('post',url)
+            xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            xhr.responseType='json'
+            xhr.addEventListener('load',()=>{
+                resolve(xhr.response)
+            })
+            xhr.addEventListener('error',()=>{
+                reject();
+            })
+            xhr.send(JSON.stringify({userName:user.name,userMsg:message.value}));
+        })        
+    }
+
+    //

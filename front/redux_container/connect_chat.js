@@ -8,6 +8,7 @@ const convertStateToProps = function (state){
         peopls:state.peopls,
         frend:state.frend_for_chatting,
         history:state.history,
+        chat:state.chat,
         dispatch:state.dispatch
     }
 }

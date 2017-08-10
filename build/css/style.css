@@ -203,7 +203,8 @@ ul{
     border-radius: 0 0 0 5px;
     transition: none;
     overflow: hidden;
-    opacity: 1;   
+    opacity: 1;  
+    padding:0 2.5px; 
 }
 .app-mobile .app-chat{
     width: 100%;
@@ -215,6 +216,7 @@ ul{
     text-align: center;
 }
 .app-chat-people ul{
+    display: none;
     text-align: center;
     width: 95%;
     margin: 0 auto;
@@ -225,7 +227,6 @@ ul{
     color: #00adf2;
 }
 .app-chat-people ul li{
-    margin: 0 auto;
     width:40%; 
     line-height: 50px;
     font-weight: 700;
@@ -233,7 +234,6 @@ ul{
     text-align: center;
 }
 .app-chat-avatar{
-
     height: 50px;
     width: 50px;
     border-radius: 25px;
@@ -242,17 +242,14 @@ ul{
 }
 
 .app-chat-window{
-
-    width: 98%;
     margin: 0 auto;
     background-color: #00adf2;
 }
 .app-chat-window-header{
     height: 25px;
-    background-color: darkgrey;
 }
 .app-chat-window-msgs{
-    height: 170px;
+    height: 270px;
     margin: 0 auto;
     background-color: #fff;
     overflow-x: hidden;
