@@ -22,17 +22,18 @@ let app_model = (function(){
             stateMap.people_cid_map[user.cid]=user
         }
     }
-    get_pplList = ()=>{
-        let peopleList
-        peopleList = app_fake.getPeopleList()
-        peopleList.map(item=>
-            makePerson({
-                cid     : item._id,
-                css_map : item.css_map,
-                id      : item._id,
-                name    : item.name
-            })            
-        )
+    get_pplList = (data)=>{
+            stateMap.people_db=TAFFY();
+            makePerson(stateMap.anon_user)
+            data.map(item=>{
+                if(item._id==stateMap.user.id){return }
+                makePerson({
+                    cid     : item._id,
+                    id      : item._id,
+                    name    : item.name
+                }) 
+            }           
+        )  
     }
     completeLogin = (user_list)=>{
         let user_map = user_list[0];
@@ -76,33 +77,53 @@ let app_model = (function(){
         get_user = ()=> stateMap.user;
 
         login = name => {
-            let sio = app_fake.mockSio;
             stateMap.user = makePerson({
                 cid :makeCid(),
                 css_map :{top : 25, left : 25, 'background-color':'#8f8'},
                 name:name
-            });
-            sio.on( 'userupdate', completeLogin );
-            sio.emit( 'adduser', { 
-                cid     : stateMap.user.cid,
-                css_map : stateMap.user.css_map,
-                name    : stateMap.user.name
+            });            
+            return new Promise((resolve,reject)=>{
+            let data; 
+            fetch('autorization',{method:'post',headers: {  
+                 "Content-type": 'application/json; charset=utf-8'},
+                body: JSON.stringify({name:name})})
+            .then(response=>{
+               response.json().then(data=>{
+                   console.log(data)
+                   completeLogin([JSON.parse(data).user])
+                   resolve(JSON.parse(data).people)
+                })
+            })
+            .catch(error=>console.log('failed...'+error))               
+                
             })
          }
-        logout = ()=>{
+        
+        logout = id =>{
+            fetch('logout',{method:'post',headers: {  
+                 "Content-type": 'application/json; charset=utf-8'},
+                body: JSON.stringify({id:id})})
+            .then(response=>{
+            //    response.json().then(data=>{
+            //        console.log(data)
+            //     })
+            })
+            .catch(error=>console.log('failed...'+error))       
+
             clearPeopleDb()
-            let is_removed,user = stateMap.user;
-            is_removed = removePerson(user);
+            // let is_removed,user = stateMap.user;
+            // is_removed = removePerson(user);
             stateMap.user = stateMap.anon_user;
             makePerson(stateMap.user)
-            return is_removed;
+            // return is_removed;
         }
         return{
             get_by_cid : get_by_cid,
             get_db     : get_db,
             get_user   : get_user,
             login      : login,
-            logout     : logout            
+            logout     : logout,
+            makePerson : makePerson           
         }
 
     }())

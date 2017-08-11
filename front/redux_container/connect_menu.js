@@ -4,7 +4,7 @@ import {Header} from'../components'
 const convertStateToProps = function (state){
 //return simple object    
     return {
-        state_user:state.state_user
+        _state:state
     }
 }
 export const HeaderMenu = connect(convertStateToProps)(Header)

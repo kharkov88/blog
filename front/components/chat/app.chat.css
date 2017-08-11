@@ -23,7 +23,6 @@
     text-align: center;
 }
 .app-chat-people ul{
-    display: none;
     text-align: center;
     width: 95%;
     margin: 0 auto;
@@ -60,9 +59,14 @@
     margin: 0 auto;
     background-color: #fff;
     overflow-x: hidden;
-
     margin-bottom: 10px;
     border-radius: 5px;
+}
+.app-chat-window-msgs .new-message{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    color:grey;
 }
 .app-chat-window-box{
     display: flex;

@@ -46,24 +46,18 @@ export class Chat extends React.Component {
             <div className="app-chat-window">
                 {/* history of chat  */}
                 <div className="app-chat-window-header" onClick={()=>$('.app-chat-window34').hide()}></div>
-                  <div className="app-chat-window-msgs">
-                    {
-                        chat.map((item,index)=>{
-                          return <div style={{color:'grey'}}key={index}>
-                                    {`From: ${item.author}: ${item.msg}   ${item.date}`}
-                                </div>})
-                        })
-                    }
-                     {/* {
-                         chat_history.map((item,index)=>{
-                            return <div style={{color:'grey'}}key={index}>
-                                        {`From: ${item.from}: ${item.message}   ${item.data}`}
-                                    </div>})
-                        } */}
-                    {/* <WindowChat chat_history={chat_history}/>  */}
-                </div>   
+                    <div className="app-chat-window-msgs">
+                        {
+                            chat.map((item,index)=>{
+                            return( 
+                                <div className="new-message" key={index}>
+                                    <div><span>{item.author}:</span> <span>{item.msg}</span></div><span> {item.date}</span>
+                                </div>)
+                            })
+                        }
+                    </div>   
                  
-                 <label htmlFor="inputsm">Message for {frend&&frend.name}:</label> 
+                <label htmlFor="inputsm">Message for {frend&&frend.name}:</label> 
                 <div className="app-chat-window-box">
                     <input ref={input=>message=input}className="app-chat-input form-control" id="inputsm" type="text"/>
                     <button className="btn btn-primary" onClick={(e)=>{
@@ -86,7 +80,7 @@ export class Chat extends React.Component {
                         message.value='';
                         }}>send</button>
                 </div>
-             </div>
+            </div>
         </form>  
     </div>)
     }

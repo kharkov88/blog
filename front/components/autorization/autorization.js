@@ -17,20 +17,46 @@ export class Login extends React.Component{
         let user,ppls,array=[]; 
         let{dispatch}=this.props
         if(name.value.length>3){
+            app_autorization.visibleLogin() 
+            app_autorization.watingLogin()
             app_model.people.login(name.value)
-            app_autorization.watitingLogin()
-            setTimeout(()=>{
-                app_model.get_pplList()
+            .then((answer)=>{
                 user = app_model.people.get_user()
-                ppls = app_model.people.get_db()   
                 dispatch(changeLogin(user))
                 dispatch(autorization(user.get_is_user()))
+
+                app_model.get_pplList(answer)
+                ppls = app_model.people.get_db()
                 ppls().each(person=>array.push(person))
-                dispatch(getListPpl(array))
-                app_chat.visibleChat()
-                app_autorization.watitingLogin()           
-            },1000)
-            app_autorization.visibleLogin()     
+                dispatch(getListPpl(array))  
+                
+                app_autorization.watingLogin()
+            })
+            
+            // fetch('autorization',{method:'post',headers: {  
+            //      "Content-type": 'application/json; charset=utf-8'},
+            //     body: JSON.stringify({name:name.value})})
+            // .then(response=>{
+            //    response.json().then(data=>{
+            //     console.log(data)   
+            //     dispatch(changeLogin(JSON.parse(data)))
+            // })
+            //     dispatch(autorization(true))
+            //     app_autorization.watingLogin()
+            //     })
+            // .catch(error=>console.log('failde...'+error))
+            // setTimeout(()=>{
+            //     app_model.get_pplList()
+            //     user = app_model.people.get_user()
+            //     ppls = app_model.people.get_db()   
+            //     dispatch(changeLogin(user))
+            //     dispatch(autorization(user.get_is_user()))
+            //     ppls().each(person=>array.push(person))
+            //     dispatch(getListPpl(array))
+            //     app_chat.visibleChat()
+            //     app_autorization.watingLogin()           
+            // },1000)
+             
         }
     }
     render(){

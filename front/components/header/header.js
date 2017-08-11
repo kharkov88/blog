@@ -8,18 +8,15 @@ import app_util from'../../controller/app.util'
 import app_autorization from'../../controller/app.autorz'
 
 let menu=['main','about','contact','comment']
-export let Header = ({state_user,dispatch})=>{
-    let state_person = state_user?'logout':'login';
+export let Header = ({_state,dispatch})=>{
+    let state_person = _state.state_user?'logout':'login';
 
-    function handleClick(){
-        if(state_user){
+    function handleClickLogout(){
+        if(_state.state_user){
             let user,ppls,array=[];
-            app_model.people.logout()
-            //app_model.people.
+            app_model.people.logout(_state.user.id)
             user = app_model.people.get_user() 
             dispatch(changeLogin(user))
-            // ppls = app_model.people.get_db()
-            // ppls().each(person=>array.push(person))
             dispatch(getListPpl([]))
             dispatch(autorization(!user.get_is_anonim()))
             }
@@ -46,9 +43,9 @@ export let Header = ({state_user,dispatch})=>{
                 }
                 {/* LOGIN/LOGOU */}
                 <li >
-                    <Link to={state_user?'/':'/login'} 
+                    <Link to={_state.state_user?'/':'/login'} 
                         className={state_person} 
-                        onClick={handleClick}> {state_person}
+                        onClick={handleClickLogout}> {state_person}
                     </Link>
                 </li>
                 <li className="chat-mobile-button"><img src="contents/chat.png"/></li>

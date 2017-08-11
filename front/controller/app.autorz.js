@@ -1,5 +1,5 @@
 let app_autorization = (function(){
-    let watitingLogin,visibleLogin,stateMap,setState,handleClick,initModule;
+    let watingLogin,visibleLogin,stateMap,setState,handleClick,initModule;
 
     stateMap={
         state_user:false
@@ -7,7 +7,7 @@ let app_autorization = (function(){
     setState = ()=>{
         stateMap.state_user=!stateMap.state_user
     }
-    watitingLogin = ()=>{
+    watingLogin = ()=>{
         $('body').toggleClass('waiting')
     }
     visibleLogin = ()=>{
@@ -25,7 +25,7 @@ let app_autorization = (function(){
         initModule,
         handleClick,
         setState,
-        watitingLogin,
+        watingLogin,
         visibleLogin
     }
 }())
