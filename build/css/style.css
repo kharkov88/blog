@@ -213,7 +213,6 @@ ul{
 .app-chat-header>p{
     font-size: 16px;
     font-weight: 700;
-    text-align: center;
 }
 .app-chat-people ul{
     text-align: center;
@@ -233,11 +232,13 @@ ul{
     text-align: center;
 }
 .app-chat-avatar{
+    font-size: 22px;
+    line-height: 45px;
     height: 50px;
     width: 50px;
     border-radius: 25px;
     border: 3px solid whitesmoke;
-
+    margin-right: 10px;
 }
 
 .app-chat-window{
@@ -265,10 +266,8 @@ ul{
     display: flex;
     justify-content: space-around;
 }
-
 *{
-    transition: ease .5s;
-    
+    transition: ease .5s;  
 }
 html,body{
     font-family: 'Noto Sans', sans-serif;

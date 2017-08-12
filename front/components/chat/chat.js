@@ -7,30 +7,19 @@ import app_model from '../../model/app.model'
 export class Chat extends React.Component {
     constructor(props){
         super(props)
-        this.handleClick=this.handleClick.bind(this)
-        this.sendMsg=this.sendMsg.bind(this)
     }
-    handleClick(id){
-        $('.app-chat-window').show();
-        this.props.dispatch(selectPerson(id))
-    }
-    sendMsg(data_for_send){
-        return app_model.chat.send_msg(data_for_send)  
-    }
+
     render(){
     let {dispatch,state_user,user,peopls,frend,history,chat} = this.props;
     let visible = ''//state_user?'block':'none'
     let frend_name =[{name:''}]
-    let data_for_send = Object.create(null);
     let message='hi'
     let chat_history=[]
-    
-    history.forEach(element => {if(element.id===frend.id){chat_history=element.history}})
     
     return(
     <div className="app-chat" style={{display:visible}}>
         <div className="app-chat-header">
-            <p>Hi {user.name}!</p>
+            <p>Hi {user.name}! Now online is:</p>
         </div>
         <div className="app-chat-people">
             <ul>
@@ -57,18 +46,12 @@ export class Chat extends React.Component {
                         }
                     </div>   
                  
-                <label htmlFor="inputsm">Message for {frend&&frend.name}:</label> 
+                {/* <label htmlFor="inputsm">Message for {frend&&frend.name}:</label>  */}
+                 <label htmlFor="inputsm">Message:</label> 
                 <div className="app-chat-window-box">
                     <input ref={input=>message=input}className="app-chat-input form-control" id="inputsm" type="text"/>
                     <button className="btn btn-primary" onClick={(e)=>{
                         e.preventDefault();
-                        data_for_send = {
-                            message:message.value,
-                            user:Object.assign({},user),
-                            frend:Object.assign({},frend)
-                            }
-                        {/* let arrayHistory=this.sendMsg(data_for_send)  
-                        dispatch(updateChat(JSON.parse(arrayHistory))) */}
                         if(message.value.length>0)
                         sendRequest('newchat',user,message)
                             .then(rezult=>{
@@ -102,4 +85,3 @@ function sendRequest(url,user,message){
         })        
     }
 
-    //

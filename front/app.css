@@ -1,7 +1,5 @@
-
 *{
-    transition: ease .5s;
-    
+    transition: ease .5s;  
 }
 html,body{
     font-family: 'Noto Sans', sans-serif;

@@ -4,5 +4,4 @@
 /node_modules
 .vscode
 .DS_Store
-build/node
-build/*.js
+/build/bundle.js

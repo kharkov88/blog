@@ -1,10 +1,10 @@
 import * as React from'react'
 import {Link}from'react-router-dom'
+import {Route}from'react-router-dom'
 import {connect} from'react-redux'
 import {changeLogin,autorization,getListPpl} from'../../redux_store/actions'
 import app_model from'../../model/app.model'
 import app_autorization from'../../controller/app.autorz'
-import app_chat from'../../controller/app.chat'
 import './autorization.css'
 
 let name;
@@ -30,33 +30,9 @@ export class Login extends React.Component{
                 ppls().each(person=>array.push(person))
                 dispatch(getListPpl(array))  
                 
-                app_autorization.watingLogin()
-            })
-            
-            // fetch('autorization',{method:'post',headers: {  
-            //      "Content-type": 'application/json; charset=utf-8'},
-            //     body: JSON.stringify({name:name.value})})
-            // .then(response=>{
-            //    response.json().then(data=>{
-            //     console.log(data)   
-            //     dispatch(changeLogin(JSON.parse(data)))
-            // })
-            //     dispatch(autorization(true))
-            //     app_autorization.watingLogin()
-            //     })
-            // .catch(error=>console.log('failde...'+error))
-            // setTimeout(()=>{
-            //     app_model.get_pplList()
-            //     user = app_model.people.get_user()
-            //     ppls = app_model.people.get_db()   
-            //     dispatch(changeLogin(user))
-            //     dispatch(autorization(user.get_is_user()))
-            //     ppls().each(person=>array.push(person))
-            //     dispatch(getListPpl(array))
-            //     app_chat.visibleChat()
-            //     app_autorization.watingLogin()           
-            // },1000)
-             
+                app_autorization.watingLogin();
+                //<Route exact path="/login" component={Main}/>
+            })  
         }
     }
     render(){

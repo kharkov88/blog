@@ -4,10 +4,8 @@ import {Link}from'react-router-dom'
 import './header.css'
 import {autorization,changeLogin,getListPpl} from'../../redux_store/actions'
 import app_model from'../../model/app.model'
-import app_util from'../../controller/app.util'
-import app_autorization from'../../controller/app.autorz'
 
-let menu=['main','about','contact','comment']
+let menu=['history','gallery','about','comment']
 export let Header = ({_state,dispatch})=>{
     let state_person = _state.state_user?'logout':'login';
 
@@ -19,14 +17,12 @@ export let Header = ({_state,dispatch})=>{
             dispatch(changeLogin(user))
             dispatch(getListPpl([]))
             dispatch(autorization(!user.get_is_anonim()))
-            }
-            
+            }      
     }
-    
     return(
     <header className="header container">
         <div className="foto">
-            <img src="contents/foto.jpg" className="img-circle"  width="150" height="150"/>
+            <img src="contents/foto3.png" className="img-circle"  width="150" height="150"/>
         </div>
         <div className="menu">
             <span></span>
@@ -50,9 +46,7 @@ export let Header = ({_state,dispatch})=>{
                 </li>
                 <li className="chat-mobile-button"><img src="contents/chat.png"/></li>
             </ul>
-
         </div>  
-
     </header>
     ) 
 }

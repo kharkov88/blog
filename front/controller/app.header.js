@@ -6,10 +6,8 @@ let app_header = (function(){
         initModule;
 
     toggleBurger = function(e){
-        //alert('click',e.currentTarget.id)
         stateToggle? $('.menu').addClass('open'):$('.menu').removeClass('open')
         stateToggle = !stateToggle;
-        //return false;
     }
     burgerClick = function(){
         toggleBurger();
@@ -30,7 +28,6 @@ let app_header = (function(){
             $('.topMenu li').unbind('click',toggleBurger)
         }
     }
-
     return{
         initModule:initModule
     }

@@ -13,11 +13,11 @@ export let Content = ({content=()=>{}})=>{
                         <Sidebar/>
                     </div>
                     <div className="col-md-10 col-sm-12 col-sx-12 main-content">
-                        <Route exact path="/" component={()=><p/>}/>
-                        <Route exact path="/main" component={Main}/>
-                        
-                        <Route exact path="/contact" component={()=><p/>}/>
+                        <Route exact path="/" component={Main}/>
+                        <Route exact path="/history" component={()=><p>Компонент history</p>}/>
+                        <Route exact path="/contact" component={()=><p>Компонент контакты</p>}/>
                         <Route exact path="/comment" component={AppComment}/> 
+                        <Route exact path="/login" component={Main}/>
                         <Route exact path="/logout" component={Main}/>
                     </div>
                 </div>
