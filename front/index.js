@@ -24,7 +24,6 @@ io.connect().on('message',(msg)=>{
             break;
         case 'update_ppl':  
             function ear(){
-                console.log(objData)
                 let user = app_model.people.get_user()
                     if(user.id==undefined)setTimeout(()=>ear(),1000) 
                     else{

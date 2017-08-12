@@ -1,4 +1,5 @@
 import app_fake from'./app.fake'
+import app_data from'./app.data'
 'use strict'
 
 let app_model = (function(){
@@ -46,7 +47,6 @@ let app_model = (function(){
     class Person {
         constructor(person_map){
             this.cid     = person_map.cid,
-            this.css_map = person_map.css_map,
             this.id      = person_map.id,
             this.selected= false,
             this.name    = person_map.name;
@@ -79,43 +79,17 @@ let app_model = (function(){
         login = name => {
             stateMap.user = makePerson({
                 cid :makeCid(),
-                css_map :{top : 25, left : 25, 'background-color':'#8f8'},
                 name:name
             });            
-            return new Promise((resolve,reject)=>{
-            let data; 
-            fetch('autorization',{method:'post',headers: {  
-                 "Content-type": 'application/json; charset=utf-8'},
-                body: JSON.stringify({name:name})})
-            .then(response=>{
-               response.json().then(data=>{
-                   console.log(data)
-                   completeLogin([JSON.parse(data).user])
-                   resolve(JSON.parse(data).people)
-                })
-            })
-            .catch(error=>console.log('failed...'+error))               
-                
-            })
+            return app_data.login(completeLogin)
          }
         
         logout = id =>{
-            fetch('logout',{method:'post',headers: {  
-                 "Content-type": 'application/json; charset=utf-8'},
-                body: JSON.stringify({id:id})})
-            .then(response=>{
-            //    response.json().then(data=>{
-            //        console.log(data)
-            //     })
-            })
-            .catch(error=>console.log('failed...'+error))       
-
+            app_data.logout(id)
             clearPeopleDb()
-            // let is_removed,user = stateMap.user;
-            // is_removed = removePerson(user);
             stateMap.user = stateMap.anon_user;
             makePerson(stateMap.user)
-            // return is_removed;
+
         }
         return{
             get_by_cid : get_by_cid,
