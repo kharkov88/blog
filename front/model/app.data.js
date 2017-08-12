@@ -1,6 +1,6 @@
 let app_data = (function(){
     let login,logout,initModule;
-    login = (callback)=>{
+    login = (name,callback)=>{
         return (
             new Promise((resolve,reject)=>{
             let data; 

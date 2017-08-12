@@ -57,7 +57,7 @@
     background-color: #00adf2;
 }
 .app-chat-window-header{
-    height: 25px;
+    height: 0;
 }
 .app-chat-window-msgs{
     height: 270px;

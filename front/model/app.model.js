@@ -81,7 +81,7 @@ let app_model = (function(){
                 cid :makeCid(),
                 name:name
             });            
-            return app_data.login(completeLogin)
+            return app_data.login(name,completeLogin)
          }
         
         logout = id =>{
