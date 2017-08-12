@@ -22,10 +22,12 @@ let app_header = (function(){
             $('.topMenu li').click(toggleBurger)
             $('.menu').addClass('tablet-mobile');
             $('.App').addClass('app-mobile');
+            $('.story').hide();
         }
         else {
             $('.menu').removeClass('tablet-mobile')
             $('.topMenu li').unbind('click',toggleBurger)
+            $('.story').show()
         }
     }
     return{

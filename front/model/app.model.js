@@ -185,7 +185,7 @@ let app_model = (function(){
         stateMap.anon_user = makePerson({
             cid  : configMap.anon_id,
             id   : configMap.anon_id,
-            name : 'guest'           
+            name : `guest_${Math.floor(Math.random()*1000)}`         
         })
         stateMap.user = stateMap.anon_user;
 

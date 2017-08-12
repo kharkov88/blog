@@ -191,7 +191,10 @@ ul{
     margin:-50px 0 0 -100px;
     display: flex;
     width: 210px;
-}.app-chat{
+}.open-chat .app-chat-window, .open-chat .app-chat-people{
+   display: block;
+}
+.app-chat{
     width: 300px;
     height: 23px;
     position: absolute;
@@ -202,7 +205,6 @@ ul{
     color:#fff;
     border-radius: 0 0 0 5px;
     transition: none;
-    overflow: hidden;
     opacity: 1;  
     padding:0 2.5px; 
 }
@@ -213,6 +215,9 @@ ul{
 .app-chat-header>p{
     font-size: 16px;
     font-weight: 700;
+}
+.app-chat-people{
+    display: none;
 }
 .app-chat-people ul{
     text-align: center;
@@ -225,23 +230,22 @@ ul{
     color: #00adf2;
 }
 .app-chat-people ul li{
-    width:40%; 
-    line-height: 50px;
     font-weight: 700;
-    display: flex;  
-    text-align: center;
+    display: flex;
 }
 .app-chat-avatar{
-    font-size: 22px;
-    line-height: 45px;
-    height: 50px;
-    width: 50px;
-    border-radius: 25px;
-    border: 3px solid whitesmoke;
-    margin-right: 10px;
+    height: 24px;
+    width: 24px;
+    border-radius: 12px;
+    /* border: 3px solid whitesmoke; */
+    margin: 0 10px 5px 0;
 }
-
+.app-chat-avatar img{
+    width: 20px;
+    height: 20px;
+}
 .app-chat-window{
+    display: none;
     margin: 0 auto;
     background-color: #00adf2;
 }

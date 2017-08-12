@@ -3,7 +3,7 @@ var app_chat = (function(){
     let
      configMap={
         stateChat:false,
-        extendHeight:'100%',
+        extendHeight:415,
         retractHeight:23
     },
     toggleChat,visibleChat,visiblePeople,versionToggle,initModule,$chat;
@@ -12,6 +12,7 @@ var app_chat = (function(){
         let $height = configMap.stateChat?configMap.retractHeight:configMap.extendHeight;
         $chat.animate({height:$height},500)
         configMap.stateChat=!configMap.stateChat;
+        $('.app-chat').toggleClass('open-chat')
     };
     visibleChat = ()=>{
         $('.app-chat').toggleClass('visible')

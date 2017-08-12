@@ -7,7 +7,9 @@ export let Li = ({person,id,dispatch})=>{
     return <div>
     
         <li  onClick={()=>{handleClicking(id,dispatch)}}>
-            <span className={`app-chat-avatar ${color}`}>{person.name.substr(0,1).toUpperCase()}</span>
+            <span className={`app-chat-avatar ${color}`}>
+                <img src="contents/default-avatar.png"/>
+            </span>
             {person.name}
             </li>
     </div>

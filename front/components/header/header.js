@@ -22,7 +22,9 @@ export let Header = ({_state,dispatch})=>{
     return(
     <header className="header container">
         <div className="foto">
-            <img src="contents/foto3.png" className="img-circle"  width="150" height="150"/>
+            <Link to='/'>
+                <img src="contents/foto3.png" className="img-circle"  width="150" height="150"/>
+            </Link>
         </div>
         <div className="menu">
             <span></span>

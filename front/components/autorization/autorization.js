@@ -31,7 +31,7 @@ export class Login extends React.Component{
                 dispatch(getListPpl(array))  
                 
                 app_autorization.watingLogin();
-                //<Route exact path="/login" component={Main}/>
+                $('.img-circle').trigger('click')
             })  
         }
     }

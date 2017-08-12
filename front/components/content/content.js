@@ -14,10 +14,15 @@ export let Content = ({content=()=>{}})=>{
                     </div>
                     <div className="col-md-10 col-sm-12 col-sx-12 main-content">
                         <Route exact path="/" component={Main}/>
-                        <Route exact path="/history" component={()=><p>Компонент history</p>}/>
+                        <Route exact path="/history" component={()=><div >
+                            <img src="contents/story.svg" alt=""/>
+                            </div>}/>
                         <Route exact path="/contact" component={()=><p>Компонент контакты</p>}/>
                         <Route exact path="/comment" component={AppComment}/> 
-                        <Route exact path="/login" component={Main}/>
+                        <Route exact path="/login" component={()=>{
+                            return <div>
+                                        <p>Success!</p>
+                                    </div>}}/>
                         <Route exact path="/logout" component={Main}/>
                     </div>
                 </div>
