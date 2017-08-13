@@ -3,6 +3,7 @@ import {connect}from'react-redux'
 import ShowComments from'../containers/showComments'
 import InputForm from '../containers/inputForm'
 import {clearComments,addComment}from'../actions'
+
 class App extends React.Component{
     componentDidMount(){
         fetch('/basecomment',{

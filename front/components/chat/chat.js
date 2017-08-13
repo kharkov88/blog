@@ -11,6 +11,23 @@ export class Chat extends React.Component {
         super(props)
         this.clickLogin=this.clickLogin.bind(this)
     }
+    componentDidMount(){
+        fetch('/chathistory',{
+            method:'post',
+            headers:{"Content-type": 'application/json; charset=utf-8'}
+        })
+        .then(response=>{
+            response.json().then(data=>{
+                let answer = JSON.parse(data)
+                    answer.map(item=>this.props.dispatch(addMessage({
+                    author:item.author,
+                    frendy:item.frendy,
+                    msg:item.msg,
+                    date:item.data
+                })))
+            })          
+        })
+    }
     clickLogin(){
         let {user,state_user,dispatch}=this.props
         !state_user&&$('.content-login').toggleClass('login-visible')
@@ -52,9 +69,10 @@ export class Chat extends React.Component {
                     <div className="app-chat-window-msgs">
                         {
                             chat.map((item,index)=>{
+                            let textColor = item.frendy!=""?'#742ae6':"grey"
                             return( 
-                                <div className="new-message" key={index}>
-                                    <div><span>{item.author}:</span> <span>{item.msg}</span></div><span> {item.date}</span>
+                                <div className="new-message"  key={index}>
+                                    <div><span style={{color:textColor}}>{item.author}</span><span style={{color:textColor}}>{item.frendy!=""&&` told ${item.frendy} `}:</span> <span style={{color:'black',fontWeight:'700'}}>{` ${item.msg}`}</span></div><span> {item.date}</span>
                                 </div>)
                             })
                         }
@@ -67,7 +85,7 @@ export class Chat extends React.Component {
                     <button className="btn btn-primary" onClick={(e)=>{
                         e.preventDefault();
                         if(message.value.length>0)
-                        sendRequest('newchat',user,message)
+                        sendRequest('newchat',user,frend,message)
                             .then(rezult=>{
                                 console.log('response:',rezult)
                             },
@@ -91,7 +109,7 @@ export class Chat extends React.Component {
     }
 }
 
-function sendRequest(url,user,message){
+function sendRequest(url,user,frend,message){
         return new Promise((resolve,reject)=>{
             let xhr=new XMLHttpRequest();
             xhr.open('post',url)
@@ -103,7 +121,8 @@ function sendRequest(url,user,message){
             xhr.addEventListener('error',()=>{
                 reject();
             })
-            xhr.send(JSON.stringify({userName:user.name,userMsg:message.value}));
+
+            xhr.send(JSON.stringify({userName:user.name,frendName:frend.name,userMsg:message.value}));
         })        
     }
 

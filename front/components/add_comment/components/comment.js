@@ -3,7 +3,6 @@ import {connect} from'react-redux'
 import {changeCheck}from'../actions'
 
 let check
-
 let Comment= ({check,id,dispatch,author,comment,date})=>{
     return (
         <div >

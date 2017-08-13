@@ -70,6 +70,7 @@ export function reducer(state=init,action){
                         {
                         author:action.obj.author,
                         msg:action.obj.msg,
+                        frendy:action.obj.frendy,
                         date:action.obj.date
                         }
                     ]})

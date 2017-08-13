@@ -20,25 +20,38 @@ app.post('/newchat', jsonParse, (req, res) => {
 	let msg = {
 		action: 'add_msg',
 		author: req.body.userName,
+		frendy:req.body.frendName,
 		msg: req.body.userMsg,
 		data: new Date().toTimeString().substr(0, 8)
-	}
+	},
+		file = 'data/history.json';
+	fs.readFile(file,'utf-8',(err,data)=>{
+		let arr = JSON.parse(data)
+		arr.push(msg)
+		fs.writeFile(file,JSON.stringify(arr))
+	})
 	io.send(JSON.stringify(msg))
 	res.json(JSON.stringify(msg))
 })
 app.post('/autorization', jsonParse, (req, res) => {
+	let file = "data/people.json"
 	count++;
-	ppls_list.push({
-		name: req.body.name,
-		_id: `id_0${count}`
-	})
-	res.json(JSON.stringify({
-		user: {
+	fs.readFile(file,'utf-8',(err,data)=>{
+		let arr = JSON.parse(data)
+		arr.push({
 			name: req.body.name,
 			_id: `id_0${count}`
-		},
-		people: ppls_list
-	}))
+		})
+		fs.writeFile(file,JSON.stringify(arr))
+		res.json(JSON.stringify({
+			user: {
+				name: req.body.name,
+				_id: `id_0${count}`
+			},
+			people: arr
+		}))
+	})
+
 	io.send(JSON.stringify({
 		action: 'update_ppl',
 		_id: `id_0${count}`,
@@ -46,22 +59,34 @@ app.post('/autorization', jsonParse, (req, res) => {
 	}))
 })
 app.post('/logout', jsonParse, (req, res) => {
-	let find_user, id;
-	ppls_list.map((item, index) => {
-		if (item._id == req.body.id) {
-			find_user = index;
-			id = item._id
-		}
+	let find_user,file,id;
+	file = 'data/people.json'
+	fs.readFile(file,'utf-8',(err,data)=>{
+		let arr = JSON.parse(data)
+		arr.map((item, index) => {
+			if (item._id == req.body.id) {
+				find_user = index;
+				id = item._id
+			}
+		})
+		arr.splice(find_user,1)
+		fs.writeFile(file,JSON.stringify(arr))
+		res.json(JSON.stringify({
+			__id: find_user
+		}))
+		io.send(JSON.stringify({
+			action: 'update_ppl',
+			_id: id,
+			people: arr
+		}))
 	})
-	ppls_list.splice(find_user, 1)
-	res.json(JSON.stringify({
-		__id: find_user
-	}))
-	io.send(JSON.stringify({
-		action: 'update_ppl',
-		_id: id,
-		people: ppls_list
-	}))
+	// ppls_list.map((item, index) => {
+	// 	if (item._id == req.body.id) {
+	// 		find_user = index;
+	// 		id = item._id
+	// 	}
+	// })
+	// ppls_list.splice(find_user, 1)
 })
 app.post('/newcomment',jsonParse,(req,res)=>{
 	let file='data/comments.json'
@@ -80,13 +105,18 @@ app.post('/newcomment',jsonParse,(req,res)=>{
 	})
 })
 app.post('/basecomment',(req,res)=>{
-	let file = ('data/comments.json')
+	let file = 'data/comments.json'
 	fs.readFile(file,'utf-8',(er,data)=>{
 		res.json(data)
 	})
 	
 })
-
+app.post('/chathistory',(req,res)=>{
+	let file = 'data/history.json'
+	fs.readFile(file,'utf-8',(err,data)=>{
+		res.json(data)
+	})
+})
 let port = process.env.PORT || 5000;
 server.listen(port);
 console.log('Express-сервер прослушивает порт %d в режиме %s',

@@ -19,7 +19,8 @@ io.connect().on('message',(msg)=>{
             store.dispatch(addMessage({
                 author:objData.author,
                 msg:objData.msg,
-                date:objData.data
+                date:objData.data,
+                frendy:objData.frendy
             }))
             break;
         case 'update_ppl':  
