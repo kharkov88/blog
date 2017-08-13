@@ -3,13 +3,12 @@ let app_data = (function(){
     login = (name,callback)=>{
         return (
             new Promise((resolve,reject)=>{
-            let data; 
-            fetch('autorization',{method:'post',headers: {  
+            //let data; 
+            fetch('/autorization',{method:'post',headers: {  
                  "Content-type": 'application/json; charset=utf-8'},
                 body: JSON.stringify({name:name})})
             .then(response=>{
                response.json().then(data=>{
-                   console.log(data)
                    callback([JSON.parse(data).user])
                    resolve(JSON.parse(data).people)
                 })
@@ -18,7 +17,7 @@ let app_data = (function(){
             }))
     }
     logout = (id)=>{
-            fetch('logout',{method:'post',headers: {  
+            fetch('/logout',{method:'post',headers: {  
                  "Content-type": 'application/json; charset=utf-8'},
                 body: JSON.stringify({id:id})})
             .then(response=>{

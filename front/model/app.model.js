@@ -89,7 +89,6 @@ let app_model = (function(){
             clearPeopleDb()
             stateMap.user = stateMap.anon_user;
             makePerson(stateMap.user)
-
         }
         return{
             get_by_cid : get_by_cid,

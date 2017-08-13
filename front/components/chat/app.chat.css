@@ -40,6 +40,15 @@
     font-weight: 700;
     display: flex;
 }
+.app-chat-login{
+    width: 30px;
+    margin: 0 auto;
+    
+}
+.app-chat-login>a{
+    color: #fff;
+    font-weight: 700;
+}
 .app-chat-avatar{
     height: 24px;
     width: 24px;
@@ -76,4 +85,5 @@
 .app-chat-window-box{
     display: flex;
     justify-content: space-around;
+    margin-bottom: 7px;
 }

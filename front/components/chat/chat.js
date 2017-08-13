@@ -1,14 +1,28 @@
 import React from'react'
-import './app.chat.css'
+import {Route}from'react-router'
 import {Li} from'./person'
 import {WindowChat}from'./chat.history'
-import {selectPerson,updateChat,addMessage}from'../../redux_store/actions'
+import {ConnectLogin} from'../../redux_container/connect_login'
+import {selectPerson,updateChat,addMessage,changeLogin,getListPpl,autorization}from'../../redux_store/actions'
 import app_model from '../../model/app.model'
+import './app.chat.css'
 export class Chat extends React.Component {
     constructor(props){
         super(props)
+        this.clickLogin=this.clickLogin.bind(this)
     }
-
+    clickLogin(){
+        let {user,state_user,dispatch}=this.props
+        !state_user&&$('.content-login').toggleClass('login-visible')
+        if(state_user){
+            let user_now,ppls,array=[];
+            app_model.people.logout(user.id)
+            user_now = app_model.people.get_user() 
+            dispatch(changeLogin(user_now))
+            dispatch(getListPpl([]))
+            dispatch(autorization(!user_now.get_is_anonim()))
+            }      
+    }
     render(){
     let {dispatch,state_user,user,peopls,frend,history,chat} = this.props;
     let visible = ''//state_user?'block':'none'
@@ -19,7 +33,7 @@ export class Chat extends React.Component {
     return(
     <div className="app-chat" style={{display:visible}}>
         <div className="app-chat-header">
-            <p>Hi {user.name}! Now online is:</p>
+            <p>Hi {user.name}! </p>
         </div>
         <div className="app-chat-people">
             <ul>
@@ -63,8 +77,16 @@ export class Chat extends React.Component {
                         message.value='';
                         }}>send</button>
                 </div>
+                <div className="app-chat-login">
+                    <a  onClick={(e)=>{
+                        e.preventDefault();
+                        this.clickLogin()
+                        }}>{state_user?'Logout':'Login'}</a>
+                </div>
+
             </div>
         </form>  
+        <ConnectLogin/>
     </div>)
     }
 }

@@ -13,3 +13,5 @@ const convertStateToProps = function (state){
     }
 }
 export const ConnectChat = connect(convertStateToProps)(Chat)
+
+export const Chatee = ()=> <ConnectChat/>

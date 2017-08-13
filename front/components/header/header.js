@@ -40,12 +40,12 @@ export let Header = ({_state,dispatch})=>{
                     })
                 }
                 {/* LOGIN/LOGOU */}
-                <li >
+                {/* <li >
                     <Link to={_state.state_user?'/':'/login'} 
                         className={state_person} 
                         onClick={handleClickLogout}> {state_person}
                     </Link>
-                </li>
+                </li> */}
                 <li className="chat-mobile-button"><img src="contents/chat.png"/></li>
             </ul>
         </div>  

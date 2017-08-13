@@ -9,7 +9,7 @@ import './autorization.css'
 
 let name;
 export class Login extends React.Component{
-    constructor(props,dispatch){
+    constructor(props){
         super(props)
         this.handleClick = this.handleClick.bind(this)
     }
@@ -31,12 +31,12 @@ export class Login extends React.Component{
                 dispatch(getListPpl(array))  
                 
                 app_autorization.watingLogin();
-                $('.img-circle').trigger('click')
+                name.value=''
             })  
         }
     }
     render(){
-    return<div className="content-login login-visible">
+    return<div className="content-login ">
             <div className="content-login-box">
                 <input  ref={input=>name=input} type="text" className="node"  placeholder="Your name:"/>
                 <button className="btn btn-info btn-sm" onClick={this.handleClick}>login</button>

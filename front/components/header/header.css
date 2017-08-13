@@ -19,6 +19,7 @@
 } 
 .topMenu{
     list-style: none;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     margin: 0 50px;

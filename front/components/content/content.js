@@ -1,9 +1,6 @@
 import * as React from'react'
-import {Sidebar} from'../sidebar'
+import {Sidebar,Main,AppComment,Chat} from'../'
 import {Route}from'react-router-dom'
-import {Main}from'../main'
-import {AppComment}from'../add_comment'
-
 import './content.css'
 
 export let Content = ({content=()=>{}})=>{
@@ -17,12 +14,9 @@ export let Content = ({content=()=>{}})=>{
                         <Route exact path="/history" component={()=><div >
                             <img src="contents/story.svg" alt=""/>
                             </div>}/>
-                        <Route exact path="/contact" component={()=><p>Компонент контакты</p>}/>
+                        <Route exact path="/gallery" component={()=><p>gallery....</p>}/>
+                        <Route exact path="/about" component={()=><p>about....</p>}/>
                         <Route exact path="/comment" component={AppComment}/> 
-                        <Route exact path="/login" component={()=>{
-                            return <div>
-                                        <p>Success!</p>
-                                    </div>}}/>
                         <Route exact path="/logout" component={Main}/>
                     </div>
                 </div>

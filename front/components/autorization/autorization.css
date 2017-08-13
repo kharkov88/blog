@@ -1,10 +1,10 @@
 
 .waiting::before{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     content: '';
     background: lightblue;
     opacity: .9;
@@ -13,13 +13,15 @@
 }
 .content-login{
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     z-index: 1200;
     background-color:cornsilk;  
+    border-radius: 5px;
+    opacity: 1;
 }
 .login-visible{
     display: block;
@@ -31,4 +33,7 @@
     margin:-50px 0 0 -100px;
     display: flex;
     width: 210px;
+}
+.content-login-box>input{
+    color:grey;
 }
