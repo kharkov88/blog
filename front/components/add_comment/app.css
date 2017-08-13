@@ -15,6 +15,9 @@ ul{
     display: flex;
     justify-content: space-between;
 }
+.app-comment{
+    width:80%;
+}
 .btn-delete{
     float: right;
 }

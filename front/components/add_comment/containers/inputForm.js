@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect}from'react-redux'
-import {addComment}from'../actions'
+import {addComment,clearComments}from'../actions'
 
 let InputForm = ({dispatch})=>{
     let author,text;
@@ -12,7 +12,19 @@ let InputForm = ({dispatch})=>{
             <textarea ref={node=>text=node}className="form-control" rows="5" id="comment"></textarea>
             <button onClick={()=>{
                 if(!author.value.trim()||!text.value.trim()){return}
-                dispatch(addComment(author.value,text.value))
+                fetch('/newcomment',{
+                    method:'post',
+                    headers:{"Content-type": 'application/json; charset=utf-8'},
+                    body:JSON.stringify({author:author.value,comment:text.value})
+                })
+                .then(response=>{
+                    response.json().then(data=>{
+                        let answer = JSON.parse(data)
+                        dispatch(clearComments())
+                        answer.map(item=>dispatch(addComment(item.author,item.comment,item.date)))
+                    })          
+                })
+                //dispatch(addComment(author.value,text.value))
                 author.value='';
                 text.value='';
                 }} 

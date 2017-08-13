@@ -4,9 +4,11 @@ let app_data = (function(){
         return (
             new Promise((resolve,reject)=>{
             //let data; 
-            fetch('/autorization',{method:'post',headers: {  
-                 "Content-type": 'application/json; charset=utf-8'},
-                body: JSON.stringify({name:name})})
+            fetch('/autorization',{
+                method:'post',
+                headers: {"Content-type": 'application/json; charset=utf-8'},
+                body: JSON.stringify({name:name})
+            })
             .then(response=>{
                response.json().then(data=>{
                    callback([JSON.parse(data).user])

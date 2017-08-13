@@ -4,12 +4,12 @@ export const DELETE_COMMENT="DELETE_COMMENT"
 export const FILTER_NAME="FILTER_NAME"
 export const FILTERING="FILTERING"
 
-export function addComment(name,text){
+export function addComment(name,text,date){
     return {
         type:ADD_COMMENT,
         author:name,
         text:text,
-        date:new Date().toTimeString().substring(0,8),
+        date:date,
         passedFiltering:true
     }
 }
@@ -34,5 +34,12 @@ export function filtering(filter){
     return{
         type:FILTERING,
         filter
+    }
+}
+
+export const CLEAR = 'CLEAR'
+export function clearComments(){
+    return{
+        type:CLEAR
     }
 }

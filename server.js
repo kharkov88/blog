@@ -3,7 +3,8 @@ let
     express = require('express'),
     bodyParser = require("body-parser"),
     jsonParse = bodyParser.json(),
-    socket = require('socket.io')
+	socket = require('socket.io'),
+	fs =require('fs'),
     app = express(),
     count = 0,
     ppls_list = [],
@@ -62,7 +63,31 @@ app.post('/logout', jsonParse, (req, res) => {
 		people: ppls_list
 	}))
 })
-var port = process.env.PORT || 5000;
+app.post('/newcomment',jsonParse,(req,res)=>{
+	let file='data/comments.json'
+	fs.readFile(file,'utf-8',(error,data)=>{
+		if(error)console.log('error:',error)
+		else{
+			let obj = JSON.parse(data)
+			obj.push({
+				author:req.body.author,
+				comment:req.body.comment,
+				date:String(new Date()).substr(4,20)})
+			fs.writeFile(file,JSON.stringify(obj))
+			console.log(obj)
+			res.json(JSON.stringify(obj))
+		}
+	})
+})
+app.post('/basecomment',(req,res)=>{
+	let file = ('data/comments.json')
+	fs.readFile(file,'utf-8',(er,data)=>{
+		res.json(data)
+	})
+	
+})
+
+let port = process.env.PORT || 5000;
 server.listen(port);
 console.log('Express-сервер прослушивает порт %d в режиме %s',
 	        server.address().port, app.settings.env);

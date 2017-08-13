@@ -1,4 +1,4 @@
-import {ADD_COMMENT,CHECK,DELETE_COMMENT,FILTERING} from'../actions'
+import {ADD_COMMENT,CHECK,DELETE_COMMENT,FILTERING,CLEAR} from'../actions'
 let id=0;
 
 export default function changeComments(state=[],action){
@@ -14,6 +14,8 @@ export default function changeComments(state=[],action){
                 check:false,
                 passedFiltering:action.passedFiltering
             }]
+        case CLEAR:
+        return []
         case DELETE_COMMENT:
         return state.filter((item)=>{return item.check==false})
 
