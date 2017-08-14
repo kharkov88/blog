@@ -26,21 +26,8 @@ export function reducer(state=init,action){
             return Object.assign({},state,{
                 peopls:action.data
             })
-        case SELECT_PERSON:
-            let arr_ppl=[];
-            let obj=Object.assign({},state,{peopls:state.peopls.map(item=>item)})
-            arr_ppl=obj.peopls
-            
-            // for(let i=0;i<arr_ppl.length;i++){
-            //     if(arr_ppl[i].id===action.id){arr_ppl[i].selected=true}
-            //     else arr_ppl[i].selected=false
-            // }
-            // console.log('arr:',arr_ppl)
-            //  console.log('stete_ppl:',state.peopls)
-             //return state
-     
-            return Object.assign({},state,{
-                
+        case SELECT_PERSON:  
+            return Object.assign({},state,{      
                 peopls:state.peopls.map(item=>{
                     if(item.id===action.id){
                         for(let key in item){

@@ -26,7 +26,8 @@ app.post('/newchat', jsonParse, (req, res) => {
 	},
 		file = 'data/history.json';
 	fs.readFile(file,'utf-8',(err,data)=>{
-		let arr = JSON.parse(data)
+		let arr = [];
+		arr = JSON.parse(data)
 		arr.push(msg)
 		fs.writeFile(file,JSON.stringify(arr))
 	})
@@ -34,10 +35,11 @@ app.post('/newchat', jsonParse, (req, res) => {
 	res.json(JSON.stringify(msg))
 })
 app.post('/autorization', jsonParse, (req, res) => {
-	let file = "data/people.json"
+	let file = "data/people.json",
+		arr=[];
 	count++;
 	fs.readFile(file,'utf-8',(err,data)=>{
-		let arr = JSON.parse(data)
+		arr = JSON.parse(data)
 		arr.push({
 			name: req.body.name,
 			_id: `id_0${count}`
@@ -50,13 +52,12 @@ app.post('/autorization', jsonParse, (req, res) => {
 			},
 			people: arr
 		}))
-	})
-
-	io.send(JSON.stringify({
+		io.send(JSON.stringify({
 		action: 'update_ppl',
 		_id: `id_0${count}`,
-		people: ppls_list
+		people: arr
 	}))
+	})
 })
 app.post('/logout', jsonParse, (req, res) => {
 	let find_user,file,id;

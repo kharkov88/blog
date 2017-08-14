@@ -5,7 +5,7 @@ import './header.css'
 import {autorization,changeLogin,getListPpl} from'../../redux_store/actions'
 import app_model from'../../model/app.model'
 
-let menu=['history','gallery','about','comment']
+let menu=['world','gallery','about','comment']
 export let Header = ({_state,dispatch})=>{
     let state_person = _state.state_user?'logout':'login';
 

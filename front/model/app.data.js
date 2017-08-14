@@ -1,5 +1,5 @@
 let app_data = (function(){
-    let login,logout,initModule;
+    let login,logout,chathistory;
     login = (name,callback)=>{
         return (
             new Promise((resolve,reject)=>{
@@ -26,9 +26,13 @@ let app_data = (function(){
             })
             .catch(error=>console.log('failed...'+error))  
     }
+    chathistory = ()=>{
+        
+    }
     return {
         login,
-        logout
+        logout,
+        chathistory
     }
 }())
 
