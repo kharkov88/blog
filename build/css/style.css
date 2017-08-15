@@ -122,7 +122,40 @@
 }
 .mainText>span{
     margin-left: 25px; 
+}.afterComentText{
+    text-align: justify;
 }
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.commentDiv{
+    background-color: pink;
+    border:1px solid pink;
+    border-radius:4px;
+    padding: 10px 15px;
+    margin-bottom: 1px; 
+    display: flex;
+    justify-content: space-between;
+}
+.app-comment{
+    width:80%;
+}
+.btn-delete{
+    float: right;
+}
+.list-header{
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+.footer{
+    display: none;
+    /* display: flex; */
+    justify-content: space-around;
+}
+
 .infa{
     display:flex;
     justify-content: center;

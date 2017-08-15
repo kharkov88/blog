@@ -24,6 +24,5 @@ export let Main = ()=>{
             Также вы можете применить к вашему HTML сторонние фреймворки и библиотеки, что позволит вам
             ускорить создание сайтов и приложений.`}
             </div>
-            <div className='story' style={{width:'70%',margin:'0 auto'}}><img src="contents/diagram.png" /></div>
             </section>
 }
