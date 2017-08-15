@@ -11,7 +11,7 @@ import app_model from'./model/app.model'
 
 const logger = createLogger()
 const store = createStore(reducer,applyMiddleware(logger));
-
+console.log('state:',store.getState())
 io.connect().on('message',(msg)=>{
     let objData = JSON.parse(msg)
     switch(objData.action){
