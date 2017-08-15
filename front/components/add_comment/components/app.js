@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect}from'react-redux'
-import ShowComments from'../containers/showComments'
-import InputForm from '../containers/inputForm'
+import Comments from'../containers/connectList'
+import Form from '../containers/connectForm'
 import {clearComments,addComment}from'../actions'
 
 class App extends React.Component{
-    componentDidMount(){
+    componentWillMount(){
         fetch('/basecomment',{
             method:'post',
             headers:{"Content-type": 'application/json; charset=utf-8'}
@@ -21,8 +21,8 @@ class App extends React.Component{
     render(){
     return (
         <div>
-            <InputForm/>
-            <ShowComments/>
+            <Form/>
+            <Comments/>
         </div>
     )
 }}

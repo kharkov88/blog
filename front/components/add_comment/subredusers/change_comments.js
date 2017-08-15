@@ -1,7 +1,7 @@
 import {ADD_COMMENT,CHECK,DELETE_COMMENT,FILTERING,CLEAR} from'../actions'
 let id=0;
 
-export default function changeComments(state=[],action){
+export  function changeComments(state=[],action){
     switch(action.type){
         case ADD_COMMENT:
         return [

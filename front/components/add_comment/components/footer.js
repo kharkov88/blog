@@ -9,7 +9,9 @@ export let Footer = ({dispatch})=>{
         <div className="footer">
             <input ref={input=>filter=input} type="text"placeholder="filter of name" className="form-control input-sm"
             onChange={()=>dispatch(filtering(filter.value))}/>
-            <button onClick={()=>{dispatch(deleteComment())}} className="btn-delete btn btn-warning btn-xs">delete</button></div>
+            <button onClick={()=>{dispatch(deleteComment())}} className="btn-delete btn btn-warning btn-xs">hide</button>
+            <button className="btn-delete btn btn-warning btn-xs">reset</button>
+        </div>
     </div>
     )
 }

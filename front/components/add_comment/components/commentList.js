@@ -1,24 +1,32 @@
 import React from 'react'
-import Comment from './comment'
-import {connect} from'react-redux'
-import {deleteComment,filterName,filtering}from'../actions'
+import Comment from './commentElement'
 import {Footer}from'./footer'
 
-const CommnetList= ({dispatch,comment})=>{
-    //console.log("props commnent:",comment)
-    let text,button,filter;
+const CommnetList= ({actions,visible,comment,fetching})=>{
+    let text,button,filter,count=comment.length;
+    function toggleClick (){
+        actions.toggleVisible()
+    }
+    visible?comment:comment=[]
     return(
         <div>
-        <ul>
-            <span><b>{text}</b></span>
-            {   
-                comment.map((item,index)=>{
-                    if(item.passedFiltering)
-                    return <Comment key={index} {...item}/>
-                })
-            }
-        </ul>
-        {comment.length!=0&&comment!=undefined?<Footer/>:null}
+            <div className="list-header">
+                <div>{fetching?`loading...`:`${count} comments`}</div>
+                <div><button className="btn btn-info btn-sm" onClick={toggleClick}>
+                        {visible?'HIDE':'SHOW'}
+                    </button>
+                </div>
+            </div>
+            <ul>
+                <span><b>{text}</b></span>
+                {   
+                    comment.map((item,index)=>{
+                        if(item.passedFiltering)
+                        return <Comment key={index} {...item}/>
+                    })
+                }
+            </ul>
+            {comment.length!=0&&comment!=undefined?<Footer/>:null}
         </div>
     )
 }

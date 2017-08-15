@@ -21,7 +21,13 @@ ul{
 .btn-delete{
     float: right;
 }
-.footer{
+.list-header{
+    font-weight: 700;
     display: flex;
+    justify-content: space-between;
+}
+.footer{
+    display: none;
+    /* display: flex; */
     justify-content: space-around;
 }
