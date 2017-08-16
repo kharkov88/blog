@@ -70,12 +70,9 @@ export function getComments(author,comment){
         .then(response=>{
             response.json().then(data=>{
                 let answer = JSON.parse(data)
-                setTimeout(()=>{
                 dispatch(clearComments())
                 answer.map(item=>dispatch(addComment(item.author,item.comment,item.date)))
-                dispatch(getRequst())
-                },3500)
-                
+                dispatch(getRequst())                
             })          
         }) 
     }

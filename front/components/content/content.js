@@ -11,9 +11,21 @@ export let Content = ({content=()=>{}})=>{
                     </div>
                     <div className="col-md-10 col-sm-12 col-sx-12 main-content">
                         <Route exact path="/" component={Main}/>
-                        <Route exact path="/world" component={World}/>
-                        <Route exact path="/gallery" component={()=><p>gallery....</p>}/>
-                        <Route exact path="/about" component={()=><p>about....</p>}/>
+                        <Route exact path="/mvc" component={()=>
+                            <div>
+                                <img src="contents/mvc.png" style={{width:'100%'}}/>
+                            </div>
+                        }/>
+                        <Route exact path="/spa" component={()=>
+                            <div>
+                                <img src="contents/spa.jpg" style={{width:'100%'}}/>
+                            </div>
+                        }/>
+                        <Route exact path="/flux" component={()=>
+                            <div>
+                                <img src="contents/flux.png" style={{width:'100%'}}/>
+                            </div>
+                        }/>
                         <Route exact path="/comment" component={AppComment}/> 
                         <Route exact path="/logout" component={Main}/>
                     </div>
