@@ -1,9 +1,8 @@
 import React from 'react'
-import {connect}from'react-redux'
 import {Message}from'./message'
 
 
-class  Messages extends React.Component{
+export class  Content extends React.Component{
     render(){
         return (
             <div className="app-chat-msgs">
@@ -18,9 +17,4 @@ class  Messages extends React.Component{
         )
     }
 }
-const convertStateToProps = function (state){  
-    return  {
-        message:state.message
-    }
-}
-export const Book = connect(convertStateToProps)(Messages)
+

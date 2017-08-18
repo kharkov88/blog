@@ -10,8 +10,8 @@ let app_shell = (function(){
     initModule = function(){
         domElements.$chat=$('.app-chat');
         app_header.initModule();
-        app_chat.initModule(domElements.$chat);
-        app_aurtorization.initModule();
+        //app_chat.initModule(domElements.$chat);
+        //app_aurtorization.initModule();
         window.onresize = ()=>app_header.initModule();
     }
     return {

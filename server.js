@@ -16,7 +16,7 @@ app.use( express.static( __dirname + '/build' ) );
 app.get( '*', function ( request, response ) { 
     response.redirect( '/' );
 }); 
-app.post('/newchat', jsonParse, (req, res) => {
+app.post('/new-message', jsonParse, (req, res) => {
 	let msg = {
 		action: 'add_msg',
 		author: req.body.userName,

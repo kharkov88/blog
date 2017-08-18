@@ -5,7 +5,7 @@ import {WindowChat}from'./chat.history'
 import {ConnectLogin} from'../../redux_container/connect_login'
 import {selectPerson,updateChat,addMessage,changeLogin,getListPpl,autorization}from'../../redux_store/actions'
 import app_model from '../../model/app.model'
-import './app.chat.css'
+//import './app.chat.css'
 export class Chat extends React.Component {
     constructor(props){
         super(props)

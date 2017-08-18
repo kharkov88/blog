@@ -18,7 +18,7 @@ export let Content = ({content=()=>{}})=>{
                         }/>
                         <Route exact path="/spa" component={()=>
                             <div>
-                                <img src="contents/spa.jpg" style={{width:'100%'}}/>
+                                <img src="contents/spa.JPG" style={{width:'100%'}}/>
                             </div>
                         }/>
                         <Route exact path="/flux" component={()=>

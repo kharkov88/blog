@@ -213,96 +213,70 @@ ul{
 }
 .content-login-box>input{
     color:grey;
-}.open-chat .app-chat-window, .open-chat .app-chat-people{
-   display: block;
+}ul,li{
+    margin: 0;
+    padding: 0;
 }
 .app-chat{
     width: 300px;
-    height: 23px;
-    position: absolute;
-    top: 0;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
     right: 0;
     cursor: pointer;
     background-color: #00adf2;
     color:#fff;
-    border-radius: 0 0 0 5px;
-    transition: none;
-    opacity: 1;  
+    border-radius: 5px 0 0 0;
+    transition: ease 0.5s;
+    overflow: hidden;
+    opacity: 1;   
 }
-.app-mobile .app-chat{
-    width: 100%;
-    
-}
-.app-chat-header>p{
-    font-size: 16px;
-    font-weight: 700;
-}
-.app-chat-people{
-    display: none;
-}
-.app-chat-people ul{
-    text-align: center;
-    width: 95%;
-    margin: 0 auto;
-}
-.app-chat-people ul .app-chat-person-select  {
-    border-color: whitesmoke;
-    background-color: whitesmoke;
-    color: #00adf2;
-}
-.app-chat-people ul li{
-    font-weight: 700;
+.app-chat-header{
+    height: 30px;
     display: flex;
+    justify-content: space-between;
+    margin: 4px auto;
 }
-.app-chat-login{
-    width: 30px;
-    margin: 0 auto 7px auto;    
+.header-autoriz>div>div{
+    display:inline;
 }
-.app-chat-login>a{
-    color: #fff;
-    font-weight: 700;
+.header-input-name{
+    background-color:#fff;
+    color: black;
+    margin-right: 5px;
 }
-.app-chat-avatar{
-    height: 24px;
-    width: 24px;
-    border-radius: 12px;
-    /* border: 3px solid whitesmoke; */
-    margin: 0 10px 5px 0;
+.header-input-name>input{
+    width: 80px;
+    border: 1px solid lightslategray;
 }
-.app-chat-avatar img{
-    width: 20px;
-    height: 20px;
+.header-button{
+    width: 50px;
+    float: right;
+    text-align: center;
+    line-height: 25px;
 }
-.app-chat-window{
-    display: none;
-    margin: 0 auto;
-    background-color: #00adf2;
-    padding: 0 2.5px;
-    border-radius: 5px;
+.app-chat .form-group{
+    width: 290px;
+    margin: 0 5px;
 }
-.app-chat-window-header{
-    height: 0;
-}
-.app-chat-window-msgs{
-    height: 270px;
+.app-chat-msgs{
+    width: 290px;
+    height: 150px;
     margin: 0 auto;
     background-color: #fff;
     overflow-x: hidden;
+    overflow-y: scroll;
     margin-bottom: 10px;
-    border-radius: 5px;
 }
-.app-chat-window-msgs .new-message{
+.app-chat-msgs li{
     display: flex;
     justify-content: space-between;
-    padding: 0 15px;
-    color:grey;
+    color: black;
 }
-.app-chat-window-box{
+.app-chat-box{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 7px;
-}
-*{
+}*{
     transition: ease .5s;  
 }
 html,body{

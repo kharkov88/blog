@@ -1,5 +1,5 @@
 import {connect}from'react-redux'
-import {Chat} from'../components'
+//import {Chat} from'../components'
 const convertStateToProps = function (state){
 //return simple object    
     return {
@@ -13,6 +13,6 @@ const convertStateToProps = function (state){
         dispatch:state.dispatch
     }
 }
-export const ConnectChat = connect(convertStateToProps)(Chat)
+//export const ConnectChat = connect(convertStateToProps)(Chat)
 
-export const Chatee = ()=> <ConnectChat/>
+//export const Chatee = ()=> <ConnectChat/>
