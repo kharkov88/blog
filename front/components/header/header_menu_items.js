@@ -2,6 +2,12 @@ import * as React from'react'
 import {Link}from'react-router-dom'
 
 export class Li extends React.Component{
+    componentWillUnmount(){
+        console.log('unmout')
+    }
+    componentDidMount(){
+        console.log('mount')
+    }
     render(){
         let{index}=this.props
         return(

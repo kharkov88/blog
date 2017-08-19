@@ -10,11 +10,14 @@ function clickSend(user,msg,actions){
 return(
     <div>
         <label htmlFor="inputsm">Message:</label>
-        <div className="app-chat-box">
-            <input ref={input=>message=input} className="app-chat-input form-control input-sm" id="inputsm" type="text"/>
-            <button className="btn btn-primary btn-sm" onClick={()=>clickSend(user,message.value,actions)}> send
-            </button>
-        </div>
+        <form className="app-chat-box">
+            <input ref={input=>message=input} className="app-chat-input form-control input-sm"
+             id="inputsm" type="text" placeholder="Пиши и жми enter"/>
+             <input type="submit" style={{display:'none'}} onClick={(e)=>{
+                 e.preventDefault();
+                 clickSend(user,message.value,actions)
+                 }}/>        
+        </form>
     </div>
 )}
 

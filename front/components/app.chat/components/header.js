@@ -1,6 +1,9 @@
 import React from 'react'
 let name;
-let spiner = ()=><img src="img/spinner.svg" style={{width:'30px',height:'30px'}}/>
+let spiner = ()=><img src="img/spinner.svg" style={{
+    position: 'absolute',
+    right: '10px',
+    top: '-4px'}}/>
 export class Header extends React.Component{
 
     render(){

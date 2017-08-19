@@ -1,0 +1,29 @@
+
+.app-bg-image{
+    position: relative;
+    border-radius: 2px;
+    margin: 0 auto 20px auto;
+}
+.app-bg-image img{
+    width: 100%;
+    border-radius: 5px;
+}
+.app-points{
+    position: absolute;
+    bottom: 0;
+    right: 40%;
+    width: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.app-points div{
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+.app-points div:hover{
+    cursor: pointer;
+    background-color: grey;
+}

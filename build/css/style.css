@@ -235,7 +235,11 @@ ul{
     height: 30px;
     display: flex;
     justify-content: space-between;
-    margin: 4px auto;
+    margin: 6px 0 0 0;
+    font-weight: 700;
+}
+.app-chat-header a{
+    color: #fff;
 }
 .header-autoriz>div>div{
     display:inline;
@@ -247,10 +251,11 @@ ul{
 }
 .header-input-name>input{
     width: 80px;
-    border: 1px solid lightslategray;
+    border: 0px solid lightslategray;
+    border-radius: 3px;
 }
 .header-button{
-    width: 50px;
+    width: 60px;
     float: right;
     text-align: center;
     line-height: 25px;
@@ -261,7 +266,7 @@ ul{
 }
 .app-chat-msgs{
     width: 290px;
-    height: 150px;
+    height: 190px;
     margin: 0 auto;
     background-color: #fff;
     overflow-x: hidden;
@@ -276,6 +281,34 @@ ul{
 .app-chat-box{
     display: flex;
     justify-content: space-around;
+}
+.app-bg-image{
+    position: relative;
+    border-radius: 2px;
+    margin: 0 auto 20px auto;
+}
+.app-bg-image img{
+    width: 100%;
+    border-radius: 5px;
+}
+.app-points{
+    position: absolute;
+    bottom: 0;
+    right: 40%;
+    width: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.app-points div{
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+.app-points div:hover{
+    cursor: pointer;
+    background-color: grey;
 }*{
     transition: ease .5s;  
 }
