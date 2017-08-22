@@ -25,6 +25,7 @@ let app_header = (function(){
             $('.story').hide();
         }
         else {
+            $('.App').removeClass('app-mobile');
             $('.menu').removeClass('tablet-mobile')
             $('.topMenu li').unbind('click',toggleBurger)
             $('.story').show()

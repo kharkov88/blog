@@ -16,7 +16,7 @@ export class  App extends React.Component{
                     <Content /> 
                     <Footer/> 
                     <App_Chat/>
-                    {/* <ConnectChat/>   */}
+                    <div className="right-wing"></div>
                 </div>          
             </Router>
     )}

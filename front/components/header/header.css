@@ -48,7 +48,7 @@
 .menu .burger{
     display: none;
     height: 40px;
-    z-index: 2000;
+    z-index: 1000;
     cursor: pointer;
 }
 .tablet-mobile{

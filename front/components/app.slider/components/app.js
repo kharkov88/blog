@@ -1,7 +1,7 @@
 import React from 'react'
 import {Point}from'./points'
 
-let img = ['img/img1.JPG','img/img2.JPG','img/img3.JPG']
+let img = ['img/img1.jpg','img/img2.jpg','img/img3.jpg']
 let count = 1;
 export class App extends React.Component{
     constructor(){
@@ -17,7 +17,7 @@ export class App extends React.Component{
         setTimeout(()=>{
             if(!this.state.click){
             count>2?count=1:count++
-            this.setState({image:`img/img${count}.JPG`})
+            this.setState({image:`img/img${count}.jpg`})
             }
             this.ear()   
         },2000)

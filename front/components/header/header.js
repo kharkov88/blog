@@ -39,14 +39,9 @@ export let Header = ({_state,dispatch})=>{
                         return <Li key={index} index={index} item={item}/>
                     })
                 }
-                {/* LOGIN/LOGOU */}
-                {/* <li >
-                    <Link to={_state.state_user?'/':'/login'} 
-                        className={state_person} 
-                        onClick={handleClickLogout}> {state_person}
-                    </Link>
-                </li> */}
-                <li className="chat-mobile-button"><img src="contents/chat.png"/></li>
+                <li className="chat-mobile-button" onClick={()=>{
+                    //$('.app-chat').show(500)
+                    }}><img src="contents/chat.png"/></li>
             </ul>
         </div>  
     </header>
