@@ -8,8 +8,8 @@ let Mvc = ()=>
     <div>
         <p>{arr[0].text}</p>
         <div className="col-md-2 col-sm-12 col-sx-12"/>
-        <div className="col-md-6 col-sm-12 col-sx-12">
-            <img src="contents/mvc.png" style={{width:'100%'}}/>
+        <div className="col-md-8 col-sm-12 col-sx-12">
+            <img src="contents/mvc.svg" style={{width:'100%'}}/>
         </div>
     </div>
 export let Content = ({content=()=>{}})=>{

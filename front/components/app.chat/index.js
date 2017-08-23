@@ -5,26 +5,23 @@ import {createLogger}from'redux-logger'
 import thunk from'redux-thunk'
 import { createStore,applyMiddleware } from 'redux'
 import {reducer} from'./reducer'
-import {App} from './app_chat'
+import {ConnectApp} from './containers'
 import {getSocketMsg} from './socket'
 import {setUser}from'./actions'
-
+import {App}from'./app_chat'
 const loggerMiddleware = createLogger()
 const store = createStore(
     reducer,
     applyMiddleware(thunk,loggerMiddleware)
 )
 
-getSocketMsg(store.dispatch)
-
-
 export let App_Chat = ()=>
     <Provider store={store}>
-        <App/>
+        <ConnectApp/>
     </Provider>
 // ReactDOM.render(
 //     <Provider store={store}>
-//         <App/>
+//         <ConnectApp/>
 //     </Provider>,
 //     document.getElementById('root')
 // )

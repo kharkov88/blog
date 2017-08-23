@@ -5,12 +5,13 @@ let spiner = ()=><img src="img/spinner.svg" style={{
     right: '10px',
     top: '-4px'}}/>
 export class Header extends React.Component{
-
     render(){
         let {_state,actions}=this.props
         return (
         <div className="app-chat-header">
-            <div onClick={this.props.toggleClick}>{`x Hi ${_state.user.name}`}</div>
+            <div onClick={this.props.toggleClick}>
+                <img src={this.props.toggleHeight?"img/icon9.png":"img/icon8.png"} style={{width:'13px',height:'13px'}}/>
+                {` Hi ${_state.user.name}`}</div>
             <div></div>
             <div className="header-autoriz">         
                 {!_state.login

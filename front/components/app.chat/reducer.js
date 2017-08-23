@@ -4,11 +4,7 @@ const initState = {
     user:{name:`guest_${random}`,id:`id_g${random}`},
     fetching: false ,
     login:false,
-    guest:{name:`guest_${random}`,id:`id_g${random}`},
-    app_mobile:false
-}
-let setVersion = (state,action)=>{
-   return state = window.innerWidth<1200?true:false
+    guest:{name:`guest_${random}`,id:`id_g${random}`}
 }
 export function reducer(state=initState,action){
     return {
@@ -16,7 +12,6 @@ export function reducer(state=initState,action){
         fetching:getRequest(state.fetching,action),
         message:historyChat(state.message,action),
         login:setLogin(state.login,action),
-        guest:initState.guest,
-        app_mobile:setVersion(state.app_mobile,action)
+        guest:initState.guest
     }
 }

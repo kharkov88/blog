@@ -118,6 +118,39 @@ app.post('/chathistory',(req,res)=>{
 		res.json(data)
 	})
 })
+io.sockets.on('connection',(socket)=>{
+	console.log('connection')
+	let USER ;
+	let ID = (socket.id).toString().substr(0, 3);
+	let time = new Date().toTimeString().substr(0, 8)
+	socket.send(JSON.stringify({action:"connected",data:time}))
+	socket.on('message',(msg)=>{
+		if(msg.event=='typing'){
+			socket.broadcast.send(JSON.stringify({action:'typing',user:msg.user}))
+		}
+
+		if(msg.event == 'new_msg'){
+			let obj = {
+				action: 'add_msg',
+				author: msg.user,
+				msg: msg.msg,
+				data: new Date().toTimeString().substr(0, 8)
+			}
+			socket.send(JSON.stringify(obj))
+			socket.broadcast.send(JSON.stringify(obj))
+		}
+		if(msg.action=='newUser'){
+			USER = ID = msg.user
+			console.log('user:',ID)
+			socket.broadcast.send(JSON.stringify({action:"user_joined",user:msg.user}))
+		}
+	})
+	socket.on('disconnect',()=>{
+		let time = new Date().toTimeString().substr(0, 8)
+		io.sockets.send(JSON.stringify({action:'leave',user:ID,data:time}))
+	})	
+	
+})
 let port = process.env.PORT || 5000;
 server.listen(port);
 console.log('Express-сервер прослушивает порт %d в режиме %s',

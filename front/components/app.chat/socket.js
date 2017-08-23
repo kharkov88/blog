@@ -1,33 +1,43 @@
 import {updateHistory}from'./actions'
 
 export function getSocketMsg(dispatch){
+// let socket = io.connect('/');
+// socket.on('connect',()=>{
+//     socket.json.send({"action":"newUser","user":"new_user"})
+//     socket.on('message',(msg)=>{
+//         let objData = JSON.parse(msg)
+//         switch(objData.action){
+//             case 'connected':
+//                 dispatch(updateHistory({
+//                     author:'',
+//                     msg:'Соединение успешно...',
+//                     data:objData.data
+//                 }))
+//                 break;
+//             case 'leave':
+//                 dispatch(updateHistory({
+//                     author:'',
+//                     msg:'Вышел...',
+//                     data:objData.data
+//                 }))
+//                 break;
+//             case 'user_joined':
+//                 dispatch(updateHistory({
+//                     author:'',
+//                     msg:`К нам присоединился ${objData.user}`,
+//                     data:''
+//                 }))
+//                 break;
+//             case 'add_msg':
+//                 dispatch(updateHistory({
+//                     author:objData.author,
+//                     msg:objData.msg,
+//                     data:objData.data,
+//                     frendy:objData.frendy
+//                 }))
+//                 break;
+//         }
+//     })
+// })
 
-io.connect().on('message',(msg)=>{
-    let objData = JSON.parse(msg)
-    switch(objData.action){
-        case 'add_msg':
-            dispatch(updateHistory({
-                author:objData.author,
-                msg:objData.msg,
-                data:objData.data,
-                frendy:objData.frendy
-            }))
-            break;
-        case 'update_ppl':  
-            function ear(){
-                let user = app_model.people.get_user()
-                    if(user.id==undefined)setTimeout(()=>ear(),1000) 
-                    else{
-                        if(user.id!=objData._id&&user.id!='a0'){
-                            app_model.get_pplList(objData.people)
-                            let array=[],
-                                ppls = app_model.people.get_db() 
-                            ppls().each(person=>array.push(person))
-                            store.dispatch(getListPpl(array))  
-                        }
-                    }
-            }//ear()
-                break;
-    }
-})
 }

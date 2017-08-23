@@ -18,7 +18,15 @@ export function getRequst(){
         type:GET_REQUEST
     }
 }
-
+export function userTyping(user){
+    return (dispatch) =>{
+        fetch('/typing',{    
+            method:'post',
+            headers:{"Content-type": 'application/json; charset=utf-8'},
+            body:JSON.stringify({user:user})
+        })
+    }
+}
 export function logining(name){
     return (dispatch) => {
         dispatch(getRequst());   // 1

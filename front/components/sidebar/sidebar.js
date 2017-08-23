@@ -5,7 +5,7 @@ export const Sidebar = ()=>{
     return(
         <div>
             <div style={{margin:'0 auto',textAlign:'center'}}><a  onClick={()=>{
-                //_gaq.push(['_trackEvent', 'Button_github', ' click']);
+                _gaq.push(['_trackEvent', 'Button_github', ' click']);
                 ga('send', 'event', 'Button_github', 'click ')
                 }
                 } href="https://github.com/kharkov88/other" target='_blank'>github</a></div>
