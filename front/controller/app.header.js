@@ -3,8 +3,16 @@ let app_header = (function(){
         stateToggle=true,
         toggleBurger,
         burgerClick,
-        initModule;
-
+        initModule,
+        smootheAnchor;
+    smootheAnchor = (e)=>{
+        let elClick = $(this).attr('href');
+        let dest = $("#contact-us").offset().top;
+         $('body').animate({ scrollTop: dest}, 1100); //1100 - скорость
+         //$('html').animate({ scrollTop: dest}, 1100);
+        
+        return false; 
+    }
     toggleBurger = function(e){
         stateToggle? $('.menu').addClass('open'):$('.menu').removeClass('open')
         stateToggle = !stateToggle;
@@ -15,6 +23,7 @@ let app_header = (function(){
     }
     initModule = function(){
         let ww=window.innerWidth;
+        $('#link-contact-us').click(smootheAnchor)
         if(ww<1200){
             $('.burger').unbind('click',toggleBurger);
             $('.burger').click(toggleBurger);

@@ -21,6 +21,7 @@ export let Header = ({_state,dispatch})=>{
     }
     return(
     <header className="header container-flux">
+        <div className="header-title">Talking about architecture</div>
         <div className="foto">
             <Link to='/'>
                  <img src="contents/tree-hands.png" className="img-circle"  width="150" height="150"/> 
@@ -39,9 +40,8 @@ export let Header = ({_state,dispatch})=>{
                         return <Li key={index} index={index} item={item}/>
                     })
                 }
-                <li className="chat-mobile-button" onClick={()=>{
-                    //$('.app-chat').show(500)
-                    }}><img src="contents/chat.png"/></li>
+                <li><a id="link-contact-us" href="#contact-us">Contact-us</a></li>
+                <li className="chat-mobile-button"><img src="contents/chat.png"/></li>
             </ul>
         </div>  
     </header>
