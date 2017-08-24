@@ -9,32 +9,60 @@ html,body{
 }
 
 .right-wing{
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
-    width: 5vw;
-    height: 100%;
-    background-color: #00adf2;
+    width: 15vw;
+    height: 170px;
+    background-color: #fff;
 }
 .right-wing::before, .right-wing::after{
     position: absolute;
-    content:" ";
-    width: 50%;
+    content: " ";
+    width: 59%;
     height: 100%;
-    background-color: #fff;
+    background-color: #00adf2;
 }
 .right-wing::before{
     border-top-right-radius: 50vw; 
-    border-right: 1px solid #00adf2;  
+    border-right: 1px solid #00adf2;    
 }
 .right-wing::after{
     position: absolute;
     top: 0;
     right: 0;
-    border-top-left-radius: 50vw;
+    border-top-left-radius: 50vw;    
 }
-.app-mobile .right-wing{
-    display: none;
+.left-wing{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 170px;
+    background-color: #fff;
+}
+.left-wing::before, .left-wing::after{
+    position: absolute;
+    content: " ";
+    width: 50%;
+    height: 100%;
+    background-color: #00adf2;
+}
+.left-wing::before{
+    border-bottom-right-radius: 50vw; 
+    border-right: 1px solid #00adf2;  
+}
+.left-wing::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 50vw;
+}
+.left-wing>img{
+    z-index: 900;
+    position: absolute;
+    right: -47px;
+    bottom: -2px;
 }
 .app-mobile .app-chat{
     display: none;

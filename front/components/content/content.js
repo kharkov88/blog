@@ -13,9 +13,12 @@ let Mvc = ()=>
         </div>
     </div>
 export let Content = ({content=()=>{}})=>{
-    return  <div className="content container">
+    return  <div className="content container-flux">
                 <div className="row">
-                    <div className="col-md-2 col-sm-12 col-xs-12">
+                    <div className="col-md-2 col-sm-12 col-xs-12 left-sidebar">
+                        <div className="flash-man">
+                            {/* <img src="contents/flashlight.png"/> */}
+                        </div>
                         <Sidebar/>
                     </div>
                     <div className="col-md-10 col-sm-12 col-sx-12 main-content" >

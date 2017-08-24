@@ -16,6 +16,9 @@ export class  App extends React.Component{
                     <Content /> 
                     <Footer/> 
                     <App_Chat/>
+                    <div className="left-wing">
+                        <img src="contents/tree-hands.png" className="img-circle"  width="150" height="150"/> 
+                    </div>
                     <div className="right-wing"></div>
                 </div>          
             </Router>

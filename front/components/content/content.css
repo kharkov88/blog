@@ -1,7 +1,34 @@
 .content{
-    margin-bottom: 15px;
+    margin:0 7% 15px 70px;
+    border-top-left-radius: 70px; 
+  
 }
 .main-content{
+    height: 100%;
     text-align: justify;
-    padding-top: 20px;  
+    padding: 20px 0 0 0 ;  
+    margin: 0 0 20px 0;
+}
+.left-sidebar>.flash-man{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+} 
+.left-sidebar>.flash-man::after{
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    bottom: 0px;
+    content: '';
+    background-color: #fff;
+}
+.left-sidebar>.flash-man>img{
+    width: 64px;
+    height: 33px;
+    margin: 5px 0 0 10px;
 }

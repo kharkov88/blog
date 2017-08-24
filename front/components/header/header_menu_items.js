@@ -12,7 +12,7 @@ export class Li extends React.Component{
         let{index}=this.props
         return(
             <li>
-                <Link to={"/"+this.props.item} className={this.props.item}>
+                <Link to={"/"+this.props.item} className={`${this.props.item} topmenu-link`}>
                 {this.props.item}
                 </Link> 
             </li>

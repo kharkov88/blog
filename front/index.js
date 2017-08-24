@@ -10,7 +10,7 @@ import  app_shell from'./controller/app.shell'
 import app_model from'./model/app.model'
 
 const logger = createLogger()
-const store = createStore(reducer,applyMiddleware(logger));
+const store = createStore(reducer);
 
 ReactDOM.render(
     <Provider store={store}>

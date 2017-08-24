@@ -3,15 +3,15 @@ import "./sidebar.css"
 
 export const Sidebar = ()=>{
     return(
-        <div>
-            <div style={{margin:'0 auto',textAlign:'center'}}><a  onClick={()=>{
-                _gaq.push(['_trackEvent', 'Button_github', ' click']);
-                ga('send', 'event', 'Button_github', 'click ')
-                }
-                } href="https://github.com/kharkov88/other" target='_blank'>github</a></div>
+        <div className="sidebar">
             <div className="row stack">
-                <div><h3>Техно:</h3></div>
-                <div className="expirs col-md-12 col-sm-2 col-xs-6">
+                <div className="col-md-12 col-sm-2 col-xs-6"><a  onClick={()=>{
+                    _gaq.push(['_trackEvent', 'Button_github', ' click']);
+                    ga('send', 'event', 'Button_github', 'click ')
+                    }
+                    } href="https://github.com/kharkov88/other" target='_blank'>github</a></div>
+
+                <div className="col-md-12 col-sm-2 col-xs-6">
                     <img src="contents/html.png" className="img-round" alt="Cinque Terre" width="80" height="80"/>
                 </div>
                 <div className="col-md-12 col-sm-2 col-xs-6">
@@ -19,9 +19,9 @@ export const Sidebar = ()=>{
                 </div>
                 <div className="col-md-12 col-sm-2 col-xs-6">
                     <img src="contents/js.png" className="img-round" alt="Cinque Terre" width="80" height="80"/>
-                </div>
+                </div> 
                 <div className="col-md-12 col-sm-2 col-xs-6">
-                    <img src="contents/react-js.ico" className="img-round" alt="Cinque Terre" width="80" height="80"/>
+                    <img src="contents/react.png" className="img-round" alt="Cinque Terre" width="80" height="80"/>
                 </div>
                 <div className="col-md-12 col-sm-2 col-xs-6">
                     <img src="contents/redux.png" className="img-round" alt="Cinque Terre" width="80" height="80"/>
@@ -32,9 +32,9 @@ export const Sidebar = ()=>{
                 <div className="col-md-12 col-sm-2 col-xs-6">
                     <img src="contents/node.png" className="img-round" alt="Cinque Terre" width="80" height="80"/>
                 </div>
-                <div className="col-md-12 col-sm-2 col-xs-6">
+                {/* <div className="col-md-12 col-sm-2 col-xs-6">
                     <img src="contents/git.png" className="img-round" alt="Cinque Terre" width="80" height="80"/>
-                </div>
+                </div> */}
             </div>
         </div>
     )
