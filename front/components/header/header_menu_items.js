@@ -12,7 +12,8 @@ export class Li extends React.Component{
         let{index}=this.props
         return(
             <li>
-                <Link to={"/"+this.props.item} className={`${this.props.item} topmenu-link`}>
+                <Link to={"/"+this.props.item} className={`${this.props.item} topmenu-link`} 
+                onClick={()=>{$('.main-content-flash').show().delay(500).fadeOut(300)}}>
                 {this.props.item}
                 </Link> 
             </li>

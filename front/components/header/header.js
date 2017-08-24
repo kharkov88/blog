@@ -23,7 +23,7 @@ export let Header = ({_state,dispatch})=>{
     <header className="header container-flux">
         <div className="foto">
             <Link to='/'>
-                 {/* <img src="contents/tree-hands.png" className="img-circle"  width="150" height="150"/>  */}
+                 <img src="contents/tree-hands.png" className="img-circle"  width="150" height="150"/> 
             </Link>
         </div>
         <div className="menu">

@@ -20,6 +20,11 @@ export class  App extends React.Component{
                         <img src="contents/tree-hands.png" className="img-circle"  width="150" height="150"/> 
                     </div>
                     <div className="right-wing"></div>
+                    <div className="main-spinner">
+                        <div>
+                            <img src="img/spinner1.svg"/>
+                        </div>
+                    </div>
                 </div>          
             </Router>
     )}

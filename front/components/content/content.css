@@ -4,10 +4,25 @@
   
 }
 .main-content{
+    position: relative;
     height: 100%;
     text-align: justify;
     padding: 20px 0 0 0 ;  
     margin: 0 0 20px 0;
+}
+.main-content-flash{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.main-content-flash img{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin: 0 0 0 -222px ;
 }
 .left-sidebar>.flash-man{
     position: absolute;
@@ -21,11 +36,25 @@
 } 
 .left-sidebar>.flash-man::after{
     position: absolute;
+    top: 0;
+    right: -30px;
     width: 30px;
     height: 15px;
     bottom: 0px;
     content: '';
     background-color: #fff;
+}
+.left-sidebar>.flash-man::before{
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 15px;
+    bottom: 0px;
+    content: '';
+    background-color: #01aef3;
+    border-bottom-left-radius: 5px;
+    z-index: 300;
 }
 .left-sidebar>.flash-man>img{
     width: 64px;

@@ -26,4 +26,5 @@ $(document).ready(()=>{
          array=[];  
          store.dispatch(changeLogin(user))
          store.dispatch(autorization(!user.get_is_anonim()))
+    $('.main-spinner').fadeOut(600);
 })

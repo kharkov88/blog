@@ -10,11 +10,12 @@
     width: 195px;
     height: 150px;
 }
-.foto>img{
-    margin: 0 10px;
+.foto img{
+    display: none;
 }
 .menu{
     width: 80%;
+    transition: ease .5s; 
 }
 .menu .chat-mobile-button{
     display: none;
@@ -27,6 +28,7 @@
     font-size: 20px;
     color: black;
     text-transform: uppercase;
+    transition: ease .5s; 
 }
 .topMenu >li{ 
     height: 32px;
@@ -37,9 +39,6 @@
 .topMenu>li>a:hover,.topMenu>li>a:active{
     text-decoration: none;
 }
-.topMenu .topmenu-link{
-
-}
 .topMenu>li>a{
     display: inline-block;
     height: 32px;
@@ -49,18 +48,24 @@
     border-radius: 20px;
     color: #fff;
     text-decoration: none;
+    transition: ease .5s; 
 }
 .topMenu>li>a:hover{
     cursor: pointer;
     background-color: #fff;
     color:#01aef3;
-    transition: ease 0s
+    transition: ease .5s; 
 }
-.topMenu>li>a:active{
+.topMenu>li>a:focus{
     text-decoration: none;
+    background-color: #fff;
+    color:#01aef3;
 }
 .menu .burger{
     display: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
     height: 40px;
     z-index: 1000;
     cursor: pointer;
@@ -87,7 +92,7 @@
     width: 30px;
     height: 5px;
     margin-bottom: 5px;
-    background-color:black;
+    background-color:#fff;
 }
 .open::before{
     content: '';
@@ -101,14 +106,15 @@
     z-index: 1000;
     overflow: hidden;
 }
-
+.open .burger{
+    position: fixed;
+}
 .open .burger>span{
     background-color: #fff;
 }
 .open .topMenu{
-    position: absolute;
+    position: fixed;
     width: 33%;
-    top: 20%;
     left: 33%;
     display: block;
     z-index: 2000;
@@ -116,7 +122,8 @@
     margin: 0;
 }
 .open .topMenu>li>a{
-    color: #00adf2;
+
+    border:0;
 }
 
 .content{
@@ -125,10 +132,25 @@
   
 }
 .main-content{
+    position: relative;
     height: 100%;
     text-align: justify;
     padding: 20px 0 0 0 ;  
     margin: 0 0 20px 0;
+}
+.main-content-flash{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+.main-content-flash img{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin: 0 0 0 -222px ;
 }
 .left-sidebar>.flash-man{
     position: absolute;
@@ -142,11 +164,25 @@
 } 
 .left-sidebar>.flash-man::after{
     position: absolute;
+    top: 0;
+    right: -30px;
     width: 30px;
     height: 15px;
     bottom: 0px;
     content: '';
     background-color: #fff;
+}
+.left-sidebar>.flash-man::before{
+    position: absolute;
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 15px;
+    bottom: 0px;
+    content: '';
+    background-color: #01aef3;
+    border-bottom-left-radius: 5px;
+    z-index: 300;
 }
 .left-sidebar>.flash-man>img{
     width: 64px;
@@ -199,7 +235,8 @@ ul{
     justify-content: space-around;
 }
 .sidebar{
-    height: 800px;
+    position: relative;
+    height: 100%;
     background-color: #01aef3;
     padding: 80px 0 0 0;
     margin: 0 auto;
@@ -394,7 +431,7 @@ ul{
 .app-points div:hover{
     cursor: pointer;
     background-color: grey;
-}*{
+}a{
     transition: ease .5s;  
 }
 html,body{
@@ -403,7 +440,22 @@ html,body{
     padding: 0;
     overflow-x: hidden;
 }
-
+.main-spinner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background-color: #fff;
+    z-index: 1000;
+}
+.main-spinner div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -100px;
+}
 .right-wing{
     position: absolute;
     top: 0;
@@ -459,6 +511,26 @@ html,body{
     position: absolute;
     right: -47px;
     bottom: -2px;
+}
+.app-mobile .foto img{
+    display: block;
+}
+.app-mobile .left-wing,.app-mobile .right-wing ,.app-mobile .flash-man{
+    display: none;
+}
+.app-mobile .content{
+    margin: 0;
+    padding: 0 15px;
+}
+.app-mobile .sidebar{
+    background-color: #fff;
+    padding: 20px 0 0 0 ;
+}
+.app-mobile footer{
+    margin: 0;
+}
+.app-mobile .stack img{
+    border:1 px solid #00adf2;
 }
 .app-mobile .app-chat{
     display: none;
