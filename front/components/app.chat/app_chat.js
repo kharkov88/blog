@@ -67,7 +67,11 @@ export class App extends React.Component{
     }
     render(){
         return(
-        <div className="app-chat" style={{height:this.state.toggleHeight?'300px':'30px'}}> 
+        // <div className="app-chat" style={{height:this.state.toggleHeight?'300px':'30px'}}> 
+        <div className="app-chat">
+            <div className="app-chat-close" onClick={()=>$('.app-chat').toggleClass('open-chat')}>
+                <i className="fa fa-times" aria-hidden="true"></i>
+            </div>
             <div className="form-group">
                 <ConnectHeader toggleHeight={this.state.toggleHeight} toggleClick={this.toggleClick}/>
                 <ConnectContent/>

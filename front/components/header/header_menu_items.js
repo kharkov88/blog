@@ -13,7 +13,10 @@ export class Li extends React.Component{
         return(
             <li>
                 <Link to={"/"+this.props.item} className={`${this.props.item} topmenu-link`} 
-                onClick={()=>{$('.main-content-flash').show().delay(500).fadeOut(300)}}>
+                onClick={()=>{
+                    $('.main-content-flash').show().delay(500).fadeOut(300,()=>{$('.flash-man').css({"background-color":'yellow'})});
+                    $('.flash-man').css({"background-color":'#fff'})
+                    }}>
                 {this.props.item}
                 </Link> 
             </li>

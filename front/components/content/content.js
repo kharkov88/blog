@@ -19,10 +19,14 @@ export class Content extends React.Component{
     render(){
     let visible = this.state.loading?'block':'none';
     return  <div className="content container-flux">
+                <div className="content-before"></div>
+                <div className="main-content-flash" style={{display:visible}}>
+                    <img src="gifs/run.gif"/>
+                </div>
                 <div className="row">
                     <div className="col-md-2 col-sm-12 col-xs-12 left-sidebar">
                         <div className="flash-man">
-                            {/* <img src="contents/flashlight.png"/> */}
+                             {/* <img src="gifs/source.gif"/> */}
                         </div>
                         <Sidebar/>
                     </div>
@@ -37,9 +41,7 @@ export class Content extends React.Component{
                                     <AppComment/>
                                 </div>
                         }}/> 
-                        <div className="main-content-flash" style={{display:visible}}>
-                            <img src="gifs/run.gif"/>
-                        </div>
+
                     </div>
                 </div>
             </div>

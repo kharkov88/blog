@@ -3,26 +3,43 @@ ul,li{
     padding: 0;
 }
 .app-chat{
-    z-index: 700;
-    width: 300px;
-    height: 100%;
     position: fixed;
-    bottom: 0;
+    bottom: -300px;
     right: 0;
-    cursor: pointer;
-    background-color: #00adf2;
-    color:#fff;
-    border-radius: 5px 0 0 0;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    color: #fff;
+    border-radius: 15px 0 0 0;
     transition: ease 0.5s;
-    overflow: hidden;
-    opacity: 1;   
+    opacity: 1;
+    padding: 5px 0;
+    border-top: 2px solid yellow;
+    border-left: 2px solid yellow;
+    z-index: 700;
+}
+.app-chat-close{
+    position: absolute;
+    top: -2px;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 25px;
+    border: 2px solid yellow;
+    border-radius: 15px;
+    font-weight: 900;
+    color:#00adf2;
+    background-color: #fff;
+    cursor: pointer;
 }
 .app-chat-header{
-    height: 30px;
+    display: none;
+    /* height: 30px;
     display: flex;
     justify-content: space-between;
     margin: 6px 0 0 0;
-    font-weight: 700;
+    font-weight: 700; */
 }
 .app-chat-header a{
     color: #fff;
@@ -52,23 +69,29 @@ ul,li{
 }
 .app-chat-msgs{
     position: relative;
-    height: 190px;
+    height: 260px;
     margin: 0 auto;
     background-color: #fff;
     overflow-x: hidden;
     overflow-y: scroll;
-    margin-bottom: 10px;
+    padding: 10px;
 }
 .app-chat-msgs li{
     display: flex;
     justify-content: space-between;
-    color: black;
+    color: darkmagenta;
+    text-align: justify;
 }
 .app-chat-box{
     display: flex;
     justify-content: space-around;
 }
-
+.app-chat-input{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 32px;
+}
 .app-chat-typing{
      display: none; 
     height: 20px;

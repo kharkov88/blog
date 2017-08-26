@@ -3,11 +3,9 @@
 a{
     transition: ease .5s;  
 }
-*{
-    
-}
 html,body{
     font-family: 'Sedgwick Ave Display', cursive;
+    color:#fff;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -27,6 +25,31 @@ html,body{
     top: 50%;
     left: 50%;
     margin: -100px 0 0 -100px;
+}
+.btn-chat{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    border: 2px solid #00adf2;
+    cursor: pointer;
+    transition: ease .5s;
+    background-color: #fff;
+    z-index: 9;
+}
+.btn-chat:hover{
+    background-color: yellow;
+    border: 2px solid yellow;
+    
+}
+.btn-chat img{
+    width: 50px;
+    margin: 7px 0 0 7px ;
+}
+.open-chat{
+    bottom:0;
 }
 .right-wing{
     position: absolute;
@@ -51,7 +74,8 @@ html,body{
     position: absolute;
     top: 0;
     right: 0;
-    border-top-left-radius: 50vw;    
+    border-top-left-radius: 50vw;   
+    border-bottom-right-radius: 5vw; 
 }
 .left-wing{
     position: absolute;
@@ -94,9 +118,28 @@ html,body{
     margin: 0;
     padding: 0 15px;
 }
+.app-mobile .left-sidebar{
+    padding: 0;
+    margin: 0;
+}
 .app-mobile .sidebar{
     background-color: #fff;
     padding: 20px 0 0 0 ;
+}
+.app-mobile .contact-us{
+    margin: 0;
+}
+.app-mobile .contact-us img{
+    width: 100%;
+}
+.app-mobile .contact-us-map div{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.app-mobile .btn-chat{
+    display: none;
 }
 .app-mobile footer{
     margin: 0;

@@ -7,6 +7,6 @@ export let Message = ({author,msg,date})=>
             <span style={{color:'#0ff404'}}><b>{`${author} `}</b></span>
             <span>{msg}</span>
             </div>
-            <span>{date}</span>
+            <span style={{color:'#0ff404'}}>{date}</span>
         </li>
     </div>

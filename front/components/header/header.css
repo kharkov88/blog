@@ -9,14 +9,13 @@ a{
     font-family: 'Josefin Sans', sans-serif;
 }
 .header-title{
-    position: absolute;
-    top: 10px;
-    right: 200px;
+position: absolute;
+    top: 5px;
+    right: 15vw;
     color: #fff;
-    width: 600px;
-    height: 50px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 36px;
+    font-family: cursive;
+    font-size: 3vw;
+    font-weight: 900;
     text-transform: uppercase;
 }
 .foto{
@@ -28,26 +27,21 @@ a{
     display: none;
 }
 .menu{
-    width: 80%;
     transition: ease .5s; 
 }
 .menu .chat-mobile-button{
     display: none;
 } 
 .topMenu{
-    list-style: none;
-    width: 70%;
     display: flex;
-    font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
     color: black;
     text-transform: uppercase;
     transition: ease .5s; 
+    margin: 70px 0 0 0;
 }
 .topMenu >li{ 
-    height: 32px;
     text-align: center;
-    padding: 70px 0 0 0;
 }
 
 .topMenu>li>a:hover,.topMenu>li>a:active{

@@ -5,11 +5,16 @@ import app_model from'../model/app.model'
 
 let app_shell = (function(){
     let initModule,
-        domElements={}
+        domElements={},
+        toggleChat;
+    toggleChat = ()=>{
+        $('.app-chat').toggleClass('open-chat')
+    }
     
     initModule = function(){
         domElements.$chat=$('.app-chat');
         app_header.initModule();
+        $('.btn-chat').click(toggleChat)
         //app_chat.initModule(domElements.$chat);
         //app_aurtorization.initModule();
         window.onresize = ()=>app_header.initModule();
