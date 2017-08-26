@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Handlee|Josefin+Slab|Sedgwick+Ave+Display|Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Handlee|Josefin+Slab|Sedgwick+Ave+Display|Source+Code+Pro);a{
+@import url(https://fonts.googleapis.com/css?family=Handlee|Josefin+Slab|Sedgwick+Ave+Display|Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Cabin+Sketch|Cherry+Cream+Soda|Frijole|Shrikhand|Source+Code+Pro);a{
     transition: ease 1.5s;
 }
 .header{
@@ -12,7 +12,7 @@ position: absolute;
     top: 5px;
     right: 15vw;
     color: #fff;
-    font-family: cursive;
+    font-family: 'Cabin Sketch', cursive;
     font-size: 3vw;
     font-weight: 900;
     text-transform: uppercase;
@@ -72,8 +72,8 @@ position: absolute;
 .menu .burger{
     display: none;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 10px;
+    right: 10px;
     height: 40px;
     z-index: 1000;
     cursor: pointer;
@@ -140,10 +140,8 @@ position: absolute;
     padding: 0 35px 0 0 ;
     border-top-left-radius: 70px; 
     color:#fff;
-    font-family: cursive;
     font-size: 18px;
     font-weight: 400;
-    
 }
 .content-before{
     position: absolute;
@@ -219,7 +217,7 @@ position: absolute;
     width: 100%;
     height: 25px;
     background-color: #01aef3;
-    margin: 0 0 0 0;
+    margin: 700px 0 700px 0;
 }
 .row-footer >div{
     text-align: center;
@@ -487,11 +485,11 @@ ul{
     transition: ease .5s;  
 }
 html,body{
-    font-family: 'Sedgwick Ave Display', cursive;
     color:#fff;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: 'Source Code Pro', monospace;
 }
 .main-spinner{
     position: fixed;
@@ -597,7 +595,11 @@ html,body{
 .app-mobile .left-wing,.app-mobile .right-wing ,.app-mobile .flash-man{
     display: none;
 }
+.app-mobile .header-title{
+    left: 25%;
+}
 .app-mobile .content{
+    font-size: 14px;
     margin: 0;
     padding: 0 15px;
 }
@@ -610,9 +612,13 @@ html,body{
     padding: 20px 0 0 0 ;
 }
 .app-mobile .contact-us{
-    margin: 0;
+    height: 100%;
+    margin: 0 0 10px 0;
 }
-.app-mobile .contact-us img{
+.app-mobile .contact-us button{
+    width: 100%;
+}
+.app-mobile .contact-us .image-map img{
     width: 100%;
 }
 .app-mobile .contact-us-map div{
@@ -620,6 +626,7 @@ html,body{
     margin: 0;
     padding: 0;
     text-align: center;
+    font-size: 20px;
 }
 .app-mobile .btn-chat{
     display: none;
@@ -644,23 +651,30 @@ html,body{
 .app-mobile .app-chat .form-group .app-chat-msgs{
     height: 40vw;
     width: 100%;
+}
+.app-mobile .content .main-content-flash{
+    left: 0;
+}
+.app-mobile .content .main-content-flash img{
+    margin-left: -222px;
 }.contact-us{
     background-color: #fff;
     margin: 0 7% 50px 70px;
     height: 600px;
+    font-family: 'Source Code Pro', monospace;
 }
 .contact-us-title{
     color: #00adf2;
     text-align: center;
     font-size: 36px;
-    font-family: cursive;
+    font-family: 'Shrikhand', cursive;
     margin: 5vw 0;
     text-transform: uppercase;
 }
 .contact-us-map{
     width: 90%;
     margin: auto;
-    font-family: cursive;
+    font-family: 'Source Code Pro', monospace;
     font-weight: 900;
     font-size: 24px;
     color: #00adf2;
@@ -679,10 +693,10 @@ html,body{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-        color: #00adf2;
+    color: #00adf2;
     text-align: center;
     font-size: 26px;
-    font-family: cursive;
+    font-family: 'Source Code Pro', monospace;
     text-transform: uppercase;
 }
 .contact-us-input{
@@ -692,7 +706,7 @@ html,body{
 .contact-us-input input{
     width: 49.5%;
     height: 32px;
-    color:#00adf2;
+    color:#fff;
     border:2px solid #00adf2;
     background-color: #00adf2;
     border-radius: 20px;
@@ -701,12 +715,13 @@ html,body{
     outline: none;
 }
 .contact-us-input input:focus{
+    color: #00adf2;
     background-color: yellow;
 }
 .contact-us-form textarea{
     height: 300px;
     outline: none;
-    background-color: #00adf2;
+    color: #fff;
     border:2px solid #00adf2;
     background-color: #00adf2;
     border-radius: 20px;
@@ -714,10 +729,11 @@ html,body{
     padding: 5px 10px;
 }
 .contact-us-form textarea:focus{
+    color: #00adf2;
     background-color: yellow;
 }
 .contact-us-form button{
-    width: 5vw;
+    width: 7vw;
     height: 30px;
     line-height: 1px;
     border:0;
@@ -733,7 +749,7 @@ html,body{
     display: none;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 20px;
     width: 100%;
     height: 100%;
     border-radius: 15px;
@@ -743,7 +759,6 @@ html,body{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -100px 0 0 -100px;
-    width: 200px;
-    border-radius: 30px;
+    margin: -16vw 0 0 -16vw;
+    width: 30vw;
 }

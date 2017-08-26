@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Handlee|Josefin+Slab|Sedgwick+Ave+Display|Source+Code+Pro');
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch|Cherry+Cream+Soda|Frijole|Shrikhand|Source+Code+Pro');
+
 
 a{
     transition: ease .5s;  
 }
 html,body{
-    font-family: 'Sedgwick Ave Display', cursive;
     color:#fff;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: 'Source Code Pro', monospace;
 }
 .main-spinner{
     position: fixed;
@@ -114,7 +115,11 @@ html,body{
 .app-mobile .left-wing,.app-mobile .right-wing ,.app-mobile .flash-man{
     display: none;
 }
+.app-mobile .header-title{
+    left: 25%;
+}
 .app-mobile .content{
+    font-size: 14px;
     margin: 0;
     padding: 0 15px;
 }
@@ -127,9 +132,13 @@ html,body{
     padding: 20px 0 0 0 ;
 }
 .app-mobile .contact-us{
-    margin: 0;
+    height: 100%;
+    margin: 0 0 10px 0;
 }
-.app-mobile .contact-us img{
+.app-mobile .contact-us button{
+    width: 100%;
+}
+.app-mobile .contact-us .image-map img{
     width: 100%;
 }
 .app-mobile .contact-us-map div{
@@ -137,6 +146,7 @@ html,body{
     margin: 0;
     padding: 0;
     text-align: center;
+    font-size: 20px;
 }
 .app-mobile .btn-chat{
     display: none;
@@ -161,4 +171,10 @@ html,body{
 .app-mobile .app-chat .form-group .app-chat-msgs{
     height: 40vw;
     width: 100%;
+}
+.app-mobile .content .main-content-flash{
+    left: 0;
+}
+.app-mobile .content .main-content-flash img{
+    margin-left: -222px;
 }

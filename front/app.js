@@ -29,7 +29,7 @@ export class  App extends React.Component{
                                     <div className="contact-us-map">
                                         <div ><i className="fa fa-phone " aria-hidden="true"></i>&nbsp;+38 093 0315105</div>
                                         <div><i className="fa fa-envelope" aria-hidden="true"></i>&nbsp;emperor343@gmail.com</div>
-                                        <div><img src="contents/world.png" alt=""/></div>
+                                        <div className="image-map"><img src="contents/world.png" alt=""/></div>
                                     </div>
                                 </div>
                                 <div className="col-md-6 col-sm-12 col-sx-12">

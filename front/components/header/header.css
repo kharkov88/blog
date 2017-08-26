@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Handlee|Josefin+Slab|Sedgwick+Ave+Display|Source+Code+Pro');
+
 a{
     transition: ease 1.5s;
 }
@@ -13,7 +14,7 @@ position: absolute;
     top: 5px;
     right: 15vw;
     color: #fff;
-    font-family: cursive;
+    font-family: 'Cabin Sketch', cursive;
     font-size: 3vw;
     font-weight: 900;
     text-transform: uppercase;
@@ -73,8 +74,8 @@ position: absolute;
 .menu .burger{
     display: none;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 10px;
+    right: 10px;
     height: 40px;
     z-index: 1000;
     cursor: pointer;
