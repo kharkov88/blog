@@ -5,7 +5,8 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 module.exports={
     entry:'./front/index.js',
     output:{
-        filename:"./build/bundle.js",
+        path: __dirname + '/build',
+        filename:"bundle.js",
         library:'myApp'
     },
       watch: true,
@@ -38,7 +39,7 @@ module: {
       },
       __DEVELOPMENT__: false,
     }),
-    new ExtractTextPlugin("build/css/style.css"),
+    new ExtractTextPlugin("css/style.css"),
     new UglifyJSPlugin({
       compress:{
         warnings:false

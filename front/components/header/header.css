@@ -5,10 +5,11 @@ a{
 }
 .header{
     display: flex;
-    padding: 20px 100px 0 100px ;
+    padding: 20px 100px 0 100px ;   
     background-color: #00adf2;
     font-family: 'Josefin Sans', sans-serif;
 }
+
 .header-title{
 position: absolute;
     top: 5px;
